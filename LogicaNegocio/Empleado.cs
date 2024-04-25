@@ -6,5 +6,10 @@
         private string _password;
         private string _nombre;
         private DateTime _fechaDeIngreso;
+
+        public Empleado()
+        {
+
+        }
     }
 }
