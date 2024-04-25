@@ -11,5 +11,18 @@
         private decimal _pesoActual;
         private bool _hibrido;
         private List<Vacunado> _vacunasDadas = new List<Vacunado>();
+
+        public Ganado(string idCaravana, string sexo, string raza, DateTime fechaNacimiento, decimal precioCompra, decimal costoAlimentacion, decimal pesoActual, bool hibrido)
+        {
+            _idCaravana = idCaravana;
+            _sexo = sexo;
+            _raza = raza;
+            _fechaNacimiento = fechaNacimiento;
+            _precioCompra = precioCompra;
+            _costoAlimentacion = costoAlimentacion;
+            _pesoActual = pesoActual;
+            _hibrido = hibrido;
+
+        }
     }
 }

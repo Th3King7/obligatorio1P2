@@ -10,5 +10,11 @@ namespace LogicaNegocio
     {
         private string _tipoAlimentacion;
         private static decimal s_precioKgBovino;
+
+        public Bovino(string idCaravana, string sexo, string raza, DateTime fechaNacimiento, decimal precioCompra, decimal costoAlimentacion, decimal pesoActual, bool hibrido, string tipoAlimentacion)
+            : base(idCaravana, sexo, raza, fechaNacimiento, precioCompra, costoAlimentacion, pesoActual, hibrido)
+        {
+            _tipoAlimentacion = tipoAlimentacion;
+        }
     }
 }
