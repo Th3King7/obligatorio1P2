@@ -13,6 +13,17 @@ namespace LogicaNegocio
         private List<Ganado> _animales = new List<Ganado>();
         private List<Vacuna> _vacunas = new List<Vacuna>();
 
+        public Sistema()
+        {
+            precargaEmpleados();
+        }
+        private void precargaEmpleados() {
+            AltaPeon(new Peon("elmascapito@gmail.com","Rodrigo","Romano", 2024/03/25),true);
+        }
 
+        public void AltaPeon(Peon peon)
+        {
+
+        }
     }
 }
