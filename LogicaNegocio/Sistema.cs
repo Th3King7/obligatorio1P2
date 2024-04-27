@@ -18,7 +18,7 @@ namespace LogicaNegocio
             precargaEmpleados();
         }
         private void precargaEmpleados() {
-            AltaPeon(new Peon("elmascapito@gmail.com","Rodrigo","Romano", 2024/03/25),true);
+            AltaPeon(new Peon("elcrack@gmail.com","Rodrigo Romano", 2024/03/25),true);
         }
 
         public void AltaPeon(Peon peon)
