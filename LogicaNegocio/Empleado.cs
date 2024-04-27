@@ -26,7 +26,7 @@ namespace LogicaNegocio
         }
         public bool Equals(Empleado? other)
         {
-            return other.Email == _email && other.Paswword == _password;
+            return other.Email == _email && other.Password == _password;
         }
     }
 }

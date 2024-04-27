@@ -9,11 +9,12 @@ namespace LogicaNegocio
     public class Capataz:Empleado
     {
         private Tarea _asignarTarea;
+        private int _peonesACargo;
 
-        public Capataz(string email, string password, string nombre, DateTime fechaDeIngreso, Tarea tarea)
+        public Capataz(string email, string password, string nombre, DateTime fechaDeIngreso , int cantPeonesCargo)
             :base(email, password, nombre, fechaDeIngreso)
         {
-            _asignarTarea = tarea;
+            _peonesACargo = cantPeonesCargo;
         }
     }
 
