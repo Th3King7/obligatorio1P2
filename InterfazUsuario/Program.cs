@@ -38,10 +38,10 @@ namespace InterfazUsuario
 
                 }
             }
-        }
-
-        
-        }
     }
+        
+    
+}
+    
 
 
