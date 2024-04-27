@@ -16,11 +16,14 @@ namespace InterfazUsuario
                 int.TryParse(Console.ReadLine(), out opcion);
                 VerificarOpcionSeleccionada(opcion);
             }
+        }
+
             static void MostrarMenu()
             {
                 Console.WriteLine("1-Mostrar listado de animales");
                 Console.WriteLine("0-Salir");
             }
+
             static void VerificarOpcionSeleccionada(int opcion)
             {
                 switch (opcion)
