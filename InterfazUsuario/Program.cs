@@ -7,8 +7,15 @@ namespace InterfazUsuario
 
         static void Main(string[] args)
         {
-           
-            
+            int opcion = -1;
+            while (opcion != 0)
+            {
+                MostrarMenu();
+                Console.WriteLine("Ingrese la opcion seleccionada");
+                int.TryParse(Console.ReadLine(), out opcion);
+                VerificarOpcionSeleccionada(opcion);
+            }
+
         }
 
         
