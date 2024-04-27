@@ -38,6 +38,47 @@ namespace InterfazUsuario
 
                 }
             }
+
+        static void AgregarPeon()
+        {
+            try
+            {
+                //Pedir los datos que necesito para dar de alta un nuevo peon
+                Console.WriteLine("Ingrese un email");
+                string email = Console.ReadLine();
+                Console.WriteLine("Ingrese una contraseña");
+                string contrasenia = Console.ReadLine();
+                Console.WriteLine("Ingrese un nombre");
+                string nombre = Console.ReadLine();
+                Console.WriteLine("Ingresa la fecha de ingreso, formato yyyy-mm-dd");
+                DateTime.TryParse(Console.ReadLine(), out DateTime fecha);
+                Console.WriteLine("Ingresar S (si reside en la estancia) o N (si no reside)");
+                string reside = Console.ReadLine();
+                reside.ToUpper();
+                bool esResidente = false;
+                
+                if (reside.Trim() == "S")
+                {
+                    esResidente = true;
+                }
+                if (contrasenia.Length >= 8 && !string.IsNullOrEmpty(email) && !string.IsNullOrEmpty(nombre) 
+                    && fecha > DateTime.MinValue && !string.IsNullOrEmpty(reside))
+                {
+                    Peon nuevaPeon = new Peon(email, contrasenia, nombre, fecha, esResidente);
+                    _miSistema.AgregarPeon(nuevaPeon);
+                    Console.WriteLine("La especialidad se agrego correctamente");
+                }
+                else
+                {
+                    Console.WriteLine("Los datos no  son correctos");
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+
+        }
     }
         
     
