@@ -56,12 +56,12 @@ namespace InterfazUsuario
                 string reside = Console.ReadLine();
                 reside.ToUpper();
                 bool esResidente = false;
-                
+
                 if (reside.Trim() == "S")
                 {
                     esResidente = true;
                 }
-                if (contrasenia.Length >= 8 && !string.IsNullOrEmpty(email) && !string.IsNullOrEmpty(nombre) 
+                if (contrasenia.Length >= 8 && !string.IsNullOrEmpty(email) && !string.IsNullOrEmpty(nombre)
                     && fecha > DateTime.MinValue && !string.IsNullOrEmpty(reside))
                 {
                     Peon nuevaPeon = new Peon(email, contrasenia, nombre, fecha, esResidente);
@@ -77,6 +77,8 @@ namespace InterfazUsuario
             {
                 Console.WriteLine(ex.Message);
             }
+        }
+
 
             static void AgregarCapataz()
             {
@@ -92,9 +94,9 @@ namespace InterfazUsuario
                     Console.WriteLine("Ingresa la fecha de ingreso, formato yyyy-mm-dd");
                     DateTime.TryParse(Console.ReadLine(), out DateTime fecha);
                     Console.WriteLine("Ingrese la cantidad de peones a cargo");
-                    int.TryParse(Console.ReadLine(), out int cantPeonesCargo)
+                    int.TryParse(Console.ReadLine(), out int cantPeonesCargo);
                     if (contrasenia.Length >= 8 && !string.IsNullOrEmpty(email) && !string.IsNullOrEmpty(nombre)
-                        && fecha > DateTime.MinValue && cantPeonesCargo > 0)
+                        && fecha > DateTime.MinValue && cantPeonesCargo > 0);
                     {
                         Capataz nuevoCapataz = new Capataz(email, contrasenia, nombre, fecha, cantPeonesCargo);
                         _miSistema.AgregarCapataz(nuevoCapataz);
@@ -110,6 +112,101 @@ namespace InterfazUsuario
                     Console.WriteLine(ex.Message);
                 }
             }
+
+        public void AgregarOvino()
+        {
+            try
+            {
+                //Pedir los datos que necesito para dar de alta un nuevo peon
+                Console.WriteLine("Ingrese el id de la caravana");
+                string idCaravana = Console.ReadLine();
+                Console.WriteLine("Ingrese el sexo del ovino (m -macho y h-hembra)");
+                string sexo = Console.ReadLine();
+                Console.WriteLine("Ingrese la raza del ovino");
+                string raza = Console.ReadLine();
+                Console.WriteLine("Ingrese fecha de naciminto");
+                DateTime.TryParse(Console.ReadLine(), out DateTime fechaNacimiento);
+                Console.WriteLine("Ingrese precio de compra");
+                decimal.TryParse(Console.ReadLine(), out decimal precioCompra);
+                Console.WriteLine("Ingrese costo de alimentacion");
+                decimal.TryParse(Console.ReadLine(), out decimal costoAlimentacion);
+                Console.WriteLine("Ingrese peso actual del ovino");
+                decimal.TryParse(Console.ReadLine(), out decimal pesoActual);
+                Console.WriteLine("Ingrese si es hibrido s-si y n-no");
+                string hibrido = Console.ReadLine();
+                Console.WriteLine("Ingrese el peso de la lana");
+                int.TryParse(Console.ReadLine(),out int pesoLana)
+                     hibrido.ToUpper();
+                bool esHibrido = false;
+
+                if (hibrido.Trim() == "S"
+                {
+                    esHibrido = true;
+                }
+                if (!string.IsNullOrEmpty(idCaravana)&& !string.IsNullOrEmpty(sexo) && !string.IsNullOrEmpty(raza) && fechaNacimiento > DateTime.MinValue && precioCompra > 0 && costoAlimentacion > 0 && pesoActual > 0 && pesoLana > 0 )
+                {
+                    Ovino nuevoOvino = new Ovino(idCaravana, sexo, raza, fechaNacimiento, precioCompra, costoAlimentacion, pesoActual, hibrido, pesoLana);
+                    _miSistema.AgregarOvino(nuevoOvino);
+                    Console.WriteLine("El ovino se agrego correctamente");
+                }
+                else
+                {
+                    Console.WriteLine("Los datos no  son correctos");
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+        }
+
+        public void AgregarBovino()
+        {
+            try
+            {
+                //Pedir los datos que necesito para dar de alta un nuevo peon
+                Console.WriteLine("Ingrese el id de la caravana");
+                string idCaravana = Console.ReadLine();
+                Console.WriteLine("Ingrese el sexo del ovino (m -macho y h-hembra)");
+                string sexo = Console.ReadLine();
+                Console.WriteLine("Ingrese la raza del ovino");
+                string raza = Console.ReadLine();
+                Console.WriteLine("Ingrese fecha de naciminto");
+                DateTime.TryParse(Console.ReadLine(), out DateTime fechaNacimiento);
+                Console.WriteLine("Ingrese precio de compra");
+                decimal.TryParse(Console.ReadLine(), out decimal precioCompra);
+                Console.WriteLine("Ingrese costo de alimentacion");
+                decimal.TryParse(Console.ReadLine(), out decimal costoAlimentacion);
+                Console.WriteLine("Ingrese peso actual del ovino");
+                decimal.TryParse(Console.ReadLine(), out decimal pesoActual);
+                Console.WriteLine("Ingrese si es hibrido s-si y n-no");
+                string hibrido = Console.ReadLine();
+                Console.WriteLine("Ingrese el tipo de alimentacion");
+                string tipoAlimentacion = Console.ReadLine();
+                    hibrido.ToUpper();
+                bool esHibrido = false;
+
+                if (hibrido.Trim() == "S"
+                {
+                    esHibrido = true;
+                }
+                if (!string.IsNullOrEmpty(idCaravana) && !string.IsNullOrEmpty(sexo) && !string.IsNullOrEmpty(raza) && fechaNacimiento > DateTime.MinValue && precioCompra > 0 && costoAlimentacion > 0 && pesoActual > 0 && !string.IsNullOrEmpty(tipoAlimentacion))
+                {
+                    Bovino nuevoBovino = new Bovino(idCaravana, sexo, raza, fechaNacimiento, precioCompra, costoAlimentacion, pesoActual, hibrido, tipoAlimentacion);
+                    _miSistema.AgregarBovino(nuevoBovino)
+                    Console.WriteLine("El bovino se agrego correctamente");
+                }
+                else
+                {
+                    Console.WriteLine("Los datos no  son correctos");
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+        }
+    }
     }
         
     

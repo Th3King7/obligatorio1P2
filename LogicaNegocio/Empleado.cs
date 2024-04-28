@@ -2,7 +2,7 @@
 
 namespace LogicaNegocio
 {
-    public abstract class Empleado : IEquatable<Empleado>
+    public abstract class Empleado :IEquatable<Empleado>,IValidable
     {
         private string _email;
         private string _password;
@@ -27,6 +27,27 @@ namespace LogicaNegocio
         public bool Equals(Empleado? other)
         {
             return other.Email == _email && other.Password == _password;
+        }
+        public void ValidarDatos()
+        {
+            if (_email.Length > 0)
+            {
+                throw new Exception("El correo debe ser un correo valido");
+            }
+            if (_password.Length >= 8)
+            {
+                throw new Exception("El nombre ser un correo valido");
+
+            }
+            if (_nombre.Length > 0)
+            {
+                throw new Exception("El nombre ser un correo valido");
+
+            }
+            if (_fechaDeIngreso < DateTime.Now)
+            {
+                throw new Exception("La fecha es incorrecta")
+            }
         }
     }
 }

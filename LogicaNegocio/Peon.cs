@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace LogicaNegocio
 {
-    public class Peon:Empleado 
+    public class Peon:Empleado,IValidable
     {
         private bool _residenteEstancia;
         private List<Tarea> _tareas = new List<Tarea>();
@@ -15,6 +15,13 @@ namespace LogicaNegocio
             :base(email, password, nombre, fechaDeIngreso)
         { 
             _residenteEstancia = recidenteEstancia;
+        }
+        public void ValidarDatos()
+        {
+            base.ValidarDatos();
+       
+
+
         }
     }
 }

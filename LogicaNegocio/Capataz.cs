@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace LogicaNegocio
 {
-    public class Capataz:Empleado
+    public class Capataz:Empleado,IValidable
     {
         private Tarea _asignarTarea;
         private int _peonesACargo;
@@ -16,6 +16,20 @@ namespace LogicaNegocio
         {
             _peonesACargo = cantPeonesCargo;
         }
+
+        public void ValidarDatos()
+        {
+            base.ValidarDatos(){
+                if(_peonesACargo <0){
+                {
+                    throw new Exception ("No puede no tener peones a cargo")
+                }
+
+            }
+
+        }
+
+        
     }
 
     
