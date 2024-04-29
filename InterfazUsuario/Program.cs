@@ -96,7 +96,7 @@ namespace InterfazUsuario
                     Console.WriteLine("Ingrese la cantidad de peones a cargo");
                     int.TryParse(Console.ReadLine(), out int cantPeonesCargo);
                     if (contrasenia.Length >= 8 && !string.IsNullOrEmpty(email) && !string.IsNullOrEmpty(nombre)
-                        && fecha > DateTime.MinValue && cantPeonesCargo > 0);
+                        && fecha > DateTime.MinValue && cantPeonesCargo > 0)
                     {
                         Capataz nuevoCapataz = new Capataz(email, contrasenia, nombre, fecha, cantPeonesCargo);
                         _miSistema.AgregarCapataz(nuevoCapataz);
@@ -135,17 +135,17 @@ namespace InterfazUsuario
                 Console.WriteLine("Ingrese si es hibrido s-si y n-no");
                 string hibrido = Console.ReadLine();
                 Console.WriteLine("Ingrese el peso de la lana");
-                int.TryParse(Console.ReadLine(),out int pesoLana)
+                int.TryParse(Console.ReadLine(), out int pesoLana);
                      hibrido.ToUpper();
                 bool esHibrido = false;
 
-                if (hibrido.Trim() == "S"
+                if (hibrido.Trim() == "S")
                 {
                     esHibrido = true;
                 }
                 if (!string.IsNullOrEmpty(idCaravana)&& !string.IsNullOrEmpty(sexo) && !string.IsNullOrEmpty(raza) && fechaNacimiento > DateTime.MinValue && precioCompra > 0 && costoAlimentacion > 0 && pesoActual > 0 && pesoLana > 0 )
                 {
-                    Ovino nuevoOvino = new Ovino(idCaravana, sexo, raza, fechaNacimiento, precioCompra, costoAlimentacion, pesoActual, hibrido, pesoLana);
+                    Ovino nuevoOvino = new Ovino(idCaravana, sexo, raza, fechaNacimiento, precioCompra, costoAlimentacion, pesoActual, esHibrido, pesoLana);
                     _miSistema.AgregarOvino(nuevoOvino);
                     Console.WriteLine("El ovino se agrego correctamente");
                 }
@@ -186,14 +186,14 @@ namespace InterfazUsuario
                     hibrido.ToUpper();
                 bool esHibrido = false;
 
-                if (hibrido.Trim() == "S"
+                if (hibrido.Trim() == "S")
                 {
                     esHibrido = true;
                 }
                 if (!string.IsNullOrEmpty(idCaravana) && !string.IsNullOrEmpty(sexo) && !string.IsNullOrEmpty(raza) && fechaNacimiento > DateTime.MinValue && precioCompra > 0 && costoAlimentacion > 0 && pesoActual > 0 && !string.IsNullOrEmpty(tipoAlimentacion))
                 {
-                    Bovino nuevoBovino = new Bovino(idCaravana, sexo, raza, fechaNacimiento, precioCompra, costoAlimentacion, pesoActual, hibrido, tipoAlimentacion);
-                    _miSistema.AgregarBovino(nuevoBovino)
+                    Bovino nuevoBovino = new Bovino(idCaravana, sexo, raza, fechaNacimiento, precioCompra, costoAlimentacion, pesoActual, esHibrido, tipoAlimentacion);
+                    _miSistema.AgregarBovino(nuevoBovino);
                     Console.WriteLine("El bovino se agrego correctamente");
                 }
                 else
@@ -207,7 +207,7 @@ namespace InterfazUsuario
             }
         }
     }
-    }
+    
         
     
 }
