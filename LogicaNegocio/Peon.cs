@@ -20,9 +20,40 @@ namespace LogicaNegocio
         public void ValidarDatos()
         {
             base.ValidarDatos();
-       
+            if (_residenteEstancia)
+            {
+
+                throw new Exception("No puede no tener peones a cargo");
 
 
+            }
+        }
+
+        public Peon()
+        {
+            precargarTareas();
+        }
+
+        //precargamos tareas
+        private void precargarTareas()
+        {
+            AltaTarea(new Tarea());
+        }
+
+        public void AltaTarea(Tarea nuevaTarea)
+        {
+            //Validar datos de la tarea 
+            nuevaTarea.ValidarDatos();
+            //Verificar si no existe en mi lista de tareas una tarea con la mismo valor en su atributo identificatorio
+            if (!_tareas.Contains(nuevaTarea))
+            {
+                //Si no existe una tarea con el mismo valor en su atributo identificatorio, agrego la tarea a la lista
+                _tareas.Add(nuevaTarea);
+            }
+            else
+            {
+                throw new Exception("Ya existe un peon con el mismo identificador");
+            }
         }
     }
 }

@@ -16,6 +16,10 @@ namespace LogicaNegocio
         public Sistema()
         {
             precargaEmpleados();
+            precargaAnimales();
+            precargaPotreros();
+            precargaVacunas();
+
         }
         private void precargaEmpleados() {
             AltaPeon(new Peon("elcrack@gmail.com", "contRodr1", "Rodrigo Romano", new DateTime(2024, 3, 25), true));
@@ -30,14 +34,26 @@ namespace LogicaNegocio
             AltaPeon(new Peon("pepa@gmail.com", "pepa2024", "Josefa Martínez", new DateTime(2024, 12, 30), false));
         }
 
-        public void AltaPeon(Peon peon)
+        private void precargaAnimales()
         {
-
+            AltaBovino(new Bovino());
+            AltaOvino(new Ovino());
         }
 
-        public void AgregarPeon(Peon nuevoPeon)
+        private void precargaPotreros()
         {
-            //Validar datos de la nueva especialidad
+            AltaPotrero(new Potrero());
+        }
+        private void precargaVacunas()
+        {
+            AltaVacuna(new Vacuna());
+        }
+
+
+
+        public void AltaPeon(Peon nuevoPeon)
+        {
+            //Validar datos de el nuevo peon
             nuevoPeon.ValidarDatos();
             //Verificar si no existe en mi lista de empleados un peon con la mismo valor en su atributo identificatorio
             if (!_empleados.Contains(nuevoPeon))
@@ -51,9 +67,9 @@ namespace LogicaNegocio
             }
         }
 
-        public void AgregarCapataz(Capataz nuevoCapataz)
+        public void AltaCapataz(Capataz nuevoCapataz)
         {
-            //Validar datos de la nueva especialidad
+            //Validar datos de el nuevo capataz
             nuevoCapataz.ValidarDatos();
             //Verificar si no existe en mi lista de empleados un capataz con la mismo valor en su atributo identificatorio
             if (!_empleados.Contains(nuevoCapataz))
@@ -67,21 +83,66 @@ namespace LogicaNegocio
             }
         }
 
-        public void AgregarOvino(Ovino nuevoOvino)
+        public void AltaOvino(Ovino nuevoOvino)
         {
-            //Validar datos de la nueva especialidad
+            //Validar datos de el nuevo ovino
             nuevoOvino.ValidarDatos();
-            //Verificar si no existe en mi lista de empleados un capataz con la mismo valor en su atributo identificatorio
+            //Verificar si no existe en mi lista de animales el ovino con la mismo valor en su atributo identificatorio
             if (!_animales.Contains(nuevoOvino))
             {
-                //Si no existe una capataz con el mismo valor en su atributo identificatorio, agrego el capataz a la lista
+                //Si no existe una ovino con el mismo valor en su atributo identificatorio, agrego el ovino a la lista
                 _animales.Add(nuevoOvino);
             }
             else
             {
-                throw new Exception("Ya existe un capataz con el mismo identificador");
+                throw new Exception("Ya existe un ovino con el mismo identificador");
             }
         }
+        public void AltaBovino(Bovino nuevoBovino)
+        {
+            //Validar datos de el nuevo bovino
+            nuevoBovino.ValidarDatos();
+            //Verificar si no existe en mi lista de animales el bovino con el mismo valor en su atributo identificatorio
+            if (!_animales.Contains(nuevoBovino))
+            {
+                //Si no existe una bovino con el mismo valor en su atributo identificatorio, agrego el bovino a la lista
+                _animales.Add(nuevoBovino);
+            }
+            else
+            {
+                throw new Exception("Ya existe un bovino con el mismo identificador");
+            }
 
-    }
+        }
+        public void AltaPotrero(Potrero nuevoPotrero)
+        {
+            //Validar datos de el nuevo potrero
+            nuevoPotrero.ValidarDatos();
+            //Verificar si no existe en mi lista de potreros el potrero con el mismo valor en su atributo identificatorio
+            if (!_potreros.Contains(nuevoPotrero))
+            {
+                //Si no existe una potrero con el mismo valor en su atributo identificatorio, agrego el bovino a la lista
+                _potreros.Add(nuevoPotrero);
+            }
+            else
+            {
+                throw new Exception("Ya existe un potrero con el mismo identificador");
+            }
+
+        }
+        public void AltaVacuna(Vacuna nuevaVacuna)
+        {
+            //Validar datos de el nueva vacuna
+            nuevaVacuna.ValidarDatos();
+            //Verificar si no existe en mi lista de vacunas la vacuna con el mismo valor en su atributo identificatorio
+            if (!_vacunas.Contains(nuevaVacuna))
+            {
+                //Si no existe una vacuna con el mismo valor en su atributo identificatorio, agrego el bovino a la lista
+                _vacunas.Add(nuevaVacuna);
+            }
+            else
+            {
+                throw new Exception("Ya existe una vacuna con el mismo identificador");
+            }
+        }
 }

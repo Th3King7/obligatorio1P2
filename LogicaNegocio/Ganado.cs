@@ -27,6 +27,24 @@ namespace LogicaNegocio
 
         }
 
+
+        public void AltaVacunado(Vacunado nuevaVacunacion)
+        {
+            //Validar datos de la nueva vacunacion
+            nuevaVacunacion.ValidarDatos();
+            //Verificar si no existe en mi lista de vacunado la vacuna ya dada  con el mismo valor en su atributo identificatorio
+            if (!_vacunasDadas.Contains(nuevaVacunacion))
+            {
+                //Si no existe una vacuna dada con el mismo valor en su atributo identificatorio, agrego el bovino a la lista
+                _vacunasDadas.Add(nuevaVacunacion);
+            }
+            else
+            {
+                throw new Exception("Ya se le dio la vacuna al animal");
+            }
+        }
+
+
         public bool Equals(Ganado? other)
         {
             throw new NotImplementedException();
@@ -38,20 +56,7 @@ namespace LogicaNegocio
             {
                 throw new Exception("El correo debe ser un correo valido");
             }
-            if (_password.Length >= 8)
-            {
-                throw new Exception("El nombre ser un correo valido");
-
-            }
-            if (_nombre.Length > 0)
-            {
-                throw new Exception("El nombre ser un correo valido");
-
-            }
-            if (_fechaDeIngreso < DateTime.Now)
-            {
-                throw new Exception("La fecha es incorrecta");
-            }
+        
         }
     }
 }
