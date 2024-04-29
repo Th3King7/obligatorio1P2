@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using LogicaNegocio.Interfaces;
+using System.ComponentModel.DataAnnotations;
 
 namespace LogicaNegocio
 {
@@ -10,11 +11,11 @@ namespace LogicaNegocio
         private DateTime _fechaDeIngreso;
 
         public string  Email {
-            get { return _email};
+            get { return _email; }
                 }
         public string Password
         {
-            get { return _password};
+            get { return _password; }
         }
 
         public Empleado(string email, string password, string nombre, DateTime fechaDeIngreso)
@@ -46,7 +47,7 @@ namespace LogicaNegocio
             }
             if (_fechaDeIngreso < DateTime.Now)
             {
-                throw new Exception("La fecha es incorrecta")
+                throw new Exception("La fecha es incorrecta");
             }
         }
     }

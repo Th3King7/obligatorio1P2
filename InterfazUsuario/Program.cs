@@ -117,7 +117,6 @@ namespace InterfazUsuario
         {
             try
             {
-                //Pedir los datos que necesito para dar de alta un nuevo peon
                 Console.WriteLine("Ingrese el id de la caravana");
                 string idCaravana = Console.ReadLine();
                 Console.WriteLine("Ingrese el sexo del ovino (m -macho y h-hembra)");
@@ -164,7 +163,6 @@ namespace InterfazUsuario
         {
             try
             {
-                //Pedir los datos que necesito para dar de alta un nuevo peon
                 Console.WriteLine("Ingrese el id de la caravana");
                 string idCaravana = Console.ReadLine();
                 Console.WriteLine("Ingrese el sexo del ovino (m -macho y h-hembra)");

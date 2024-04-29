@@ -1,6 +1,8 @@
-﻿namespace LogicaNegocio
+﻿using LogicaNegocio.Interfaces;
+
+namespace LogicaNegocio
 {
-    public abstract class Ganado
+    public abstract class Ganado :IEquatable<Ganado>, IValidable
     {
         private string _idCaravana;
         private string _sexo;
@@ -23,6 +25,33 @@
             _pesoActual = pesoActual;
             _hibrido = hibrido;
 
+        }
+
+        public bool Equals(Ganado? other)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void ValidarDatos()
+        {
+            if (_email.Length > 0)
+            {
+                throw new Exception("El correo debe ser un correo valido");
+            }
+            if (_password.Length >= 8)
+            {
+                throw new Exception("El nombre ser un correo valido");
+
+            }
+            if (_nombre.Length > 0)
+            {
+                throw new Exception("El nombre ser un correo valido");
+
+            }
+            if (_fechaDeIngreso < DateTime.Now)
+            {
+                throw new Exception("La fecha es incorrecta");
+            }
         }
     }
 }

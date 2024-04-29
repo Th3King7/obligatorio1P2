@@ -34,5 +34,54 @@ namespace LogicaNegocio
         {
 
         }
+
+        public void AgregarPeon(Peon nuevoPeon)
+        {
+            //Validar datos de la nueva especialidad
+            nuevoPeon.ValidarDatos();
+            //Verificar si no existe en mi lista de empleados un peon con la mismo valor en su atributo identificatorio
+            if (!_empleados.Contains(nuevoPeon))
+            {
+                //Si no existe un peon con el mismo valor en su atributo identificatorio, agrego el peon a la lista
+                _empleados.Add(nuevoPeon);
+            }
+            else
+            {
+                throw new Exception("Ya existe un peon con el mismo identificador");
+            }
+        }
+
+        public void AgregarCapataz(Capataz nuevoCapataz)
+        {
+            //Validar datos de la nueva especialidad
+            nuevoCapataz.ValidarDatos();
+            //Verificar si no existe en mi lista de empleados un capataz con la mismo valor en su atributo identificatorio
+            if (!_empleados.Contains(nuevoCapataz))
+            {
+                //Si no existe una capataz con el mismo valor en su atributo identificatorio, agrego el capataz a la lista
+                _empleados.Add(nuevoCapataz);
+            }
+            else
+            {
+                throw new Exception("Ya existe un capataz con el mismo identificador");
+            }
+        }
+
+        public void AgregarOvino(Ovino nuevoOvino)
+        {
+            //Validar datos de la nueva especialidad
+            nuevoOvino.ValidarDatos();
+            //Verificar si no existe en mi lista de empleados un capataz con la mismo valor en su atributo identificatorio
+            if (!_animales.Contains(nuevoOvino))
+            {
+                //Si no existe una capataz con el mismo valor en su atributo identificatorio, agrego el capataz a la lista
+                _animales.Add(nuevoOvino);
+            }
+            else
+            {
+                throw new Exception("Ya existe un capataz con el mismo identificador");
+            }
+        }
+
     }
 }
