@@ -52,8 +52,16 @@ namespace LogicaNegocio
 
         public void ValidarDatos()
         {
-            
-        
+
+
+        }
+
+        public override string ToString()
+        {
+            return "i." + _idCaravana + "/n"
+                   "ii." + _raza + "/n"
+                   "iii." + _pesoActual + "/n"
+                   "iv." + _sexo + "/n";
         }
     }
 }
