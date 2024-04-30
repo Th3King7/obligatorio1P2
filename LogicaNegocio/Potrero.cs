@@ -1,6 +1,7 @@
-﻿namespace LogicaNegocio
+﻿using LogicaNegocio.Interfaces;
+namespace LogicaNegocio
 {
-    public class Potrero
+    public class Potrero : IValidable
     {
         private int _id;
         private static int s_ultid = 1;
@@ -17,5 +18,10 @@
             _id = s_ultid++;
 
         }
+
+        public void ValidarDatos()
+        { 
+        }
+        
     }
 }

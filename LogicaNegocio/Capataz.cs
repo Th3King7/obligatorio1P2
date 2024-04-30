@@ -20,15 +20,13 @@ namespace LogicaNegocio
 
         public void ValidarDatos()
         {
-            base.ValidarDatos(){
+            base.ValidarDatos();
                 if (_peonesACargo < 0) {
 
                     throw new Exception("No puede no tener peones a cargo");
                     
 
-                }
-
-            }
+                }            
 
 
         }

@@ -16,27 +16,16 @@ namespace LogicaNegocio
             :base(email, password, nombre, fechaDeIngreso)
         { 
             _residenteEstancia = recidenteEstancia;
-        }
-        public void ValidarDatos()
-        {
-            base.ValidarDatos();
-            if (_residenteEstancia)
-            {
-
-                throw new Exception("No puede no tener peones a cargo");
-
-
-            }
-        }
-
-        public Peon()
-        {
             precargarTareas();
         }
+
+                    
+        
 
         //precargamos tareas
         private void precargarTareas()
         {
+           /*AltaTarea(new Tarea());
             AltaTarea(new Tarea());
             AltaTarea(new Tarea());
             AltaTarea(new Tarea());
@@ -50,8 +39,7 @@ namespace LogicaNegocio
             AltaTarea(new Tarea());
             AltaTarea(new Tarea());
             AltaTarea(new Tarea());
-            AltaTarea(new Tarea());
-            AltaTarea(new Tarea());
+            AltaTarea(new Tarea());*/
         }
 
         public void AltaTarea(Tarea nuevaTarea)

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LogicaNegocio.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace LogicaNegocio
 {
-    public class Bovino:Ganado
+    public class Bovino:Ganado , IValidable
     {
         private string _tipoAlimentacion;
         private static decimal s_precioKgBovino;

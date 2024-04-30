@@ -14,6 +14,11 @@ namespace LogicaNegocio
         private bool _hibrido;
         private List<Vacunado> _vacunasDadas = new List<Vacunado>();
 
+        public string IdCaravana
+        {
+            get { return _idCaravana; }
+        }
+
         public Ganado(string idCaravana, string sexo, string raza, DateTime fechaNacimiento, decimal precioCompra, decimal costoAlimentacion, decimal pesoActual, bool hibrido)
         {
             _idCaravana = idCaravana;
@@ -24,10 +29,8 @@ namespace LogicaNegocio
             _costoAlimentacion = costoAlimentacion;
             _pesoActual = pesoActual;
             _hibrido = hibrido;
-
         }
-
-
+ 
         public void AltaVacunado(Vacunado nuevaVacunacion)
         {
             //Validar datos de la nueva vacunacion
@@ -44,11 +47,11 @@ namespace LogicaNegocio
             }
         }
 
-
         public bool Equals(Ganado? other)
         {
-            throw new NotImplementedException();
+            return other.IdCaravana == _idCaravana;
         }
+
 
         public void ValidarDatos()
         {
@@ -58,9 +61,9 @@ namespace LogicaNegocio
 
         public override string ToString()
         {
-            return "i." + _idCaravana + "/n"
-                   "ii." + _raza + "/n"
-                   "iii." + _pesoActual + "/n"
+            return "i." + _idCaravana + "/n" +
+                   "ii." + _raza + "/n" +
+                   "iii." + _pesoActual + "/n" +
                    "iv." + _sexo + "/n";
         }
     }

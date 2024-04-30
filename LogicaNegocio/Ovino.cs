@@ -19,12 +19,5 @@ namespace LogicaNegocio
             _pesoLana = pesoLana;
         }
 
-        public void ValidarDatos()
-        {
-            base.ValidarDatos();
-
-
-
-        }
     }
 }

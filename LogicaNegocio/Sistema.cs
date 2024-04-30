@@ -42,6 +42,7 @@ namespace LogicaNegocio
 
         private void precargaAnimales()
         {
+            /*
             AltaBovino(new Bovino());
             AltaBovino(new Bovino());
             AltaBovino(new Bovino());
@@ -71,11 +72,12 @@ namespace LogicaNegocio
             AltaOvino(new Ovino());
             AltaOvino(new Ovino());
             AltaOvino(new Ovino());
-            AltaOvino(new Ovino());
+            AltaOvino(new Ovino());*/
         }
 
         private void precargaPotreros()
         {
+            /*
             AltaPotrero(new Potrero());
             AltaPotrero(new Potrero());
             AltaPotrero(new Potrero());
@@ -85,10 +87,11 @@ namespace LogicaNegocio
             AltaPotrero(new Potrero());
             AltaPotrero(new Potrero());
             AltaPotrero(new Potrero());
-            AltaPotrero(new Potrero());
+            AltaPotrero(new Potrero());*/
         }
         private void precargaVacunas()
         {
+            /*
             AltaVacuna(new Vacuna());
             AltaVacuna(new Vacuna());
             AltaVacuna(new Vacuna());
@@ -99,7 +102,7 @@ namespace LogicaNegocio
             AltaVacuna(new Vacuna());
             AltaVacuna(new Vacuna());
             AltaVacuna(new Vacuna());
-            AltaVacuna(new Vacuna());
+            AltaVacuna(new Vacuna());*/
         }
 
 

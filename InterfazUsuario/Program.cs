@@ -23,7 +23,7 @@ namespace InterfazUsuario
                 Console.WriteLine("1-Mostrar listado de animales");
                 Console.WriteLine("0-Salir");
             }
-
+        
             static void VerificarOpcionSeleccionada(int opcion)
             {
                 switch (opcion)
@@ -206,7 +206,7 @@ namespace InterfazUsuario
         }
         static void mostrarListadoDeAnimales()
         {
-            foreach (Ganado ganado in _miSistema.Animales)
+            foreach (Ganado ganado in _miSistema.Animales) 
             {
                 Console.WriteLine(ganado);
             }

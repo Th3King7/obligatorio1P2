@@ -12,7 +12,7 @@ namespace LogicaNegocio
 
         public string  Email {
             get { return _email; }
-                }
+        }
         public string Password
         {
             get { return _password; }
@@ -31,16 +31,16 @@ namespace LogicaNegocio
         }
         public void ValidarDatos()
         {
-            if (_email.Length > 0)
+            if (_email.Length < 0)
             {
                 throw new Exception("El correo debe ser un correo valido");
             }
-            if (_password.Length >= 8)
+            if (_password.Length <= 8)
             {
                 throw new Exception("El nombre ser un correo valido");
 
             }
-            if (_nombre.Length > 0)
+            if (_nombre.Length < 0)
             {
                 throw new Exception("El nombre ser un correo valido");
 
