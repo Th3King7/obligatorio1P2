@@ -31,7 +31,7 @@ namespace LogicaNegocio
         public void AltaVacunado(Vacunado nuevaVacunacion)
         {
             //Validar datos de la nueva vacunacion
-            nuevaVacunacion.ValidarDatos();
+            //nuevaVacunacion.ValidarDatos();
             //Verificar si no existe en mi lista de vacunado la vacuna ya dada  con el mismo valor en su atributo identificatorio
             if (!_vacunasDadas.Contains(nuevaVacunacion))
             {
@@ -52,10 +52,7 @@ namespace LogicaNegocio
 
         public void ValidarDatos()
         {
-            if (_email.Length > 0)
-            {
-                throw new Exception("El correo debe ser un correo valido");
-            }
+            
         
         }
     }

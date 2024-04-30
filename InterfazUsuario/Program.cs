@@ -65,7 +65,7 @@ namespace InterfazUsuario
                     && fecha > DateTime.MinValue && !string.IsNullOrEmpty(reside))
                 {
                     Peon nuevaPeon = new Peon(email, contrasenia, nombre, fecha, esResidente);
-                    _miSistema.AgregarPeon(nuevaPeon);
+                    _miSistema.AltaPeon(nuevaPeon);
                     Console.WriteLine("El peon se agrego correctamente");
                 }
                 else
@@ -99,7 +99,7 @@ namespace InterfazUsuario
                         && fecha > DateTime.MinValue && cantPeonesCargo > 0)
                     {
                         Capataz nuevoCapataz = new Capataz(email, contrasenia, nombre, fecha, cantPeonesCargo);
-                        _miSistema.AgregarCapataz(nuevoCapataz);
+                        _miSistema.AltaCapataz(nuevoCapataz);
                         Console.WriteLine("El capataz  se agrego correctamente");
                     }
                     else
@@ -145,7 +145,7 @@ namespace InterfazUsuario
                 if (!string.IsNullOrEmpty(idCaravana)&& !string.IsNullOrEmpty(sexo) && !string.IsNullOrEmpty(raza) && fechaNacimiento > DateTime.MinValue && precioCompra > 0 && costoAlimentacion > 0 && pesoActual > 0 && pesoLana > 0 )
                 {
                     Ovino nuevoOvino = new Ovino(idCaravana, sexo, raza, fechaNacimiento, precioCompra, costoAlimentacion, pesoActual, esHibrido, pesoLana);
-                    _miSistema.AgregarOvino(nuevoOvino);
+                    _miSistema.AltaOvino(nuevoOvino);
                     Console.WriteLine("El ovino se agrego correctamente");
                 }
                 else
@@ -191,7 +191,7 @@ namespace InterfazUsuario
                 if (!string.IsNullOrEmpty(idCaravana) && !string.IsNullOrEmpty(sexo) && !string.IsNullOrEmpty(raza) && fechaNacimiento > DateTime.MinValue && precioCompra > 0 && costoAlimentacion > 0 && pesoActual > 0 && !string.IsNullOrEmpty(tipoAlimentacion))
                 {
                     Bovino nuevoBovino = new Bovino(idCaravana, sexo, raza, fechaNacimiento, precioCompra, costoAlimentacion, pesoActual, esHibrido, tipoAlimentacion);
-                    _miSistema.AgregarBovino(nuevoBovino);
+                    _miSistema.AltaBovino(nuevoBovino);
                     Console.WriteLine("El bovino se agrego correctamente");
                 }
                 else

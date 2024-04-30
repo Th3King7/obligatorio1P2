@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace LogicaNegocio
 {
-    public class Sistema 
+    public class Sistema
     {
         private List<Empleado> _empleados = new List<Empleado>();
         private List<Potrero> _potreros = new List<Potrero>();
@@ -21,7 +21,8 @@ namespace LogicaNegocio
             precargaVacunas();
 
         }
-        private void precargaEmpleados() {
+        private void precargaEmpleados()
+        {
             AltaPeon(new Peon("elcrack@gmail.com", "contRodr1", "Rodrigo Romano", new DateTime(2024, 3, 25), true));
             AltaPeon(new Peon("pepe@gmail.com", "pepe1234", "José Pérez", new DateTime(2024, 4, 12), false));
             AltaPeon(new Peon("juanito@gmail.com", "juanito567", "Juan Pérez", new DateTime(2024, 5, 3), true));
@@ -36,17 +37,17 @@ namespace LogicaNegocio
 
         private void precargaAnimales()
         {
-            AltaBovino(new Bovino());
-            AltaOvino(new Ovino());
+            //AltaBovino(new Bovino());
+            //AltaOvino(new Ovino());
         }
 
         private void precargaPotreros()
         {
-            AltaPotrero(new Potrero());
+            //AltaPotrero(new Potrero());
         }
         private void precargaVacunas()
         {
-            AltaVacuna(new Vacuna());
+            //AltaVacuna(new Vacuna());
         }
 
 
@@ -145,4 +146,5 @@ namespace LogicaNegocio
                 throw new Exception("Ya existe una vacuna con el mismo identificador");
             }
         }
+    }
 }
