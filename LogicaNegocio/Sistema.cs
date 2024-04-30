@@ -233,5 +233,16 @@ namespace LogicaNegocio
                 throw new Exception("Ya existe una vacuna con el mismo identificador");
             }
         }
+        
+        public void AgregarGanadoAPotrero(Potrero potrero, string idCaravana)
+        {
+            if (potrero != null && potrero is Potrero)
+            {
+                Potrero potrero = (Potrero)potrero;
+                potrero.AgregarGanado(idCaravana);
+            }
+            //presencial.AgregarRemedio(precio,nombreRemedio);
+        }
+        
     }
 }

@@ -22,6 +22,18 @@ namespace LogicaNegocio
         public void ValidarDatos()
         { 
         }
-        
-    }
+
+        public void AgregarGanado(string idCaravana)
+        {
+            Ganado animal = new Ganado(idCaravana);
+            //Validar datos del ganado
+            animal.ValidarDatos();
+            //Verificar existencia
+            if (!_animales(animal))
+            {
+                //agregarlo a la lista 
+                _animales.Add(animal);
+            }
+
+        }
 }
