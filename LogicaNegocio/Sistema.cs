@@ -125,16 +125,17 @@ namespace LogicaNegocio
         }
         private void precargaVacunas()
         {
-            new Vacuna("Bovilis BVD", "Vacuna para bovinos contra la diarrea viral bovina", "Diarrea viral bovina");
-            new Vacuna("Bovi-Shield Gold FP 5", "Vacuna para bovinos contra la fiebre aftosa, rinotraqueítis infecciosa bovina, parainfluenza-3, virus de la diarrea viral bovina y virus de la enfermedad de la lengua azul", "Fiebre aftosa, Rinotraqueítis infecciosa bovina, Parainfluenza-3, Diarrea viral bovina, Enfermedad de la lengua azul");
-            new Vacuna("Scour Bos 9", "Vacuna para bovinos contra la diarrea neonatal", "Diarrea neonatal en terneros");
-            new Vacuna("Cydectin Injectable", "Vacuna para bovinos contra parásitos internos y externos", "Parásitos internos y externos en bovinos");
-            new Vacuna("Ovilis Enzovax", "Vacuna para ovinos contra la enzootic abortion", "Aborto enzoótico en ovejas");
-            new Vacuna("Ovivac P Plus", "Vacuna para ovinos contra la pulmonía", "Pulmonía en ovejas");
-            new Vacuna("BoviVac IBR Marker Live", "Vacuna para bovinos contra la rinotraqueítis infecciosa bovina", "Rinotraqueítis infecciosa bovina");
-            new Vacuna("Footvax", "Vacuna para ovinos contra la fiebre aftosa", "Fiebre aftosa en ovejas");
-            new Vacuna("Bovilis IBR Marker Inact", "Vacuna para bovinos contra la rinotraqueítis infecciosa bovina", "Rinotraqueítis infecciosa bovina");
-            new Vacuna("Bravoxin 10", "Vacuna para ovinos contra el carbunco", "Carbunco en ovejas");
+            AltaVacuna(new Vacuna("Bovilis BVD", "Vacuna para bovinos contra la diarrea viral bovina", "Diarrea viral bovina"));
+            AltaVacuna(new Vacuna("Bovi-Shield Gold FP 5", "Vacuna para bovinos contra la fiebre aftosa, rinotraqueítis infecciosa bovina, parainfluenza-3, virus de la diarrea viral bovina y virus de la enfermedad de la lengua azul", "Fiebre aftosa, Rinotraqueítis infecciosa bovina, Parainfluenza-3, Diarrea viral bovina, Enfermedad de la lengua azul"));
+            AltaVacuna(new Vacuna("Scour Bos 9", "Vacuna para bovinos contra la diarrea neonatal", "Diarrea neonatal en terneros"));
+            AltaVacuna(new Vacuna("Cydectin Injectable", "Vacuna para bovinos contra parásitos internos y externos", "Parásitos internos y externos en bovinos"));
+            AltaVacuna(new Vacuna("Ovilis Enzovax", "Vacuna para ovinos contra la enzootic abortion", "Aborto enzoótico en ovejas"));
+            AltaVacuna(new Vacuna("Ovivac P Plus", "Vacuna para ovinos contra la pulmonía", "Pulmonía en ovejas"));
+            AltaVacuna(new Vacuna("BoviVac IBR Marker Live", "Vacuna para bovinos contra la rinotraqueítis infecciosa bovina", "Rinotraqueítis infecciosa bovina"));
+            AltaVacuna(new Vacuna("Footvax", "Vacuna para ovinos contra la fiebre aftosa", "Fiebre aftosa en ovejas"));
+            AltaVacuna(new Vacuna("Bovilis IBR Marker Inact", "Vacuna para bovinos contra la rinotraqueítis infecciosa bovina", "Rinotraqueítis infecciosa bovina"));
+            AltaVacuna(new Vacuna("Bravoxin 10", "Vacuna para ovinos contra el carbunco", "Carbunco en ovejas"));
+
         }
 
 
