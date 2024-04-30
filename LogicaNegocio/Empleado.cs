@@ -35,9 +35,9 @@ namespace LogicaNegocio
             {
                 throw new Exception("El correo debe ser un correo valido");
             }
-            if (_password.Length <= 8)
+            if (_password.Length < 8)
             {
-                throw new Exception("La contraseña debe valida");
+                throw new Exception("La contraseña debe ser valida");
 
             }
             if (_nombre.Length < 0)

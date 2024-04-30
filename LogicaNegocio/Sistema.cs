@@ -243,6 +243,6 @@ namespace LogicaNegocio
             }
             //presencial.AgregarRemedio(precio,nombreRemedio);
         }
-        
+        // nos queda agregar vacunaciones a los animales y realizar funcionalidades del punto 3
     }
 }

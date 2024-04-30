@@ -21,6 +21,21 @@ namespace LogicaNegocio
 
         public void ValidarDatos()
         { 
+            if(_descripcion.Length < 0)
+            {
+                throw new Exception("la descripcion debe ser en formato ej: Potrero 1 ")
+
+            }
+            if(_hectareas < 0)
+            {
+                throw new Exception("las hectareas deben ser en mayor a 0 ")
+
+            }
+             if (_capacidadMaxima < 0)
+            {
+                throw new Exception("la capacidad maxima  debe ser en mayor a 0 ")
+
+            }
         }
 
         public void AgregarGanado(string idCaravana)

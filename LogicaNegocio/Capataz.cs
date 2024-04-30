@@ -16,6 +16,7 @@ namespace LogicaNegocio
             : base(email, password, nombre, fechaDeIngreso)
         {
             _peonesACargo = cantPeonesCargo;
+
         }
 
         public void ValidarDatos()
@@ -24,10 +25,8 @@ namespace LogicaNegocio
                 if (_peonesACargo < 0) {
 
                     throw new Exception("No puede no tener peones a cargo");
-      
-
+ 
                 }            
-
 
         }
     }

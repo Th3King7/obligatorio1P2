@@ -100,7 +100,7 @@ namespace InterfazUsuario
                     Console.WriteLine("Ingrese la cantidad de peones a cargo");
                     int.TryParse(Console.ReadLine(), out int cantPeonesCargo);
                     if (contrasenia.Length >= 8 && !string.IsNullOrEmpty(email) && !string.IsNullOrEmpty(nombre)
-                        && fecha > DateTime.MinValue && cantPeonesCargo > 0)
+                        && fecha > DateTime.MinValue && cantPeonesCargo > 1)
                     {
                         Capataz nuevoCapataz = new Capataz(email, contrasenia, nombre, fecha, cantPeonesCargo);
                         _miSistema.AltaCapataz(nuevoCapataz);

@@ -55,16 +55,49 @@ namespace LogicaNegocio
 
         public void ValidarDatos()
         {
-            
-        
+            if(_idCaravana.Length != 8)
+            {
+               throw new Exception ("el id debe ser en formato alfanumerico de 8 digitos")
+            }
+            if( _sexo!="Macho" || _sexo != "Hembra")
+            {
+                throw new Exception("el sexo debe ser en Macho o Hembra ")
+
+            }
+            if (_raza != "Merino" || _raza != "Angus" || _raza != "Hereford")
+            {
+                throw new Exception("la raza debe ser: Merino, Angus , Hereford ")
+
+            }
+            if (_fechaNacimiento < DateTime.Now)
+            {
+                throw new Exception("La fecha es incorrecta");
+            }
+            if(_precioCompra < 0)
+            {
+                throw new Exception("El precio de compra del animal tiene que ser mayor a 0");
+
+            }
+            if (_costoAlimentacion < 0)
+            {
+                throw new Exception("El costo de alimetacion del animal tiene que ser mayor a 0");
+
+            }
+            if (_pesoActual < 0)
+            {
+                throw new Exception("El peso actual del animal tiene que ser mayor a 0");
+
+            }
+
+
         }
 
         public override string ToString()
         {
-            return "i." + _idCaravana + "/n" +
-                   "ii." + _raza + "/n" +
-                   "iii." + _pesoActual + "/n" +
-                   "iv." + _sexo + "/n";
+            return "i." + _idCaravana + "\n" +
+                   "ii." + _raza + "\n" +
+                   "iii." + _pesoActual + "\n" +
+                   "iv." + _sexo + "\n";
         }
     }
 }
