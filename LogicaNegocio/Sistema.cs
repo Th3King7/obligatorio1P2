@@ -111,17 +111,16 @@ namespace LogicaNegocio
 
         private void precargaPotreros()
         {
-            /*
-            AltaPotrero(new Potrero());
-            AltaPotrero(new Potrero());
-            AltaPotrero(new Potrero());
-            AltaPotrero(new Potrero());
-            AltaPotrero(new Potrero());
-            AltaPotrero(new Potrero());
-            AltaPotrero(new Potrero());
-            AltaPotrero(new Potrero());
-            AltaPotrero(new Potrero());
-            AltaPotrero(new Potrero());*/
+            AltaPotrero(new Potrero("Potrero 1", 10, 20));
+            AltaPotrero(new Potrero("Potrero 2", 15, 25));
+            AltaPotrero(new Potrero("Potrero 3", 20, 30));
+            AltaPotrero(new Potrero("Potrero 4", 12, 22));
+            AltaPotrero(new Potrero("Potrero 5", 18, 28));
+            AltaPotrero(new Potrero("Potrero 6", 14, 24));
+            AltaPotrero(new Potrero("Potrero 7", 16, 26));
+            AltaPotrero(new Potrero("Potrero 8", 22, 32));
+            AltaPotrero(new Potrero("Potrero 9", 25, 35));
+            AltaPotrero(new Potrero("Potrero 10", 30, 40));
         }
         private void precargaVacunas()
         {
