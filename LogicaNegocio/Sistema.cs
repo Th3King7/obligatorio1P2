@@ -13,6 +13,11 @@ namespace LogicaNegocio
         private List<Ganado> _animales = new List<Ganado>();
         private List<Vacuna> _vacunas = new List<Vacuna>();
 
+        public List<Ganado> Animales
+        {
+            get { return _animales; }
+        }
+
         public Sistema()
         {
             precargaEmpleados();
@@ -37,17 +42,64 @@ namespace LogicaNegocio
 
         private void precargaAnimales()
         {
-            //AltaBovino(new Bovino());
-            //AltaOvino(new Ovino());
+            AltaBovino(new Bovino());
+            AltaBovino(new Bovino());
+            AltaBovino(new Bovino());
+            AltaBovino(new Bovino());
+            AltaBovino(new Bovino());
+            AltaBovino(new Bovino());
+            AltaBovino(new Bovino());
+            AltaBovino(new Bovino());
+            AltaBovino(new Bovino());
+            AltaBovino(new Bovino());
+            AltaBovino(new Bovino());
+            AltaBovino(new Bovino());
+            AltaBovino(new Bovino());
+            AltaBovino(new Bovino());
+            AltaBovino(new Bovino());
+            AltaOvino(new Ovino());
+            AltaOvino(new Ovino());
+            AltaOvino(new Ovino());
+            AltaOvino(new Ovino());
+            AltaOvino(new Ovino());
+            AltaOvino(new Ovino());
+            AltaOvino(new Ovino());
+            AltaOvino(new Ovino());
+            AltaOvino(new Ovino());
+            AltaOvino(new Ovino());
+            AltaOvino(new Ovino());
+            AltaOvino(new Ovino());
+            AltaOvino(new Ovino());
+            AltaOvino(new Ovino());
+            AltaOvino(new Ovino());
         }
 
         private void precargaPotreros()
         {
-            //AltaPotrero(new Potrero());
+            AltaPotrero(new Potrero());
+            AltaPotrero(new Potrero());
+            AltaPotrero(new Potrero());
+            AltaPotrero(new Potrero());
+            AltaPotrero(new Potrero());
+            AltaPotrero(new Potrero());
+            AltaPotrero(new Potrero());
+            AltaPotrero(new Potrero());
+            AltaPotrero(new Potrero());
+            AltaPotrero(new Potrero());
         }
         private void precargaVacunas()
         {
-            //AltaVacuna(new Vacuna());
+            AltaVacuna(new Vacuna());
+            AltaVacuna(new Vacuna());
+            AltaVacuna(new Vacuna());
+            AltaVacuna(new Vacuna());
+            AltaVacuna(new Vacuna());
+            AltaVacuna(new Vacuna());
+            AltaVacuna(new Vacuna());
+            AltaVacuna(new Vacuna());
+            AltaVacuna(new Vacuna());
+            AltaVacuna(new Vacuna());
+            AltaVacuna(new Vacuna());
         }
 
 

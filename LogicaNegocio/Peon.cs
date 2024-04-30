@@ -38,6 +38,20 @@ namespace LogicaNegocio
         private void precargarTareas()
         {
             AltaTarea(new Tarea());
+            AltaTarea(new Tarea());
+            AltaTarea(new Tarea());
+            AltaTarea(new Tarea());
+            AltaTarea(new Tarea());
+            AltaTarea(new Tarea());
+            AltaTarea(new Tarea());
+            AltaTarea(new Tarea());
+            AltaTarea(new Tarea());
+            AltaTarea(new Tarea());
+            AltaTarea(new Tarea());
+            AltaTarea(new Tarea());
+            AltaTarea(new Tarea());
+            AltaTarea(new Tarea());
+            AltaTarea(new Tarea());
         }
 
         public void AltaTarea(Tarea nuevaTarea)

@@ -30,7 +30,7 @@ namespace InterfazUsuario
                 {
                     case 1:
                         Console.WriteLine("hola");
-                        //mostrarListadoDeAnimales();
+                        mostrarListadoDeAnimales();
                         break;
                     default:
                         Console.Clear();
@@ -113,7 +113,7 @@ namespace InterfazUsuario
                 }
             }
 
-        public void AgregarOvino()
+        static void AgregarOvino()
         {
             try
             {
@@ -159,7 +159,7 @@ namespace InterfazUsuario
             }
         }
 
-        public void AgregarBovino()
+        static void AgregarBovino()
         {
             try
             {
@@ -202,6 +202,13 @@ namespace InterfazUsuario
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
+            }
+        }
+        static void mostrarListadoDeAnimales()
+        {
+            foreach (Ganado ganado in _miSistema.Animales)
+            {
+                Console.WriteLine(ganado);
             }
         }
     }
