@@ -55,8 +55,8 @@ namespace LogicaNegocio
 
         public void ValidarDatos()
         {
-
-
+            
+        
         }
 
         public override string ToString()
