@@ -123,7 +123,7 @@ namespace InterfazUsuario
             {
                 Console.WriteLine("Ingrese el id de la caravana");
                 string idCaravana = Console.ReadLine();
-                Console.WriteLine("Ingrese el sexo del ovino (m -macho y h-hembra)");
+                Console.WriteLine("Ingrese el sexo del ovino (Macho o Hembra)");
                 string sexo = Console.ReadLine();
                 Console.WriteLine("Ingrese la raza del ovino");
                 string raza = Console.ReadLine();
@@ -169,7 +169,7 @@ namespace InterfazUsuario
             {
                 Console.WriteLine("Ingrese el id de la caravana");
                 string idCaravana = Console.ReadLine();
-                Console.WriteLine("Ingrese el sexo del ovino (m -macho y h-hembra)");
+                Console.WriteLine("Ingrese el sexo del ovino (Macho o Hembra)");
                 string sexo = Console.ReadLine();
                 Console.WriteLine("Ingrese la raza del ovino");
                 string raza = Console.ReadLine();
