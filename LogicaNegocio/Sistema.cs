@@ -45,67 +45,67 @@ namespace LogicaNegocio
         private void precargaAnimales()
         {
             // Bovinos
-           AltaBovino(new Bovino("B0000001", "Macho", "Angus", new DateTime(2019, 5, 10), 1200, 250, 400, false, "Pasto")),
-           AltaBovino(new Bovino("B0000002", "Hembra", "Hereford", new DateTime(2020, 8, 15), 1000, 200, 350, false, "Pasto")),
-           AltaBovino(new Bovino("B0000003", "Macho", "Angus", new DateTime(2018, 12, 20), 1400, 300, 450, true, "Granos")),
-           AltaBovino(new Bovino("B0000004", "Hembra", "Hereford", new DateTime(2021, 4, 5), 1100, 220, 370, false, "Pasto")),
-           AltaBovino(new Bovino("B0000005", "Macho", "Angus", new DateTime(2020, 7, 12), 1300, 270, 420, true, "Granos")),
-           AltaBovino(new Bovino("B0000006", "Macho", "Angus", new DateTime(2019, 8, 23), 1150, 240, 380, false, "Pasto")),
-           AltaBovino(new Bovino("B0000007", "Hembra", "Hereford", new DateTime(2021, 2, 14), 1050, 210, 360, false, "Pasto")),
-           AltaBovino(new Bovino("B0000008", "Macho", "Angus", new DateTime(2020, 10, 30), 1250, 260, 430, true, "Granos")),
-           AltaBovino(new Bovino("B0000009", "Hembra", "Hereford", new DateTime(2019, 6, 8), 1150, 240, 380, false, "Pasto")),
-           AltaBovino(new Bovino("B0000010", "Macho", "Angus", new DateTime(2021, 1, 17), 1350, 280, 440, true, "Granos")),
-           AltaBovino(new Bovino("B0000011", "Macho", "Angus", new DateTime(2018, 11, 28), 1100, 230, 370, false, "Pasto")),
-           AltaBovino(new Bovino("B0000012", "Hembra", "Hereford", new DateTime(2019, 9, 9), 1200, 250, 400, false, "Pasto")),
-           AltaBovino(new Bovino("B0000013", "Macho", "Angus", new DateTime(2020, 5, 7), 1300, 270, 420, true, "Granos")),
-           AltaBovino(new Bovino("B0000014", "Hembra", "Hereford", new DateTime(2021, 3, 26), 1150, 240, 380, false, "Pasto")),
-           AltaBovino(new Bovino("B0000015", "Macho", "Angus", new DateTime(2019, 7, 18), 1350, 280, 440, true, "Granos")),
-           AltaBovino(new Bovino("B0000016", "Macho", "Angus", new DateTime(2018, 10, 12), 1200, 250, 400, false, "Pasto")),
-           AltaBovino(new Bovino("B0000017", "Hembra", "Hereford", new DateTime(2020, 4, 4), 1100, 230, 370, false, "Pasto")),
-           AltaBovino(new Bovino("B0000018", "Macho", "Angus", new DateTime(2019, 12, 21), 1300, 270, 420, true, "Granos")),
-           AltaBovino(new Bovino("B0000019", "Hembra", "Hereford", new DateTime(2021, 8, 30), 1150, 240, 380, false, "Pasto")),
-           AltaBovino(new Bovino("B0000020", "Macho", "Angus", new DateTime(2020, 2, 9), 1350, 280, 440, true, "Granos")),
-           AltaBovino(new Bovino("B0000021", "Macho", "Angus", new DateTime(2018, 6, 29), 1200, 250, 400, false, "Pasto")),
-           AltaBovino(new Bovino("B0000022", "Hembra", "Hereford", new DateTime(2019, 10, 3), 1100, 230, 370, false, "Pasto")),
-           AltaBovino(new Bovino("B0000023", "Macho", "Angus", new DateTime(2020, 3, 15), 1300, 270, 420, true, "Granos")),
-           AltaBovino(new Bovino("B0000024", "Hembra", "Hereford", new DateTime(2021, 7, 25), 1150, 240, 380, false, "Pasto")),
-           AltaBovino(new Bovino("B0000025", "Macho", "Angus", new DateTime(2019, 11, 11), 1350, 280, 440, true, "Granos")),
-           AltaBovino(new Bovino("B0000026", "Macho", "Angus", new DateTime(2018, 4, 27), 1200, 250, 400, false, "Pasto")),
-           AltaBovino(new Bovino("B0000027", "Hembra", "Hereford", new DateTime(2020, 11, 6), 1100, 230, 370, false, "Pasto")),
-           AltaBovino(new Bovino("B0000028", "Macho", "Angus", new DateTime(2019, 1, 8), 1300, 270, 420, true, "Granos")),
-           AltaBovino(new Bovino("B0000029", "Hembra", "Hereford", new DateTime(2021, 5, 20), 1150, 240, 380, false, "Pasto")),
-           AltaBovino(new Bovino("B0000030", "Macho", "Angus", new DateTime(2020, 9, 2), 1350, 280, 440, true, "Granos")),
+            AltaBovino(new Bovino("B0000001", "Macho", "Angus", new DateTime(2019, 5, 10), 1200, 250, 400, false, "Pasto"));
+            AltaBovino(new Bovino("B0000002", "Hembra", "Hereford", new DateTime(2020, 8, 15), 1000, 200, 350, false, "Pasto"));
+            AltaBovino(new Bovino("B0000003", "Macho", "Angus", new DateTime(2018, 12, 20), 1400, 300, 450, true, "Granos"));
+            AltaBovino(new Bovino("B0000004", "Hembra", "Hereford", new DateTime(2021, 4, 5), 1100, 220, 370, false, "Pasto"));
+            AltaBovino(new Bovino("B0000005", "Macho", "Angus", new DateTime(2020, 7, 12), 1300, 270, 420, true, "Granos"));
+            AltaBovino(new Bovino("B0000006", "Macho", "Angus", new DateTime(2019, 8, 23), 1150, 240, 380, false, "Pasto"));
+            AltaBovino(new Bovino("B0000007", "Hembra", "Hereford", new DateTime(2021, 2, 14), 1050, 210, 360, false, "Pasto"));
+            AltaBovino(new Bovino("B0000008", "Macho", "Angus", new DateTime(2020, 10, 30), 1250, 260, 430, true, "Granos"));
+            AltaBovino(new Bovino("B0000009", "Hembra", "Hereford", new DateTime(2019, 6, 8), 1150, 240, 380, false, "Pasto"));
+            AltaBovino(new Bovino("B0000010", "Macho", "Angus", new DateTime(2021, 1, 17), 1350, 280, 440, true, "Granos"));
+            AltaBovino(new Bovino("B0000011", "Macho", "Angus", new DateTime(2018, 11, 28), 1100, 230, 370, false, "Pasto"));
+            AltaBovino(new Bovino("B0000012", "Hembra", "Hereford", new DateTime(2019, 9, 9), 1200, 250, 400, false, "Pasto"));
+            AltaBovino(new Bovino("B0000013", "Macho", "Angus", new DateTime(2020, 5, 7), 1300, 270, 420, true, "Granos"));
+            AltaBovino(new Bovino("B0000014", "Hembra", "Hereford", new DateTime(2021, 3, 26), 1150, 240, 380, false, "Pasto"));
+            AltaBovino(new Bovino("B0000015", "Macho", "Angus", new DateTime(2019, 7, 18), 1350, 280, 440, true, "Granos"));
+            AltaBovino(new Bovino("B0000016", "Macho", "Angus", new DateTime(2018, 10, 12), 1200, 250, 400, false, "Pasto"));
+            AltaBovino(new Bovino("B0000017", "Hembra", "Hereford", new DateTime(2020, 4, 4), 1100, 230, 370, false, "Pasto"));
+            AltaBovino(new Bovino("B0000018", "Macho", "Angus", new DateTime(2019, 12, 21), 1300, 270, 420, true, "Granos"));
+            AltaBovino(new Bovino("B0000019", "Hembra", "Hereford", new DateTime(2021, 8, 30), 1150, 240, 380, false, "Pasto"));
+            AltaBovino(new Bovino("B0000020", "Macho", "Angus", new DateTime(2020, 2, 9), 1350, 280, 440, true, "Granos"));
+            AltaBovino(new Bovino("B0000021", "Macho", "Angus", new DateTime(2018, 6, 29), 1200, 250, 400, false, "Pasto"));
+            AltaBovino(new Bovino("B0000022", "Hembra", "Hereford", new DateTime(2019, 10, 3), 1100, 230, 370, false, "Pasto"));
+            AltaBovino(new Bovino("B0000023", "Macho", "Angus", new DateTime(2020, 3, 15), 1300, 270, 420, true, "Granos"));
+            AltaBovino(new Bovino("B0000024", "Hembra", "Hereford", new DateTime(2021, 7, 25), 1150, 240, 380, false, "Pasto"));
+            AltaBovino(new Bovino("B0000025", "Macho", "Angus", new DateTime(2019, 11, 11), 1350, 280, 440, true, "Granos"));
+            AltaBovino(new Bovino("B0000026", "Macho", "Angus", new DateTime(2018, 4, 27), 1200, 250, 400, false, "Pasto"));
+            AltaBovino(new Bovino("B0000027", "Hembra", "Hereford", new DateTime(2020, 11, 6), 1100, 230, 370, false, "Pasto"));
+            AltaBovino(new Bovino("B0000028", "Macho", "Angus", new DateTime(2019, 1, 8), 1300, 270, 420, true, "Granos"));
+            AltaBovino(new Bovino("B0000029", "Hembra", "Hereford", new DateTime(2021, 5, 20), 1150, 240, 380, false, "Pasto"));
+            AltaBovino(new Bovino("B0000030", "Macho", "Angus", new DateTime(2020, 9, 2), 1350, 280, 440, true, "Granos"));
             // Ovinos
-            AltaOvino(new Ovino("O0000001", "Macho", "Merino", new DateTime(2019, 3, 5), 500, 100, 50, false)),
-            AltaOvino(new Ovino("O0000002", "Hembra", "Merino", new DateTime(2019, 6, 12), 550, 110, 55, false)),
-            AltaOvino(new Ovino("O0000003", "Macho", "Merino", new DateTime(2020, 1, 20), 600, 120, 60, true)),
-            AltaOvino(new Ovino("O0000004", "Hembra", "Merino", new DateTime(2021, 9, 18), 530, 105, 52, false)),
-            AltaOvino(new Ovino("O0000005", "Macho", "Merino", new DateTime(2020, 12, 3), 570, 115, 57, true)),
-            AltaOvino(new Ovino("O0000006", "Macho", "Merino", new DateTime(2019, 5, 15), 510, 102, 51, false)),
-            AltaOvino(new Ovino("O0000007", "Hembra", "Merino", new DateTime(2019, 8, 22), 560, 112, 56, false)),
-            AltaOvino(new Ovino("O0000008", "Macho", "Merino", new DateTime(2020, 3, 10), 610, 122, 61, true)),
-            AltaOvino(new Ovino("O0000009", "Hembra", "Merino", new DateTime(2021, 10, 2), 540, 108, 54, false)),
-            AltaOvino(new Ovino("O0000010", "Macho", "Merino", new DateTime(2020, 1, 5), 580, 116, 58, true)),
-            AltaOvino(new Ovino("O0000011", "Macho", "Merino", new DateTime(2019, 6, 20), 520, 104, 52, false)),
-            AltaOvino(new Ovino("O0000012", "Hembra", "Merino", new DateTime(2019, 9, 28), 570, 114, 57, false)),
-            AltaOvino(new Ovino("O0000013", "Macho", "Merino", new DateTime(2020, 4, 15), 620, 124, 62, true)),
-            AltaOvino(new Ovino("O0000014", "Hembra", "Merino", new DateTime(2021, 11, 9), 550, 110, 55, false)),
-            AltaOvino(new Ovino("O0000015", "Macho", "Merino", new DateTime(2020, 2, 25), 590, 118, 59, true)),
-            AltaOvino(new Ovino("O0000016", "Macho", "Merino", new DateTime(2019, 7, 10), 530, 106, 53, false)),
-            AltaOvino(new Ovino("O0000017", "Hembra", "Merino", new DateTime(2019, 10, 18), 580, 116, 58, false)),
-            AltaOvino(new Ovino("O0000018", "Macho", "Merino", new DateTime(2020, 5, 5), 630, 126, 63, true)),
-            AltaOvino(new Ovino("O0000019", "Hembra", "Merino", new DateTime(2021, 12, 1), 560, 112, 56, false)),
-            AltaOvino(new Ovino("O0000020", "Macho", "Merino", new DateTime(2020, 3, 20), 600, 120, 60, true)),
-            AltaOvino(new Ovino("O0000021", "Macho", "Merino", new DateTime(2019, 8, 5), 540, 108, 54, false)),
-            AltaOvino(new Ovino("O0000022", "Hembra", "Merino", new DateTime(2019, 11, 12), 590, 118, 59, false)),
-            AltaOvino(new Ovino("O0000023", "Macho", "Merino", new DateTime(2020, 6, 30), 640, 128, 64, true)),
-            AltaOvino(new Ovino("O0000024", "Hembra", "Merino", new DateTime(2022, 1, 15), 570, 114, 57, false)),
-            AltaOvino(new Ovino("O0000025", "Macho", "Merino", new DateTime(2020, 4, 10), 610, 122, 61, true)),
-            AltaOvino(new Ovino("O0000026", "Macho", "Merino", new DateTime(2019, 9, 25), 550, 110, 55, false)),
-            AltaOvino(new Ovino("O0000027", "Hembra", "Merino", new DateTime(2019, 12, 3), 600, 120, 60, false)),
-            AltaOvino(new Ovino("O0000028", "Macho", "Merino", new DateTime(2020, 7, 20), 650, 130, 65, true)),
-            AltaOvino(new Ovino("O0000029", "Hembra", "Merino", new DateTime(2022, 2, 5), 580, 116, 58, false)),
-            AltaOvino(new Ovino("O0000030", "Macho", "Merino", new DateTime(2020, 3, 15), 620, 124, 62, true)),
+            AltaOvino(new Ovino("O0000001", "Macho", "Merino", new DateTime(2019, 3, 5), 500, 100, 50, false, 45));
+            AltaOvino(new Ovino("O0000002", "Hembra", "Merino", new DateTime(2019, 6, 12), 550, 110, 55, false, 50));
+            AltaOvino(new Ovino("O0000003", "Macho", "Merino", new DateTime(2020, 1, 20), 600, 120, 60, true, 55));
+            AltaOvino(new Ovino("O0000004", "Hembra", "Merino", new DateTime(2021, 9, 18), 530, 105, 52, false, 48));
+            AltaOvino(new Ovino("O0000005", "Macho", "Merino", new DateTime(2020, 12, 3), 570, 115, 57, true, 53));
+            AltaOvino(new Ovino("O0000006", "Macho", "Merino", new DateTime(2019, 5, 15), 510, 102, 51, false, 47));
+            AltaOvino(new Ovino("O0000007", "Hembra", "Merino", new DateTime(2019, 8, 22), 560, 112, 56, false, 49));
+            AltaOvino(new Ovino("O0000008", "Macho", "Merino", new DateTime(2020, 3, 10), 610, 122, 61, true, 58));
+            AltaOvino(new Ovino("O0000009", "Hembra", "Merino", new DateTime(2021, 10, 2), 540, 108, 54, false, 47));
+            AltaOvino(new Ovino("O0000010", "Macho", "Merino", new DateTime(2020, 1, 5), 580, 116, 58, true, 55));
+            AltaOvino(new Ovino("O0000011", "Macho", "Merino", new DateTime(2019, 6, 20), 520, 104, 52, false, 46));
+            AltaOvino(new Ovino("O0000012", "Hembra", "Merino", new DateTime(2019, 9, 28), 570, 114, 57, false, 51));
+            AltaOvino(new Ovino("O0000013", "Macho", "Merino", new DateTime(2020, 4, 15), 620, 124, 62, true, 59));
+            AltaOvino(new Ovino("O0000014", "Hembra", "Merino", new DateTime(2021, 11, 9), 550, 110, 55, false, 50));
+            AltaOvino(new Ovino("O0000015", "Macho", "Merino", new DateTime(2020, 2, 25), 590, 118, 59, true, 56));
+            AltaOvino(new Ovino("O0000016", "Macho", "Merino", new DateTime(2019, 7, 10), 530, 106, 53, false, 48));
+            AltaOvino(new Ovino("O0000017", "Hembra", "Merino", new DateTime(2019, 10, 18), 580, 116, 58, false, 53));
+            AltaOvino(new Ovino("O0000018", "Macho", "Merino", new DateTime(2020, 5, 5), 630, 126, 63, true, 60));
+            AltaOvino(new Ovino("O0000019", "Hembra", "Merino", new DateTime(2021, 12, 1), 560, 112, 56, false, 49));
+            AltaOvino(new Ovino("O0000020", "Macho", "Merino", new DateTime(2020, 3, 20), 600, 120, 60, true, 55));
+            AltaOvino(new Ovino("O0000021", "Macho", "Merino", new DateTime(2019, 8, 5), 540, 108, 54, false, 48));
+            AltaOvino(new Ovino("O0000022", "Hembra", "Merino", new DateTime(2019, 11, 12), 590, 118, 59, false, 51));
+            AltaOvino(new Ovino("O0000023", "Macho", "Merino", new DateTime(2020, 6, 30), 640, 128, 64, true, 61));
+            AltaOvino(new Ovino("O0000024", "Hembra", "Merino", new DateTime(2022, 1, 15), 570, 114, 57, false, 52));
+            AltaOvino(new Ovino("O0000025", "Macho", "Merino", new DateTime(2020, 4, 10), 610, 122, 61, true, 58));
+            AltaOvino(new Ovino("O0000026", "Macho", "Merino", new DateTime(2019, 9, 25), 550, 110, 55, false, 49));
+            AltaOvino(new Ovino("O0000027", "Hembra", "Merino", new DateTime(2019, 12, 3), 600, 120, 60, false, 53));
+            AltaOvino(new Ovino("O0000028", "Macho", "Merino", new DateTime(2020, 7, 20), 650, 130, 65, true, 60));
+            AltaOvino(new Ovino("O0000029", "Hembra", "Merino", new DateTime(2022, 2, 5), 580, 116, 58, false, 51));
+            AltaOvino(new Ovino("O0000030", "Macho", "Merino", new DateTime(2020, 3, 15), 620, 124, 62, true, 59));
 
         }
 
@@ -125,18 +125,16 @@ namespace LogicaNegocio
         }
         private void precargaVacunas()
         {
-            /*
-            AltaVacuna(new Vacuna());
-            AltaVacuna(new Vacuna());
-            AltaVacuna(new Vacuna());
-            AltaVacuna(new Vacuna());
-            AltaVacuna(new Vacuna());
-            AltaVacuna(new Vacuna());
-            AltaVacuna(new Vacuna());
-            AltaVacuna(new Vacuna());
-            AltaVacuna(new Vacuna());
-            AltaVacuna(new Vacuna());
-            AltaVacuna(new Vacuna());*/
+            new Vacuna("Bovilis BVD", "Vacuna para bovinos contra la diarrea viral bovina", "Diarrea viral bovina");
+            new Vacuna("Bovi-Shield Gold FP 5", "Vacuna para bovinos contra la fiebre aftosa, rinotraqueítis infecciosa bovina, parainfluenza-3, virus de la diarrea viral bovina y virus de la enfermedad de la lengua azul", "Fiebre aftosa, Rinotraqueítis infecciosa bovina, Parainfluenza-3, Diarrea viral bovina, Enfermedad de la lengua azul");
+            new Vacuna("Scour Bos 9", "Vacuna para bovinos contra la diarrea neonatal", "Diarrea neonatal en terneros");
+            new Vacuna("Cydectin Injectable", "Vacuna para bovinos contra parásitos internos y externos", "Parásitos internos y externos en bovinos");
+            new Vacuna("Ovilis Enzovax", "Vacuna para ovinos contra la enzootic abortion", "Aborto enzoótico en ovejas");
+            new Vacuna("Ovivac P Plus", "Vacuna para ovinos contra la pulmonía", "Pulmonía en ovejas");
+            new Vacuna("BoviVac IBR Marker Live", "Vacuna para bovinos contra la rinotraqueítis infecciosa bovina", "Rinotraqueítis infecciosa bovina");
+            new Vacuna("Footvax", "Vacuna para ovinos contra la fiebre aftosa", "Fiebre aftosa en ovejas");
+            new Vacuna("Bovilis IBR Marker Inact", "Vacuna para bovinos contra la rinotraqueítis infecciosa bovina", "Rinotraqueítis infecciosa bovina");
+            new Vacuna("Bravoxin 10", "Vacuna para ovinos contra el carbunco", "Carbunco en ovejas");
         }
 
 
