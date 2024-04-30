@@ -37,12 +37,12 @@ namespace LogicaNegocio
             }
             if (_password.Length <= 8)
             {
-                throw new Exception("El nombre ser un correo valido");
+                throw new Exception("La contraseña debe valida");
 
             }
             if (_nombre.Length < 0)
             {
-                throw new Exception("El nombre ser un correo valido");
+                throw new Exception("El nombre debe  ser  valido");
 
             }
             if (_fechaDeIngreso < DateTime.Now)

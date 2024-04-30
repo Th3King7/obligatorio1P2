@@ -38,6 +38,8 @@ namespace LogicaNegocio
             AltaPeon(new Peon("pedrito@gmail.com", "pedrito456", "Pedro Sánchez", new DateTime(2024, 10, 8), false));
             AltaPeon(new Peon("luis@gmail.com", "luisPass", "Luis García", new DateTime(2024, 11, 21), true));
             AltaPeon(new Peon("pepa@gmail.com", "pepa2024", "Josefa Martínez", new DateTime(2024, 12, 30), false));
+            AltaCapataz(new Capataz("pepguardiola@gmail.com", "pepguardiola2024", "Jose Martínez", new DateTime(2024, 8, 30), 6));
+            AltaCapataz(new Capataz("bayerLeverkusen@gmail.com", "pLuis2024", "Luis Sanchez", new DateTime(2024, 26, 30), 4));
         }
 
         private void precargaAnimales()
@@ -58,6 +60,36 @@ namespace LogicaNegocio
             AltaBovino(new Bovino());
             AltaBovino(new Bovino());
             AltaBovino(new Bovino());
+            AltaBovino(new Bovino());
+            AltaBovino(new Bovino());
+            AltaBovino(new Bovino());
+            AltaBovino(new Bovino());
+            AltaBovino(new Bovino());
+            AltaBovino(new Bovino());
+            AltaBovino(new Bovino());
+            AltaBovino(new Bovino());
+            AltaBovino(new Bovino());
+            AltaBovino(new Bovino());
+            AltaBovino(new Bovino());
+            AltaBovino(new Bovino());
+            AltaBovino(new Bovino());
+            AltaBovino(new Bovino());
+            AltaBovino(new Bovino());
+            AltaOvino(new Ovino());
+            AltaOvino(new Ovino());
+            AltaOvino(new Ovino());
+            AltaOvino(new Ovino());
+            AltaOvino(new Ovino());
+            AltaOvino(new Ovino());
+            AltaOvino(new Ovino());
+            AltaOvino(new Ovino());
+            AltaOvino(new Ovino());
+            AltaOvino(new Ovino());
+            AltaOvino(new Ovino());
+            AltaOvino(new Ovino());
+            AltaOvino(new Ovino());
+            AltaOvino(new Ovino());
+            AltaOvino(new Ovino())
             AltaOvino(new Ovino());
             AltaOvino(new Ovino());
             AltaOvino(new Ovino());
