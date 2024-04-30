@@ -21,6 +21,7 @@ namespace InterfazUsuario
             static void MostrarMenu()
             {
                 Console.WriteLine("1-Mostrar listado de animales");
+                Console.WriteLine("2-prueba");
                 Console.WriteLine("0-Salir");
             }
         
@@ -31,6 +32,9 @@ namespace InterfazUsuario
                     case 1:
                         Console.WriteLine("hola");
                         mostrarListadoDeAnimales();
+                        break;
+                    case 2:
+                    Console.WriteLine("holaa prueba");
                         break;
                     default:
                         Console.Clear();
