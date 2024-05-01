@@ -19,6 +19,13 @@ namespace LogicaNegocio
             _id = s_ultid++;
 
         }
+        public decimal Hectareas {
+            get { return _hectareas; }
+            }
+        public decimal CapacidadMaxima
+        {
+            get { return _capacidadMaxima; }
+        }
 
         public void ValidarDatos()
         {

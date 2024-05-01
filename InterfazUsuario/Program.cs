@@ -42,7 +42,7 @@ namespace InterfazUsuario
                         AgregarBovino();
                         break;
                     case 4:
-                        //MostrarPotrerosConAreaYCapacidad();
+                        MostrarPotrerosConAreaYCapacidad();
                         break;
                     default:
                         Console.Clear();
@@ -222,37 +222,35 @@ namespace InterfazUsuario
                     if (_miSistema.Animales.Count == 0)
                     {
                         Console.WriteLine("No hay animales registrados.");
-                        return;
+                        
                     }
 
                     Console.WriteLine("Listado de Animales:");
                     foreach (Ganado ganado in _miSistema.Animales)
                     {
-                        Console.WriteLine(ganado);
                     }
                 
                 
             }
 
-            /*static void MostrarPotrerosConAreaYCapacidad()
+            static void MostrarPotrerosConAreaYCapacidad()
             {
                 try
                 {
                     Console.WriteLine("Ingrese la cantidad de hectáreas:");
-                    decimal areaMinima = Convert.ToDecimal(Console.ReadLine());
+                    decimal.TryParse(Console.ReadLine(),out decimal areaMinima);
 
                     Console.WriteLine("Ingrese el número máximo de capacidad:");
-                    int capacidadMaxima = Convert.ToInt32(Console.ReadLine());
+                    int.TryParse(Console.ReadLine(),out int capacidadMaxima);
 
-                    Console.WriteLine("Potreros con área mayor a {0} hectáreas y capacidad máxima superior a {1}:", areaMinima, capacidadMaxima);
+                   /* Console.WriteLine("Potreros con área mayor a {0} hectáreas y capacidad máxima superior a {1}:", areaMinima, capacidadMaxima);
                     Console.WriteLine("-------------------------------------------------------------");
-
+                   */
                     foreach (Potrero potrero in _miSistema.Potreros)
                     {
                         if (potrero.Hectareas > areaMinima && potrero.CapacidadMaxima > capacidadMaxima)
                         {
-                            MostrarDetallesPotrero(potrero);
-                        }
+                            Console.WriteLine(potrero);                        }
                     }
                 }
                 catch (Exception ex)
@@ -260,7 +258,7 @@ namespace InterfazUsuario
                     Console.WriteLine($"Error al mostrar potreros: {ex.Message}");
                 }
             }
-
+            /*
             static void MostrarDetallesPotrero(Potrero potrero)
             {
                 Console.WriteLine("Identificador: {0}", potrero.Id);
@@ -268,8 +266,8 @@ namespace InterfazUsuario
                 Console.WriteLine("Hectáreas: {0}", potrero.Hectareas);
                 Console.WriteLine("Capacidad Máxima: {0}", potrero.CapacidadMaxima);
                 Console.WriteLine("-------------------------------------------------------------");
-            }*/
-
+            }
+            */
         }
 
 
