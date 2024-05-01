@@ -41,6 +41,9 @@ namespace InterfazUsuario
                     case 3:
                         AgregarBovino();
                         break;
+                    case 4:
+                        //MostrarPotrerosConAreaYCapacidad();
+                        break;
                     default:
                         Console.Clear();
                         break;
@@ -215,8 +218,7 @@ namespace InterfazUsuario
             }
             static void mostrarListadoDeAnimales()
             {
-                try
-                {
+                
                     if (_miSistema.Animales.Count == 0)
                     {
                         Console.WriteLine("No hay animales registrados.");
@@ -228,12 +230,45 @@ namespace InterfazUsuario
                     {
                         Console.WriteLine(ganado);
                     }
+                
+                
+            }
+
+            /*static void MostrarPotrerosConAreaYCapacidad()
+            {
+                try
+                {
+                    Console.WriteLine("Ingrese la cantidad de hectáreas:");
+                    decimal areaMinima = Convert.ToDecimal(Console.ReadLine());
+
+                    Console.WriteLine("Ingrese el número máximo de capacidad:");
+                    int capacidadMaxima = Convert.ToInt32(Console.ReadLine());
+
+                    Console.WriteLine("Potreros con área mayor a {0} hectáreas y capacidad máxima superior a {1}:", areaMinima, capacidadMaxima);
+                    Console.WriteLine("-------------------------------------------------------------");
+
+                    foreach (Potrero potrero in _miSistema.Potreros)
+                    {
+                        if (potrero.Hectareas > areaMinima && potrero.CapacidadMaxima > capacidadMaxima)
+                        {
+                            MostrarDetallesPotrero(potrero);
+                        }
+                    }
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine($"Error al mostrar listado de animales: {ex.Message}");
+                    Console.WriteLine($"Error al mostrar potreros: {ex.Message}");
                 }
             }
+
+            static void MostrarDetallesPotrero(Potrero potrero)
+            {
+                Console.WriteLine("Identificador: {0}", potrero.Id);
+                Console.WriteLine("Descripción: {0}", potrero.Descripcion);
+                Console.WriteLine("Hectáreas: {0}", potrero.Hectareas);
+                Console.WriteLine("Capacidad Máxima: {0}", potrero.CapacidadMaxima);
+                Console.WriteLine("-------------------------------------------------------------");
+            }*/
 
         }
 
