@@ -21,9 +21,9 @@ namespace LogicaNegocio
 
         public void ValidarDatos()
         {
-            if (_pesoLana <0)
+            if (_pesoLana < 0)
             {
-                throw new Exception("el peso de lana debe ser mayor que 0")
+                throw new Exception("el peso de lana debe ser mayor que 0");
 
             }
         }

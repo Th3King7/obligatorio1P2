@@ -49,24 +49,31 @@ namespace LogicaNegocio
 
         public bool Equals(Ganado? other)
         {
-            return other.IdCaravana == _idCaravana;
+            // Si other es nulo, no son iguales
+            if (other == null)
+            {
+                return false;
+            }
+
+            return _idCaravana == other._idCaravana;
         }
+
 
 
         public void ValidarDatos()
         {
             if(_idCaravana.Length != 8)
             {
-               throw new Exception ("el id debe ser en formato alfanumerico de 8 digitos")
+                throw new Exception("el id debe ser en formato alfanumerico de 8 digitos");
             }
             if( _sexo!="Macho" || _sexo != "Hembra")
             {
-                throw new Exception("el sexo debe ser en Macho o Hembra ")
+                throw new Exception("el sexo debe ser en Macho o Hembra ");
 
             }
             if (_raza != "Merino" || _raza != "Angus" || _raza != "Hereford")
             {
-                throw new Exception("la raza debe ser: Merino, Angus , Hereford ")
+                throw new Exception("la raza debe ser: Merino, Angus , Hereford ");
 
             }
             if (_fechaNacimiento < DateTime.Now)

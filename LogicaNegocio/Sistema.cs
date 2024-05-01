@@ -238,8 +238,8 @@ namespace LogicaNegocio
         {
             if (potrero != null && potrero is Potrero)
             {
-                Potrero potrero = (Potrero)potrero;
-                potrero.AgregarGanado(idCaravana);
+                Potrero potreroGanado = (Potrero)potrero;
+                potreroGanado.AgregarGanado(idCaravana);
             }
             //presencial.AgregarRemedio(precio,nombreRemedio);
         }

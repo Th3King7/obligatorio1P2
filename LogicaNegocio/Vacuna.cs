@@ -19,17 +19,17 @@ namespace LogicaNegocio
         {
             if(_nombre.Length < 3)
             {
-                throw new Exception("el nombre de la vacuna debe ser mayor que 3 caracteres")
+                throw new Exception("el nombre de la vacuna debe ser mayor que 3 caracteres");
 
             }
             if (_descripcion.Length < 3)
             {
-                throw new Exception("la descripcion de la vacuna debe ser mayor que 3 caracteres")
+                throw new Exception("la descripcion de la vacuna debe ser mayor que 3 caracteres");
 
             }
             if (_proteccionDe.Length < 3)
             {
-                throw new Exception("el anticuerpos que brinda la vacuna debe ser mayor que 3 caracteres")
+                throw new Exception("el anticuerpos que brinda la vacuna debe ser mayor que 3 caracteres");
 
             }
         }

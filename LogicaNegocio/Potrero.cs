@@ -10,7 +10,8 @@ namespace LogicaNegocio
         private int _capacidadMaxima;
         private List<Ganado> _animales = new List<Ganado>();
 
-        public Potrero(string descripcion, decimal hectareas,int capacidadMaxima){
+        public Potrero(string descripcion, decimal hectareas, int capacidadMaxima)
+        {
 
             _descripcion = descripcion;
             _hectareas = hectareas;
@@ -20,35 +21,38 @@ namespace LogicaNegocio
         }
 
         public void ValidarDatos()
-        { 
-            if(_descripcion.Length < 0)
+        {
+            if (string.IsNullOrEmpty(_descripcion))
             {
-                throw new Exception("la descripcion debe ser en formato ej: Potrero 1 ")
-
+                throw new Exception("La descripción no puede estar vacía.");
             }
-            if(_hectareas < 0)
-            {
-                throw new Exception("las hectareas deben ser en mayor a 0 ")
 
+            if (_hectareas <= 0)
+            {
+                throw new Exception("Las hectáreas deben ser mayores a 0.");
             }
-             if (_capacidadMaxima < 0)
-            {
-                throw new Exception("la capacidad maxima  debe ser en mayor a 0 ")
 
+            if (_capacidadMaxima <= 0)
+            {
+                throw new Exception("La capacidad máxima debe ser mayor a 0.");
             }
         }
 
-        public void AgregarGanado(string idCaravana)
-        {
+       public void AgregarGanado(string idCaravana)
+       {
+
             Ganado animal = new Ganado(idCaravana);
             //Validar datos del ganado
             animal.ValidarDatos();
             //Verificar existencia
-            if (!_animales(animal))
+            if (!_animales.Contains(animal))
             {
                 //agregarlo a la lista 
                 _animales.Add(animal);
             }
 
-        }
+       }
+
+
+    }
 }

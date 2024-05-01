@@ -11,7 +11,7 @@ namespace LogicaNegocio
         private bool _tareaCompletada;
         private string _comentario;
 
-        public Tarea(string descripcion,DateTime fechaInicio,DateTime fechaCierre, bool tareaCompletada,string comentario)
+        public Tarea(string descripcion, DateTime fechaInicio, DateTime fechaCierre, bool tareaCompletada, string comentario)
         {
             _descripcion = descripcion;
             _fechaInicio = fechaInicio;
@@ -25,24 +25,25 @@ namespace LogicaNegocio
         {
             if (_descripcion.Length < 3)
             {
-                throw new Exception("la descripcion debe ser mayor que 3 caracteres ")
+                throw new Exception("la descripcion debe ser mayor que 3 caracteres ");
 
             }
             if (_fechaInicio < DateTime.Now)
             {
-                throw new Exception("la fecha de inicio debe menor a la de la actualidad")
+                throw new Exception("la fecha de inicio debe menor a la de la actualidad");
 
             }
             if (_fechaCierre < _fechaInicio)
             {
-                throw new Exception("la fecha de cierre no puede ser  menor a la de la fecha de inicio")
+                throw new Exception("la fecha de cierre no puede ser  menor a la de la fecha de inicio");
 
             }
-            if(_comentario.Length < 3)
+            if (_comentario.Length < 3)
             {
-                throw new Exception("el comentario debe ser mayor que 3 caracteres ")
+                throw new Exception("el comentario debe ser mayor que 3 caracteres ");
 
             }
 
         }
+    }
 }
