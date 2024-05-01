@@ -62,6 +62,9 @@ namespace LogicaNegocio
             }
         }
 
-
+        public override string ToString()
+        {
+            return $"ID: {_id}, Descripcion: {_descripcion}, Hectareas: {_hectareas}, Capacidad Maxima: {_capacidadMaxima}";
+        }
     }
 }

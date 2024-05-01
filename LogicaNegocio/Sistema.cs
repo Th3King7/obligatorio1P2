@@ -17,6 +17,10 @@ namespace LogicaNegocio
         {
             get { return _animales; }
         }
+        public List<Potrero> Potreros
+        {
+            get { return _potreros; }
+        }
 
         public Sistema()
         {
