@@ -210,10 +210,17 @@ namespace InterfazUsuario
         }
         static void mostrarListadoDeAnimales()
         {
-            foreach (Ganado ganado in _miSistema.Animales) 
-            {
-                Console.WriteLine(ganado);
-            }
+             try
+    {
+        foreach (Ganado ganado in _miSistema.Animales) 
+        {
+            Console.WriteLine(ganado);
+        }
+    }
+    catch (Exception ex)
+    {
+        Console.WriteLine($"Error al mostrar listado de animales: {ex.Message}");
+    }
         }
     }
     

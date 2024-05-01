@@ -22,7 +22,7 @@ namespace LogicaNegocio
         {
             if(_tipoAlimentacion != "Granos" || _tipoAlimentacion != "Pasto")
             {
-                throw new Exception("la alimentacion del bovino debe ser en Pasto o Granos ")
+                throw new Exception("la alimentacion del bovino debe ser en Pasto o Granos ");
 
             }
         }

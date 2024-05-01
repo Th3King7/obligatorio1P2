@@ -37,7 +37,7 @@ namespace LogicaNegocio
                 throw new Exception("La capacidad máxima debe ser mayor a 0.");
             }
         }
-
+        
        public void AgregarGanado(string idCaravana)
        {
 
