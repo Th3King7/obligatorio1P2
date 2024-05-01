@@ -37,21 +37,23 @@ namespace LogicaNegocio
                 throw new Exception("La capacidad máxima debe ser mayor a 0.");
             }
         }
-        
-       public void AgregarGanado(string idCaravana)
-       {
 
-            Ganado animal = new Ganado(idCaravana);
-            //Validar datos del ganado
-            animal.ValidarDatos();
-            //Verificar existencia
-            if (!_animales.Contains(animal))
+        public void AgregarGanado(Ganado nuevoGanado)
+        {
+            // Validar datos del ganado
+            nuevoGanado.ValidarDatos();
+
+            // Verificar existencia
+            if (!_animales.Contains(nuevoGanado))
             {
-                //agregarlo a la lista 
-                _animales.Add(animal);
+                // Agregarlo a la lista 
+                _animales.Add(nuevoGanado);
             }
-
-       }
+            else
+            {
+                throw new Exception("El ganado ya existe en el potrero.");
+            }
+        }
 
 
     }

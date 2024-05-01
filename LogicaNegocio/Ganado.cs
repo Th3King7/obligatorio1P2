@@ -62,7 +62,7 @@ namespace LogicaNegocio
 
         public void ValidarDatos()
         {
-            if(_idCaravana.Length != 8)
+            if(_idCaravana.Length < 8)
             {
                 throw new Exception("el id debe ser en formato alfanumerico de 8 digitos");
             }
@@ -101,10 +101,7 @@ namespace LogicaNegocio
 
         public override string ToString()
         {
-            return "i." + _idCaravana + "\n" +
-                   "ii." + _raza + "\n" +
-                   "iii." + _pesoActual + "\n" +
-                   "iv." + _sexo + "\n";
+            return $"ID: {_idCaravana}, Raza: {_raza}, Peso: {_pesoActual}, Sexo: {_sexo}";
         }
     }
 }
