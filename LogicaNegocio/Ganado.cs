@@ -30,22 +30,6 @@ namespace LogicaNegocio
             _pesoActual = pesoActual;
             _hibrido = hibrido;
         }
- 
-        public void AltaVacunado(Vacunado nuevaVacunacion)
-        {
-            //Validar datos de la nueva vacunacion
-            nuevaVacunacion.ValidarDatos();
-            //Verificar si no existe en mi lista de vacunado la vacuna ya dada  con el mismo valor en su atributo identificatorio
-            if (!_vacunasDadas.Contains(nuevaVacunacion))
-            {
-                //Si no existe una vacuna dada con el mismo valor en su atributo identificatorio, agrego el bovino a la lista
-                _vacunasDadas.Add(nuevaVacunacion);
-            }
-            else
-            {
-                throw new Exception("Ya se le dio la vacuna al animal");
-            }
-        }
 
         public bool Equals(Ganado? other)
         {
@@ -102,22 +86,22 @@ namespace LogicaNegocio
             }
         }
 
-        public void AgregarVacunado(Vacunado nuevoAnimalVacunado)
+        public void AltaVacunado(Vacunado nuevoAnimalVacunado)
         {
-            // Validar datos del ganado
+            //Validar datos de la nueva vacunacion
             nuevoAnimalVacunado.ValidarDatos();
-
-            // Verificar existencia
+            //Verificar si no existe en mi lista de vacunado la vacuna ya dada  con el mismo valor en su atributo identificatorio
             if (!_vacunasDadas.Contains(nuevoAnimalVacunado))
             {
-                // Agregarlo a la lista 
+                //Si no existe una vacuna dada con el mismo valor en su atributo identificatorio, agrego el bovino a la lista
                 _vacunasDadas.Add(nuevoAnimalVacunado);
             }
             else
             {
-                throw new Exception("El ganado ya existe en el potrero.");
+                throw new Exception("Ya se le dio la vacuna al animal");
             }
         }
+    }
 
         //modificamos el metodo ToString de Object para que muestre lo siguiente
         public override string ToString()

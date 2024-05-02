@@ -254,7 +254,7 @@ namespace LogicaNegocio
         {
             if (nuevoAnimal != null)
             {
-                nuevoAnimal.AgregarVacunado(vacunado);
+                nuevoAnimal.AltaVacunado(vacunado);
             }
         }
 
