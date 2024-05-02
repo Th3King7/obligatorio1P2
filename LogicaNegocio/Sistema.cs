@@ -216,7 +216,7 @@ namespace LogicaNegocio
             //Verificar si no existe en mi lista de potreros el potrero con el mismo valor en su atributo identificatorio
             if (!_potreros.Contains(nuevoPotrero))
             {
-                //Si no existe una potrero con el mismo valor en su atributo identificatorio, agrego el bovino a la lista
+                //Si no existe una potrero con el mismo valor en su atributo identificatorio, agrego el potrero a la lista
                 _potreros.Add(nuevoPotrero);
             }
             else
@@ -232,7 +232,7 @@ namespace LogicaNegocio
             //Verificar si no existe en mi lista de vacunas la vacuna con el mismo valor en su atributo identificatorio
             if (!_vacunas.Contains(nuevaVacuna))
             {
-                //Si no existe una vacuna con el mismo valor en su atributo identificatorio, agrego el bovino a la lista
+                //Si no existe una vacuna con el mismo valor en su atributo identificatorio, agrego la vacuna a la lista
                 _vacunas.Add(nuevaVacuna);
             }
             else
