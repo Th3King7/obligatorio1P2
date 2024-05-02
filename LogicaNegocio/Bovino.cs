@@ -20,7 +20,7 @@ namespace LogicaNegocio
 
         public void ValidarDatos()
         {
-            if(_tipoAlimentacion != "Granos" || _tipoAlimentacion != "Pasto")
+            if(_tipoAlimentacion != "Granos" && _tipoAlimentacion != "Pasto")
             {
                 throw new Exception("la alimentacion del bovino debe ser en Pasto o Granos ");
 

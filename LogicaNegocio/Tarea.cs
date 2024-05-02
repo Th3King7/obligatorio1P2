@@ -28,7 +28,7 @@ namespace LogicaNegocio
                 throw new Exception("la descripcion debe ser mayor que 3 caracteres ");
 
             }
-            if (_fechaInicio < DateTime.Now)
+            if (_fechaInicio > DateTime.Now)
             {
                 throw new Exception("la fecha de inicio debe menor a la de la actualidad");
 

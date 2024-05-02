@@ -23,8 +23,8 @@ namespace InterfazUsuario
             static void MostrarMenu()
             {
                 Console.WriteLine("1-Mostrar listado de animales");
-                Console.WriteLine("2-Agregar ovino");
-                Console.WriteLine("3-Agregar bovino");
+                Console.WriteLine("2-Agregar bovino");
+                Console.WriteLine("3-Mostrar potreros con area y capacidad");
                 Console.WriteLine("0-Salir");
             }
 
@@ -36,13 +36,13 @@ namespace InterfazUsuario
                         mostrarListadoDeAnimales();
                         break;
                     case 2:
-                        AgregarOvino();
-                        break;
-                    case 3:
                         AgregarBovino();
                         break;
-                    case 4:
+                    case 3:
                         MostrarPotrerosConAreaYCapacidad();
+                        break;
+                    case 4:
+                        
                         break;
                     default:
                         Console.Clear();
@@ -218,19 +218,13 @@ namespace InterfazUsuario
             }
             static void mostrarListadoDeAnimales()
             {
-                
-                    if (_miSistema.Animales.Count == 0)
-                    {
-                        Console.WriteLine("No hay animales registrados.");
-                        
-                    }
-
-                    Console.WriteLine("Listado de Animales:");
                     foreach (Ganado ganado in _miSistema.Animales)
                     {
+                        Console.WriteLine(ganado);
+
                     }
-                
-                
+
+
             }
 
             static void MostrarPotrerosConAreaYCapacidad()
@@ -243,14 +237,13 @@ namespace InterfazUsuario
                     Console.WriteLine("Ingrese el número máximo de capacidad:");
                     int.TryParse(Console.ReadLine(),out int capacidadMaxima);
 
-                   /* Console.WriteLine("Potreros con área mayor a {0} hectáreas y capacidad máxima superior a {1}:", areaMinima, capacidadMaxima);
-                    Console.WriteLine("-------------------------------------------------------------");
-                   */
                     foreach (Potrero potrero in _miSistema.Potreros)
                     {
                         if (potrero.Hectareas > areaMinima && potrero.CapacidadMaxima > capacidadMaxima)
                         {
-                            Console.WriteLine(potrero);                        }
+                            Console.WriteLine(potrero);
+                            Console.WriteLine("-------------------------------------------------------------");
+                        }
                     }
                 }
                 catch (Exception ex)
@@ -258,16 +251,7 @@ namespace InterfazUsuario
                     Console.WriteLine($"Error al mostrar potreros: {ex.Message}");
                 }
             }
-            /*
-            static void MostrarDetallesPotrero(Potrero potrero)
-            {
-                Console.WriteLine("Identificador: {0}", potrero.Id);
-                Console.WriteLine("Descripción: {0}", potrero.Descripcion);
-                Console.WriteLine("Hectáreas: {0}", potrero.Hectareas);
-                Console.WriteLine("Capacidad Máxima: {0}", potrero.CapacidadMaxima);
-                Console.WriteLine("-------------------------------------------------------------");
-            }
-            */
+            
         }
 
 

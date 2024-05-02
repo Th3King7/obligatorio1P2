@@ -66,7 +66,7 @@ namespace LogicaNegocio
             {
                 throw new Exception("el id debe ser en formato alfanumerico de 8 digitos");
             }
-            if( _sexo!="Macho" || _sexo != "Hembra")
+            if( _sexo != "Macho" || _sexo != "Hembra")
             {
                 throw new Exception("el sexo debe ser en Macho o Hembra ");
 
@@ -76,7 +76,7 @@ namespace LogicaNegocio
                 throw new Exception("la raza debe ser: Merino, Angus , Hereford ");
 
             }
-            if (_fechaNacimiento < DateTime.Now)
+            if (_fechaNacimiento > DateTime.Now)
             {
                 throw new Exception("La fecha es incorrecta");
             }
