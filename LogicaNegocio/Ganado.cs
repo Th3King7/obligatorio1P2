@@ -100,8 +100,6 @@ namespace LogicaNegocio
                 throw new Exception("El peso actual del animal tiene que ser mayor a 0");
 
             }
-
-
         }
 
         public void AgregarVacunado(Vacunado nuevoAnimalVacunado)
