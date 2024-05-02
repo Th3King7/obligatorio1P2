@@ -1,6 +1,8 @@
-﻿namespace LogicaNegocio
+﻿using LogicaNegocio.Interfaces;
+
+namespace LogicaNegocio
 {
-    public class Vacunado
+    public class Vacunado : IValidable
     {
         private Vacuna _tipoVacuna;
         private DateTime _fechaDeVacunacion;

@@ -29,6 +29,7 @@ namespace LogicaNegocio
             _costoAlimentacion = costoAlimentacion;
             _pesoActual = pesoActual;
             _hibrido = hibrido;
+            precargaVacunados();
         }
 
         public bool Equals(Ganado? other)
@@ -41,6 +42,50 @@ namespace LogicaNegocio
 
             return _idCaravana == other._idCaravana;
         }
+
+        private void precargaVacunados()
+        {
+            AltaVacunado(new Vacunado(
+                new Vacuna("Bovilis BVD", "Vacuna para bovinos contra la diarrea viral bovina", "Diarrea viral bovina"),
+                new DateTime(2023, 4, 15), new DateTime(2023, 10, 15)));
+
+            AltaVacunado(new Vacunado(
+                new Vacuna("Bovi-Shield Gold FP 5", "Vacuna para bovinos contra la fiebre aftosa, rinotraqueítis infecciosa bovina, parainfluenza-3, virus de la diarrea viral bovina y virus de la enfermedad de la lengua azul", "Fiebre aftosa, Rinotraqueítis infecciosa bovina, Parainfluenza-3, Diarrea viral bovina, Enfermedad de la lengua azul"),
+                new DateTime(2023, 5, 20), new DateTime(2023, 11, 20)));
+
+            AltaVacunado(new Vacunado(
+                new Vacuna("Scour Bos 9", "Vacuna para bovinos contra la diarrea neonatal", "Diarrea neonatal en terneros"),
+                new DateTime(2023, 6, 10), new DateTime(2023, 12, 10)));
+
+            AltaVacunado(new Vacunado(
+                new Vacuna("Cydectin Injectable", "Vacuna para bovinos contra parásitos internos y externos", "Parásitos internos y externos en bovinos"),
+                new DateTime(2023, 7, 5), new DateTime(2023, 12, 5)));
+
+            AltaVacunado(new Vacunado(
+                new Vacuna("Ovilis Enzovax", "Vacuna para ovinos contra la enzootic abortion", "Aborto enzoótico en ovejas"),
+                new DateTime(2023, 8, 15), new DateTime(2024, 2, 15)));
+
+            AltaVacunado(new Vacunado(
+                new Vacuna("Ovivac P Plus", "Vacuna para ovinos contra la pulmonía", "Pulmonía en ovejas"),
+                new DateTime(2023, 9, 20), new DateTime(2024, 3, 20)));
+
+            AltaVacunado(new Vacunado(
+                new Vacuna("BoviVac IBR Marker Live", "Vacuna para bovinos contra la rinotraqueítis infecciosa bovina", "Rinotraqueítis infecciosa bovina"),
+                new DateTime(2023, 10, 10), new DateTime(2024, 4, 10)));
+
+            AltaVacunado(new Vacunado(
+                new Vacuna("Footvax", "Vacuna para ovinos contra la fiebre aftosa", "Fiebre aftosa en ovejas"),
+                new DateTime(2023, 11, 5), new DateTime(2024, 5, 5)));
+
+            AltaVacunado(new Vacunado(
+                new Vacuna("Bovilis IBR Marker Inact", "Vacuna para bovinos contra la rinotraqueítis infecciosa bovina", "Rinotraqueítis infecciosa bovina"),
+                new DateTime(2023, 12, 15), new DateTime(2024, 6, 15)));
+
+            AltaVacunado(new Vacunado(
+                new Vacuna("Bravoxin 10", "Vacuna para ovinos contra el carbunco", "Carbunco en ovejas"),
+                new DateTime(2024, 1, 20), new DateTime(2024, 7, 20)));
+        }
+
         //validamos que al atributo _idCaravana su longitud de caracteres no sea menor a 8
         //validamos que al atributo _sexo sea  Macho o Hembra 
         //validamos que al atributo _raza sea Merino, Angus o Hereford

@@ -202,9 +202,9 @@ namespace InterfazUsuario
 
                     Console.WriteLine("Ingrese el id de la caravana");
                     string idCaravana = Console.ReadLine();
-                    Console.WriteLine("Ingrese el sexo del ovino (Macho o Hembra)");
+                    Console.WriteLine("Ingrese el sexo del bovino (Macho o Hembra)");
                     string sexo = Console.ReadLine();
-                    Console.WriteLine("Ingrese la raza del ovino");
+                    Console.WriteLine("Ingrese la raza del bovino");
                     string raza = Console.ReadLine();
                     Console.WriteLine("Ingrese fecha de naciminto");
                     DateTime.TryParse(Console.ReadLine(), out DateTime fechaNacimiento);
