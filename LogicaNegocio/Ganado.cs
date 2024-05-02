@@ -101,7 +101,6 @@ namespace LogicaNegocio
                 throw new Exception("Ya se le dio la vacuna al animal");
             }
         }
-    }
 
         //modificamos el metodo ToString de Object para que muestre lo siguiente
         public override string ToString()
@@ -109,4 +108,7 @@ namespace LogicaNegocio
             return $"ID: {_idCaravana}, Raza: {_raza}, Peso: {_pesoActual}, Sexo: {_sexo}";
         }
     }
+
+        
+
 }
