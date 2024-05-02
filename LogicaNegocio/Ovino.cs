@@ -19,6 +19,11 @@ namespace LogicaNegocio
             _pesoLana = pesoLana;
         }
 
+        public decimal PrecioLana
+        {
+            set { s_precioLana = value; } 
+            get { return s_precioLana; }
+        }
         public void ValidarDatos()
         {
             if (_pesoLana < 0)
@@ -27,5 +32,7 @@ namespace LogicaNegocio
 
             }
         }
+
+        
     }
 }

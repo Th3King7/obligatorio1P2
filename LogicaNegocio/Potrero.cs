@@ -29,7 +29,7 @@ namespace LogicaNegocio
 
         public void ValidarDatos()
         {
-            if (string.IsNullOrEmpty(_descripcion))
+            if (_descripcion.Length < 0)
             {
                 throw new Exception("La descripción no puede estar vacía.");
             }

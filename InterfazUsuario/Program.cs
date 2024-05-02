@@ -6,13 +6,16 @@ namespace InterfazUsuario
     {
         internal class Program
         {
+            //se declara un acceso a la clase sistema
             private static Sistema _miSistema = new Sistema();
 
             static void Main(string[] args)
             {
+                //opciones para salir de consola
                 int opcion = -1;
                 while (opcion != 0)
                 {
+                    //mostramos menu
                     MostrarMenu();
                     Console.WriteLine("Ingrese la opcion seleccionada");
                     int.TryParse(Console.ReadLine(), out opcion);
@@ -20,20 +23,23 @@ namespace InterfazUsuario
                 }
             }
 
+            //creaamos el menu con sus opciones
             static void MostrarMenu()
             {
                 Console.WriteLine("1-Mostrar listado de animales");
                 Console.WriteLine("2-Agregar bovino");
                 Console.WriteLine("3-Mostrar potreros con area y capacidad");
+                Console.WriteLine("4-Establecer precio lana ovinos");
                 Console.WriteLine("0-Salir");
             }
 
+            //verificamos la opcion que selecciona el usuario
             static void VerificarOpcionSeleccionada(int opcion)
             {
                 switch (opcion)
                 {
                     case 1:
-                        mostrarListadoDeAnimales();
+                        MostrarListadoDeAnimales();
                         break;
                     case 2:
                         AgregarBovino();
@@ -42,7 +48,7 @@ namespace InterfazUsuario
                         MostrarPotrerosConAreaYCapacidad();
                         break;
                     case 4:
-                        
+                        EstablecerPrecioLanaOvinos();
                         break;
                     default:
                         Console.Clear();
@@ -50,7 +56,7 @@ namespace InterfazUsuario
                 }
             }
 
-
+            //alta de nuevo peon
             static void AgregarPeon()
             {
                 try
@@ -91,12 +97,12 @@ namespace InterfazUsuario
                 }
             }
 
-
+            //alta de nuevo capataz
             static void AgregarCapataz()
             {
                 try
                 {
-                    //Pedir los datos que necesito para dar de alta un nuevo peon
+                    //Pedir los datos que necesito para dar de alta un nuevo capataz
                     Console.WriteLine("Ingrese un email");
                     string email = Console.ReadLine();
                     Console.WriteLine("Ingrese una contraseña");
@@ -125,10 +131,12 @@ namespace InterfazUsuario
                 }
             }
 
+            //alta de nuevo ovino
             static void AgregarOvino()
             {
                 try
                 {
+                    //Pedir los datos que necesito para dar de alta un nuevo ovino
                     Console.WriteLine("Ingrese el id de la caravana");
                     string idCaravana = Console.ReadLine();
                     Console.WriteLine("Ingrese el sexo del ovino (Macho o Hembra)");
@@ -171,10 +179,12 @@ namespace InterfazUsuario
                 }
             }
 
+            //alta de nuevo bovino
             static void AgregarBovino()
             {
                 try
                 {
+                    //Pedir los datos que necesito para dar de alta un nuevo bovino
                     Console.WriteLine("Ingrese el id de la caravana");
                     string idCaravana = Console.ReadLine();
                     Console.WriteLine("Ingrese el sexo del ovino (Macho o Hembra)");
@@ -216,17 +226,20 @@ namespace InterfazUsuario
                     Console.WriteLine(ex.Message);
                 }
             }
-            static void mostrarListadoDeAnimales()
+
+            //listamos animales
+            static void MostrarListadoDeAnimales()
             {
                     foreach (Ganado ganado in _miSistema.Animales)
                     {
                         Console.WriteLine(ganado);
-
+                        Console.WriteLine("------------------------------------------------------------------");
                     }
 
 
             }
 
+            //
             static void MostrarPotrerosConAreaYCapacidad()
             {
                 try
@@ -242,7 +255,7 @@ namespace InterfazUsuario
                         if (potrero.Hectareas > areaMinima && potrero.CapacidadMaxima > capacidadMaxima)
                         {
                             Console.WriteLine(potrero);
-                            Console.WriteLine("-------------------------------------------------------------");
+                            Console.WriteLine("------------------------------------------------------------------");
                         }
                     }
                 }
@@ -251,7 +264,26 @@ namespace InterfazUsuario
                     Console.WriteLine($"Error al mostrar potreros: {ex.Message}");
                 }
             }
-            
+
+            static void EstablecerPrecioLanaOvinos()
+            {
+                try
+                {
+                    Console.WriteLine("Ingrese el precio por kilogramo de lana para los ovinos:");
+                    decimal.TryParse(Console.ReadLine(), out decimal precioLana);
+
+
+                    // Establecer el precio en la clase Sistema
+                    _miSistema.EstablecerPrecioLanaOvinos(precioLana);
+
+                    Console.WriteLine($"El precio por kilogramo de lana de ovinos es {precioLana}.");
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"Error al establecer el precio de la lana de los ovinos: {ex.Message}");
+                }
+            }
+
         }
 
 

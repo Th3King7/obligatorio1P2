@@ -245,6 +245,24 @@ namespace LogicaNegocio
                 potrero.AgregarGanado(nuevoGanado);
             }
         }
-        // nos queda agregar vacunaciones a los animales y realizar funcionalidades del punto 3
+
+        public void AgregarVacunacionAnimal(Ganado nuevoAnimal, Vacunado vacunado)
+        {
+            if (nuevoAnimal != null)
+            {
+                nuevoAnimal.AgregarVacunado(vacunado);
+            }
+        }
+
+        public void EstablecerPrecioLanaOvinos(decimal precioLana)
+        {
+            foreach (Ganado animal in Animales)
+            {
+                if (animal is Ovino ovino)
+                {
+                    ovino.PrecioLana = precioLana;
+                }
+            }
+        }
     }
 }

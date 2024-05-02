@@ -12,5 +12,18 @@
             _fechaDeVacunacion = fechaDeVacunacion;
             _fechaDeVencimiento = fechaDeVencimiento;
         }
+
+        public void ValidarDatos()
+        {
+            if (_fechaDeVacunacion > DateTime.Now)
+            {
+                throw new Exception("La fecha de vacunacion no puede ser mayor actual.");
+            }
+
+            if (_fechaDeVencimiento < _fechaDeVacunacion)
+            {
+                throw new Exception("La fecha de vencimiento no puede ser menor a la de vacunacion.");
+            }
+        }
     }
 }

@@ -99,6 +99,23 @@ namespace LogicaNegocio
 
         }
 
+        public void AgregarVacunado(Vacunado nuevoAnimalVacunado)
+        {
+            // Validar datos del ganado
+            nuevoAnimalVacunado.ValidarDatos();
+
+            // Verificar existencia
+            if (!_vacunasDadas.Contains(nuevoAnimalVacunado))
+            {
+                // Agregarlo a la lista 
+                _vacunasDadas.Add(nuevoAnimalVacunado);
+            }
+            else
+            {
+                throw new Exception("El ganado ya existe en el potrero.");
+            }
+        }
+
         public override string ToString()
         {
             return $"ID: {_idCaravana}, Raza: {_raza}, Peso: {_pesoActual}, Sexo: {_sexo}";
