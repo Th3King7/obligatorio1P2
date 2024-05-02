@@ -9,7 +9,7 @@ namespace LogicaNegocio
         private string _password;
         private string _nombre;
         private DateTime _fechaDeIngreso;
-
+        //creamos las propiedades de _email y _password
         public string  Email {
             get { return _email; }
         }
@@ -17,7 +17,7 @@ namespace LogicaNegocio
         {
             get { return _password; }
         }
-
+        //creamos el metodo constructor
         public Empleado(string email, string password, string nombre, DateTime fechaDeIngreso)
         {
             _email = email;
@@ -25,10 +25,16 @@ namespace LogicaNegocio
             _nombre = nombre;
             _fechaDeIngreso = fechaDeIngreso;
         }
+        //validamos que el email del objeto recibido no sea igual al _email
         public bool Equals(Empleado? other)
         {
             return other.Email == _email && other.Password == _password;
         }
+        //validamos que al atributo _email su longitud de caracteres no sea menor a 0 
+        //validamos que al atributo _password su longitud de caracteres no sea menor a 8
+        //validamos que al atributo _nombre su longitud de caracteres no sea menor a 0 
+        //validamos que al atributo _fechaDeIngreso no sea posterior a la actual
+
         public void ValidarDatos()
         {
             if (_email.Length < 0)

@@ -62,6 +62,7 @@ namespace InterfazUsuario
                 try
                 {
                     //Pedir los datos que necesito para dar de alta un nuevo peon
+                    //pedimos el email,contraseña, nombre,fecha de ingreso y si reside en la estancia.
                     Console.WriteLine("Ingrese un email");
                     string email = Console.ReadLine();
                     Console.WriteLine("Ingrese una contraseña");
@@ -79,9 +80,11 @@ namespace InterfazUsuario
                     {
                         esResidente = true;
                     }
+                    //verificamos datos ingresados por el usuario
                     if (contrasenia.Length >= 8 && !string.IsNullOrEmpty(email) && !string.IsNullOrEmpty(nombre)
                         && fecha > DateTime.MinValue && !string.IsNullOrEmpty(reside))
                     {
+                        //creamos el nuevo objeto
                         Peon nuevaPeon = new Peon(email, contrasenia, nombre, fecha, esResidente);
                         _miSistema.AltaPeon(nuevaPeon);
                         Console.WriteLine("El peon se agrego correctamente");
@@ -103,6 +106,7 @@ namespace InterfazUsuario
                 try
                 {
                     //Pedir los datos que necesito para dar de alta un nuevo capataz
+                    //pedimos el email,contraseña, nombre,fecha de ingreso y los peones a cargo
                     Console.WriteLine("Ingrese un email");
                     string email = Console.ReadLine();
                     Console.WriteLine("Ingrese una contraseña");
@@ -113,9 +117,11 @@ namespace InterfazUsuario
                     DateTime.TryParse(Console.ReadLine(), out DateTime fecha);
                     Console.WriteLine("Ingrese la cantidad de peones a cargo");
                     int.TryParse(Console.ReadLine(), out int cantPeonesCargo);
+                    //verificamos datos ingresados por el usuario
                     if (contrasenia.Length >= 8 && !string.IsNullOrEmpty(email) && !string.IsNullOrEmpty(nombre)
                         && fecha > DateTime.MinValue && cantPeonesCargo > 1)
                     {
+                        //creamos el nuevo objeto
                         Capataz nuevoCapataz = new Capataz(email, contrasenia, nombre, fecha, cantPeonesCargo);
                         _miSistema.AltaCapataz(nuevoCapataz);
                         Console.WriteLine("El capataz  se agrego correctamente");
@@ -137,6 +143,9 @@ namespace InterfazUsuario
                 try
                 {
                     //Pedir los datos que necesito para dar de alta un nuevo ovino
+                    //pedimos el id de la caravana,sexo, raza,fecha de nacimiento,
+                    //precio de compra, el costo de laimentacion, el peso actual,si es hibrido y el peso de lana.
+
                     Console.WriteLine("Ingrese el id de la caravana");
                     string idCaravana = Console.ReadLine();
                     Console.WriteLine("Ingrese el sexo del ovino (Macho o Hembra)");
@@ -162,8 +171,11 @@ namespace InterfazUsuario
                     {
                         esHibrido = true;
                     }
+                    //verificamos datos ingresados por el usuario
+
                     if (!string.IsNullOrEmpty(idCaravana) && !string.IsNullOrEmpty(sexo) && !string.IsNullOrEmpty(raza) && fechaNacimiento > DateTime.MinValue && precioCompra > 0 && costoAlimentacion > 0 && pesoActual > 0 && pesoLana > 0)
                     {
+                        //creamos el nuevo objeto
                         Ovino nuevoOvino = new Ovino(idCaravana, sexo, raza, fechaNacimiento, precioCompra, costoAlimentacion, pesoActual, esHibrido, pesoLana);
                         _miSistema.AltaOvino(nuevoOvino);
                         Console.WriteLine("El ovino se agrego correctamente");
@@ -185,6 +197,9 @@ namespace InterfazUsuario
                 try
                 {
                     //Pedir los datos que necesito para dar de alta un nuevo bovino
+                    //pedimos el id de la caravana,sexo, raza,fecha de nacimiento,precio de compra,
+                    //el costo de laimentacion, el peso actual, si es hibrido y el tipo de alimentacion. 
+
                     Console.WriteLine("Ingrese el id de la caravana");
                     string idCaravana = Console.ReadLine();
                     Console.WriteLine("Ingrese el sexo del ovino (Macho o Hembra)");
@@ -210,8 +225,11 @@ namespace InterfazUsuario
                     {
                         esHibrido = true;
                     }
+                    //verificamos datos ingresados por el usuario
+
                     if (!string.IsNullOrEmpty(idCaravana) && !string.IsNullOrEmpty(sexo) && !string.IsNullOrEmpty(raza) && fechaNacimiento > DateTime.MinValue && precioCompra > 0 && costoAlimentacion > 0 && pesoActual > 0 && !string.IsNullOrEmpty(tipoAlimentacion))
                     {
+                        //creamos el nuevo objeto
                         Bovino nuevoBovino = new Bovino(idCaravana, sexo, raza, fechaNacimiento, precioCompra, costoAlimentacion, pesoActual, esHibrido, tipoAlimentacion);
                         _miSistema.AltaBovino(nuevoBovino);
                         Console.WriteLine("El bovino se agrego correctamente");
@@ -232,6 +250,7 @@ namespace InterfazUsuario
             {
                     foreach (Ganado ganado in _miSistema.Animales)
                     {
+                    //imprimimos en consola el metodo ToString
                         Console.WriteLine(ganado);
                         Console.WriteLine("------------------------------------------------------------------");
                     }
@@ -239,14 +258,15 @@ namespace InterfazUsuario
 
             }
 
-            //
+            //creamos la funcionalidad requerida 
             static void MostrarPotrerosConAreaYCapacidad()
             {
                 try
                 {
+                    //solicitamos al usuario las hectareas
                     Console.WriteLine("Ingrese la cantidad de hectáreas:");
                     decimal.TryParse(Console.ReadLine(),out decimal areaMinima);
-
+                    //solicitamos al usuario la capacidad maxima
                     Console.WriteLine("Ingrese el número máximo de capacidad:");
                     int.TryParse(Console.ReadLine(),out int capacidadMaxima);
 
@@ -254,6 +274,7 @@ namespace InterfazUsuario
                     {
                         if (potrero.Hectareas > areaMinima && potrero.CapacidadMaxima > capacidadMaxima)
                         {
+                            //imprimimos en consola el metodo ToString
                             Console.WriteLine(potrero);
                             Console.WriteLine("------------------------------------------------------------------");
                         }
@@ -265,10 +286,12 @@ namespace InterfazUsuario
                 }
             }
 
+            //creamos la funcionalidad requerida 
             static void EstablecerPrecioLanaOvinos()
             {
                 try
                 {
+                    //solicitamos al usuario el precio lana
                     Console.WriteLine("Ingrese el precio por kilogramo de lana para los ovinos:");
                     decimal.TryParse(Console.ReadLine(), out decimal precioLana);
 

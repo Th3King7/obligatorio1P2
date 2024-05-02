@@ -11,14 +11,14 @@ namespace LogicaNegocio
     {
         private Tarea _asignarTarea;
         private int _peonesACargo;
-
+        //creamos el metodo constructor
         public Capataz(string email, string password, string nombre, DateTime fechaDeIngreso, int cantPeonesCargo)
             : base(email, password, nombre, fechaDeIngreso)
         {
             _peonesACargo = cantPeonesCargo;
 
         }
-
+        //validamos que al atributo _peonesACargo no sea menor a 0 
         public void ValidarDatos()
         {
             base.ValidarDatos();

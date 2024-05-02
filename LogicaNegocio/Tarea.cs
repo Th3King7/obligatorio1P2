@@ -10,7 +10,7 @@ namespace LogicaNegocio
         private DateTime _fechaCierre;
         private bool _tareaCompletada;
         private string _comentario;
-
+        //creamos el metodo constructor
         public Tarea(string descripcion, DateTime fechaInicio, DateTime fechaCierre, bool tareaCompletada, string comentario)
         {
             _descripcion = descripcion;
@@ -20,7 +20,10 @@ namespace LogicaNegocio
             _comentario = comentario;
             _id = s_ultid++;
         }
-
+        //validamos que al atributo _descripcion su longitud de caracteres no sea menor a 3 
+        //validamos que al atributo _fechaInicio no sea posterior a la actual
+        //validamos que al atributo _fechaCierre no sea inferior a _fechaInicio
+        //validamos que al atributo _comentario su longitud de caracteres no sea menor a 3
         public void ValidarDatos()
         {
             if (_descripcion.Length < 3)

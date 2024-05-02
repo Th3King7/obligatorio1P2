@@ -9,16 +9,15 @@ namespace LogicaNegocio
         private decimal _hectareas;
         private int _capacidadMaxima;
         private List<Ganado> _animales = new List<Ganado>();
-
+        //creamos el metodo constructor
         public Potrero(string descripcion, decimal hectareas, int capacidadMaxima)
         {
-
             _descripcion = descripcion;
             _hectareas = hectareas;
             _capacidadMaxima = capacidadMaxima;
             _id = s_ultid++;
-
         }
+        //creamos las propiedades de _hectareas y _capacidadMaxima
         public decimal Hectareas {
             get { return _hectareas; }
             }
@@ -26,6 +25,11 @@ namespace LogicaNegocio
         {
             get { return _capacidadMaxima; }
         }
+
+        //validamos que al atributo _descripcion su longitud de caracteres no sea menor a 0 
+        //validamos que al atributo _hectareas no sea menor a 0 
+        //validamos que al atributo _capacidadMaxima no sea menor a 0 
+
 
         public void ValidarDatos()
         {
@@ -61,7 +65,7 @@ namespace LogicaNegocio
                 throw new Exception("El ganado ya existe en el potrero.");
             }
         }
-
+        //modificamos el metodo ToString de Object para que muestre lo siguiente
         public override string ToString()
         {
             return $"ID: {_id}, Descripcion: {_descripcion}, Hectareas: {_hectareas}, Capacidad Maxima: {_capacidadMaxima}";

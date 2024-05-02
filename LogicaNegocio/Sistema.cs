@@ -8,11 +8,12 @@ namespace LogicaNegocio
 {
     public class Sistema
     {
+        //creamos las listas 
         private List<Empleado> _empleados = new List<Empleado>();
         private List<Potrero> _potreros = new List<Potrero>();
         private List<Ganado> _animales = new List<Ganado>();
         private List<Vacuna> _vacunas = new List<Vacuna>();
-
+        //creamos las propiedades de la lista de Ganado y Potrero
         public List<Ganado> Animales
         {
             get { return _animales; }
@@ -30,6 +31,7 @@ namespace LogicaNegocio
             precargaVacunas();
 
         }
+        //precargamos empleados de tipo Peon y Capataz
         private void precargaEmpleados()
         {
             AltaPeon(new Peon("elcrack@gmail.com", "contRodr1", "Rodrigo Romano", new DateTime(2024, 3, 25), true));
@@ -45,7 +47,7 @@ namespace LogicaNegocio
             AltaCapataz(new Capataz("pepguardiola@gmail.com", "pepguardiola2024", "Jose Martínez", new DateTime(2020, 8, 3), 6));
             AltaCapataz(new Capataz("bayerLeverkusen@gmail.com", "pLuis2024", "Luis Sanchez", new DateTime(2020, 2, 20), 4));
         }
-
+    //precargamos ganado de tipo Boivno y Ovino
         private void precargaAnimales()
         {
             // Bovinos
@@ -112,7 +114,7 @@ namespace LogicaNegocio
             AltaOvino(new Ovino("O0000030", "Macho", "Merino", new DateTime(2020, 3, 15), 620, 124, 62, true, 59));
 
         }
-
+        //precargamos potreros de tipo Potrero
         private void precargaPotreros()
         {
             AltaPotrero(new Potrero("Potrero 1", 10, 20));
@@ -126,6 +128,7 @@ namespace LogicaNegocio
             AltaPotrero(new Potrero("Potrero 9", 25, 35));
             AltaPotrero(new Potrero("Potrero 10", 30, 40));
         }
+        //precargamos vacunas de tipo Vacuna
         private void precargaVacunas()
         {
             AltaVacuna(new Vacuna("Bovilis BVD", "Vacuna para bovinos contra la diarrea viral bovina", "Diarrea viral bovina"));
@@ -237,7 +240,7 @@ namespace LogicaNegocio
                 throw new Exception("Ya existe una vacuna con el mismo identificador");
             }
         }
-
+        //agregamos los ganados a los potreros 
         public void AgregarGanadoAPotrero(Potrero potrero, Ganado nuevoGanado)
         {
             if (potrero != null)
@@ -245,6 +248,7 @@ namespace LogicaNegocio
                 potrero.AgregarGanado(nuevoGanado);
             }
         }
+        //agregamos los vacunaciones a los animales tipo Ganado 
 
         public void AgregarVacunacionAnimal(Ganado nuevoAnimal, Vacunado vacunado)
         {
@@ -254,6 +258,7 @@ namespace LogicaNegocio
             }
         }
 
+        //modifica el precio de Lana
         public void EstablecerPrecioLanaOvinos(decimal precioLana)
         {
             foreach (Ganado animal in Animales)

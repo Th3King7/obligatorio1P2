@@ -11,17 +11,13 @@ namespace LogicaNegocio
     {
         private bool _residenteEstancia;
         private List<Tarea> _tareas = new List<Tarea>();
-
+        //creamos el metodo constructor
         public Peon(string email, string password, string nombre, DateTime fechaDeIngreso, bool recidenteEstancia)
             :base(email, password, nombre, fechaDeIngreso)
         { 
             _residenteEstancia = recidenteEstancia;
             precargarTareas();
         }
-
-                    
-        
-
         //precargamos tareas
         private void precargarTareas()
         {

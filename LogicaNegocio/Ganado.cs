@@ -13,12 +13,12 @@ namespace LogicaNegocio
         private decimal _pesoActual;
         private bool _hibrido;
         private List<Vacunado> _vacunasDadas = new List<Vacunado>();
-
+        //creamos la propiedad de _idCaravana
         public string IdCaravana
         {
             get { return _idCaravana; }
         }
-
+        //creamos el metodo constructor
         public Ganado(string idCaravana, string sexo, string raza, DateTime fechaNacimiento, decimal precioCompra, decimal costoAlimentacion, decimal pesoActual, bool hibrido)
         {
             _idCaravana = idCaravana;
@@ -34,7 +34,7 @@ namespace LogicaNegocio
         public void AltaVacunado(Vacunado nuevaVacunacion)
         {
             //Validar datos de la nueva vacunacion
-            //nuevaVacunacion.ValidarDatos();
+            nuevaVacunacion.ValidarDatos();
             //Verificar si no existe en mi lista de vacunado la vacuna ya dada  con el mismo valor en su atributo identificatorio
             if (!_vacunasDadas.Contains(nuevaVacunacion))
             {
@@ -57,8 +57,13 @@ namespace LogicaNegocio
 
             return _idCaravana == other._idCaravana;
         }
-
-
+        //validamos que al atributo _idCaravana su longitud de caracteres no sea menor a 8
+        //validamos que al atributo _sexo sea  Macho o Hembra 
+        //validamos que al atributo _raza sea Merino, Angus o Hereford
+        //validamos que al atributo _fechaDeNacimiento no sea posterior a la actual
+        //validamos que al atributo _precioCompra no sea menor a 0 
+        //validamos que al atributo _costoAlimentacion no sea menor a 0 
+        //validamos que al atributo _pesoActual no sea menor a 0 
 
         public void ValidarDatos()
         {
@@ -66,12 +71,12 @@ namespace LogicaNegocio
             {
                 throw new Exception("el id debe ser en formato alfanumerico de 8 digitos");
             }
-            if( _sexo != "Macho" || _sexo != "Hembra")
+            if( _sexo != "Macho" && _sexo != "Hembra")
             {
                 throw new Exception("el sexo debe ser en Macho o Hembra ");
 
             }
-            if (_raza != "Merino" || _raza != "Angus" || _raza != "Hereford")
+            if (_raza != "Merino" && _raza != "Angus" && _raza != "Hereford")
             {
                 throw new Exception("la raza debe ser: Merino, Angus , Hereford ");
 
@@ -116,6 +121,7 @@ namespace LogicaNegocio
             }
         }
 
+        //modificamos el metodo ToString de Object para que muestre lo siguiente
         public override string ToString()
         {
             return $"ID: {_idCaravana}, Raza: {_raza}, Peso: {_pesoActual}, Sexo: {_sexo}";
