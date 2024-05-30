@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 
-namespace ObligatorioWeb.Controllers
+namespace WebObligatorio.Controllers
 {
-    public class ListaPeonController : Controller
+    public class PeonController : Controller
     {
         public IActionResult Index()
         {
