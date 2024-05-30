@@ -22,6 +22,10 @@ namespace LogicaNegocio
         {
             get { return _potreros; }
         }
+        public List<Empleado> Empleados
+        {
+            get { return _empleados; }
+        }
 
         public Sistema()
         {
@@ -268,6 +272,20 @@ namespace LogicaNegocio
                     ovino.PrecioLana = precioLana;
                 }
             }
+        }
+
+        public List<Peon> Peones()
+        {
+            List<Peon> peones = new List<Peon>();
+            forech(Empleado empleado in _empleados)
+            {
+                if(empleado is Peon)
+                {
+                    Peon peon = (Peon)Empleado; 
+                    peones.Add(peon);
+                }
+            }
+            return peones;
         }
     }
 }
