@@ -13,6 +13,19 @@ namespace LogicaNegocio
         private List<Potrero> _potreros = new List<Potrero>();
         private List<Ganado> _animales = new List<Ganado>();
         private List<Vacuna> _vacunas = new List<Vacuna>();
+        private static Sistema s_instancia;
+
+        public static Sistema Instancia
+        {
+            get
+            {
+                if (s_instancia == null)
+                {
+                    s_instancia = new Sistema();
+                }
+                return s_instancia;
+            }
+        }
         //creamos las propiedades de la lista de Ganado y Potrero
         public List<Ganado> Animales
         {
@@ -274,18 +287,20 @@ namespace LogicaNegocio
             }
         }
 
-        public List<Peon> Peones()
-        {
-            List<Peon> peones = new List<Peon>();
-            forech(Empleado empleado in _empleados)
-            {
-                if(empleado is Peon)
+        public List<Peon> EmpleadosPeones(){
+
+            
+                List<Peon> empleadosTipoPeon = new List<Peon>();
+                foreach (Empleado empleado in _empleados)
                 {
-                    Peon peon = (Peon)Empleado; 
-                    peones.Add(peon);
+                    if (empleado is Peon)
+                    {
+                        Peon peon = (Peon)empleado; //hago el casteo a presencial
+                        empleadosTipoPeon.Add(peon);
+                    }
+
                 }
+                return empleadosTipoPeon;
             }
-            return peones;
         }
-    }
 }

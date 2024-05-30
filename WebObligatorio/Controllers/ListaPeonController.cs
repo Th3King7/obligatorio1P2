@@ -5,10 +5,10 @@ namespace WebObligatorio.Controllers
 {
     public class ListaPeonController : Controller
     {
-        private Sistema miSistema = new Sistema();
+        private Sistema miSistema = Sistema.Instancia;
         public IActionResult Index()
         {
-            ViewBag.Empleados = miSistema.Empleados;
+            ViewBag.Empleados = miSistema.EmpleadosPeones();
             return View();
         }
     }
