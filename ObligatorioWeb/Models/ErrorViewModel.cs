@@ -1,4 +1,4 @@
-namespace WebObligatorio.Models
+namespace ObligatorioWeb.Models
 {
     public class ErrorViewModel
     {

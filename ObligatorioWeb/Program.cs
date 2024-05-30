@@ -1,4 +1,5 @@
-namespace WebObligatorio
+using LogicaNegocio;
+namespace ObligatorioWeb
 {
     public class Program
     {
