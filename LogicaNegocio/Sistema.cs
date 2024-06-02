@@ -40,7 +40,7 @@ namespace LogicaNegocio
             get { return _empleados; }
         }
 
-        public Sistema()
+        private Sistema()
         {
             precargaEmpleados();
             precargaAnimales();
@@ -287,7 +287,8 @@ namespace LogicaNegocio
             }
         }
 
-        public List<Peon> EmpleadosPeones(){
+        public List<Peon> EmpleadosPeones()
+        {
 
             
                 List<Peon> empleadosTipoPeon = new List<Peon>();
@@ -295,12 +296,29 @@ namespace LogicaNegocio
                 {
                     if (empleado is Peon)
                     {
-                        Peon peon = (Peon)empleado; //hago el casteo a presencial
+                        Peon peon = (Peon)empleado; //hago el casteo a peon
                         empleadosTipoPeon.Add(peon);
                     }
 
                 }
                 return empleadosTipoPeon;
-            }
         }
+    }
+
+    public List<Tarea> ListadoTareasPeones()
+    {
+        
+        List<Tarea> listadoTareas = new List<Tarea>();
+        foreach (Empleado empleado in _empleados)
+        {
+            if (empleado is Peon)
+            {
+                listadoTareas = listadoTareas.ObtenerTareas();
+            }
+
+        }
+
+        return listadoTareas;
+    }
 }
+

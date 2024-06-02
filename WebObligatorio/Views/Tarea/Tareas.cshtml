@@ -1,0 +1,48 @@
+﻿@using LogicaNegocio;
+
+@{
+    ViewData["Title"] = "Tareas";
+}
+
+<h1>Tareas</h1>
+@if (ViewBag.Tareas != null && ViewBag.Tareas.Count > 0)
+{
+    <table border="1">
+        <thead>
+            <th>Id</th>
+            <th>Descripcion</th>
+            <th>Fecha inicio</th>
+            <th>Fecha cierre</th>
+            <th>Estado</th>
+            <th>Comentario</th>
+        </thead>
+        <tbody>
+            @foreach(Tarea tarea in ViewBag.Tareas)
+            {
+                <tr>
+                    <td>@tarea.Id</td>
+                </tr>
+                <tr>
+                    <td>@tarea.Descripcion</td>
+                </tr>
+                <tr>
+                    <td>@tarea.FechaInicio</td>
+                </tr>
+                <tr>
+                    <td>@tarea.FechaCierre</td>
+                </tr>
+                <tr>
+                    <td>@tarea.Estado</td>
+                </tr>
+                <tr>
+                    <td>@tarea.Comentario</td>
+                </tr>
+            }
+            
+        </tbody>
+    </table>
+}
+else
+{
+   <span>No hay tareas sin completar</span> 
+}

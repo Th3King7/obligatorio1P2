@@ -10,6 +10,32 @@ namespace LogicaNegocio
         private DateTime _fechaCierre;
         private bool _tareaCompletada;
         private string _comentario;
+
+        public int Id
+        {
+            get { return _id; }
+        }
+        public string Descripcion
+        {
+            get { return _descripcion; }
+        }
+        public DateTime FechaInicio
+        {
+            get { return _fechaInicio; }
+        }
+        public DateTime FechaCierre
+        {
+            get { return _fechaCierre; }
+        }
+        public bool Estado
+        {
+            get { return _tareaCompletada; }
+        }
+        public string Comentario
+        {
+            get { return _comentario; }
+        }
+
         //creamos el metodo constructor
         public Tarea(string descripcion, DateTime fechaInicio, DateTime fechaCierre, bool tareaCompletada, string comentario)
         {
@@ -47,6 +73,17 @@ namespace LogicaNegocio
 
             }
 
+        }
+
+        public string ObtenerEstadoDeTarea() 
+        {
+            bool estadoTarea = _tareaCompletada;
+            string estado = null;
+            if (estadoTarea == false) 
+            {
+                estado = "No completada";
+            }
+            return estado;
         }
     }
 }

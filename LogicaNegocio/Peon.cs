@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace LogicaNegocio
 {
@@ -11,6 +12,20 @@ namespace LogicaNegocio
     {
         private bool _residenteEstancia;
         private List<Tarea> _tareas = new List<Tarea>();
+        private static Peon s_instancia;
+
+        public static Peon Instancia
+        {
+            get
+            {
+                if (s_instancia == null)
+                {
+                    //s_instancia = new Peon();
+                }
+                return s_instancia;
+            }
+        }
+
         //creamos el metodo constructor
         public Peon(string email, string password, string nombre, DateTime fechaDeIngreso, bool recidenteEstancia)
             :base(email, password, nombre, fechaDeIngreso)
@@ -52,6 +67,20 @@ namespace LogicaNegocio
             {
                 throw new Exception("Ya existe un peon con el mismo identificador");
             }
+        }
+
+        public List<Tarea> ObtenerTareas() 
+        { 
+            List<Tarea> tareas = new List<Tarea>();
+            foreach (Tarea tarea in _tareas)
+            {
+                string estado = tarea.ObtenerEstadoDeTarea();
+                if (estado != null && estado == "No completada") 
+                {
+                    tareas.Add(tarea);
+                }
+            }
+            return tareas;
         }
     }
 }
