@@ -17,6 +17,14 @@ namespace LogicaNegocio
         {
             get { return _password; }
         }
+        public string Nombre
+        {
+            get { return _nombre; }
+        }
+        public DateTime FechaDeIngreso
+        {
+            get { return _fechaDeIngreso; }
+        }
         //creamos el metodo constructor
         public Empleado(string email, string password, string nombre, DateTime fechaDeIngreso)
         {

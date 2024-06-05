@@ -3,12 +3,16 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace WebObligatorio.Controllers
 {
-    public class ListaPeonController : Controller
+    public class PeonController : Controller
     {
         private Sistema miSistema = Sistema.Instancia;
-        public IActionResult Index()
+
+        public IActionResult ListaPeones()
         {
             ViewBag.Empleados = miSistema.EmpleadosPeones();
+            return View();
+        }
+        public IActionResult TareasCompletadas() {
             return View();
         }
     }

@@ -289,8 +289,6 @@ namespace LogicaNegocio
 
         public List<Peon> EmpleadosPeones()
         {
-
-            
                 List<Peon> empleadosTipoPeon = new List<Peon>();
                 foreach (Empleado empleado in _empleados)
                 {
@@ -305,20 +303,6 @@ namespace LogicaNegocio
         }
     }
 
-    public List<Tarea> ListadoTareasPeones()
-    {
-        
-        List<Tarea> listadoTareas = new List<Tarea>();
-        foreach (Empleado empleado in _empleados)
-        {
-            if (empleado is Peon)
-            {
-                listadoTareas = listadoTareas.ObtenerTareas();
-            }
-
-        }
-
-        return listadoTareas;
-    }
+ 
 }
 

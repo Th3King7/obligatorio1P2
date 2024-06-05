@@ -12,20 +12,11 @@ namespace LogicaNegocio
     {
         private bool _residenteEstancia;
         private List<Tarea> _tareas = new List<Tarea>();
-        private static Peon s_instancia;
 
-        public static Peon Instancia
+        public List<Tarea> Tareas
         {
-            get
-            {
-                if (s_instancia == null)
-                {
-                    //s_instancia = new Peon();
-                }
-                return s_instancia;
-            }
+            get { return _tareas; }
         }
-
         //creamos el metodo constructor
         public Peon(string email, string password, string nombre, DateTime fechaDeIngreso, bool recidenteEstancia)
             :base(email, password, nombre, fechaDeIngreso)
@@ -69,18 +60,19 @@ namespace LogicaNegocio
             }
         }
 
-        public List<Tarea> ObtenerTareas() 
+        public List<Tarea> ObtenerTareasCompletadas() 
         { 
-            List<Tarea> tareas = new List<Tarea>();
+            List<Tarea> tareasCompletadas = new List<Tarea>();
             foreach (Tarea tarea in _tareas)
             {
-                string estado = tarea.ObtenerEstadoDeTarea();
-                if (estado != null && estado == "No completada") 
+                bool tareaCompleta = tarea.TareaCompletada;
+                if (tareaCompleta != null && tareaCompleta == true) 
                 {
-                    tareas.Add(tarea);
+                    tareasCompletadas.Add(tarea);
                 }
             }
-            return tareas;
+            return tareasCompletadas;
         }
+       
     }
 }

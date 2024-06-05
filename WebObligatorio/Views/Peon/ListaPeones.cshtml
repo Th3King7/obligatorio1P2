@@ -1,0 +1,30 @@
+﻿@using LogicaNegocio;
+@{
+    ViewData["Title"] = "ListaPeones";
+}
+
+<h1>Lista Peones</h1>
+
+@if(ViewBag.Empleados!=null && ViewBag.Empleados.Count>0){
+    <table>
+        <thead>
+            <th>Email</th>
+            <th>Password</th>
+            <th>Nombre</th>
+        <th>Fecha de ingreso</th>
+        <th>Tareas</th>
+        </thead>
+        <tbody>
+            @foreach (Peon peon in ViewBag.Empleados)
+            {
+                <tr>
+                    <td>@peon.Email</td>
+                    <td>@peon.Password</td>
+                    <td>@peon.Nombre</td>
+                    <td>@peon.FechaDeIngreso</td>
+                    
+                </tr>
+            }
+        </tbody>
+    </table>
+}

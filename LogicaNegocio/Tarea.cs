@@ -27,7 +27,7 @@ namespace LogicaNegocio
         {
             get { return _fechaCierre; }
         }
-        public bool Estado
+        public bool TareaCompletada
         {
             get { return _tareaCompletada; }
         }
@@ -75,15 +75,6 @@ namespace LogicaNegocio
 
         }
 
-        public string ObtenerEstadoDeTarea() 
-        {
-            bool estadoTarea = _tareaCompletada;
-            string estado = null;
-            if (estadoTarea == false) 
-            {
-                estado = "No completada";
-            }
-            return estado;
-        }
+       
     }
 }
