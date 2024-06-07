@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace LogicaNegocio
+﻿namespace LogicaNegocio
 {
     public class Sistema
     {
@@ -64,7 +58,7 @@ namespace LogicaNegocio
             AltaCapataz(new Capataz("pepguardiola@gmail.com", "pepguardiola2024", "Jose Martínez", new DateTime(2020, 8, 3), 6));
             AltaCapataz(new Capataz("bayerLeverkusen@gmail.com", "pLuis2024", "Luis Sanchez", new DateTime(2020, 2, 20), 4));
         }
-    //precargamos ganado de tipo Boivno y Ovino
+        //precargamos ganado de tipo Boivno y Ovino
         private void precargaAnimales()
         {
             // Bovinos
@@ -289,28 +283,35 @@ namespace LogicaNegocio
 
         public List<Peon> EmpleadosPeones()
         {
-                List<Peon> empleadosTipoPeon = new List<Peon>();
-                foreach (Empleado empleado in _empleados)
-                {
-                    if (empleado is Peon)
-                    {
-                        Peon peon = (Peon)empleado; //hago el casteo a peon
-                        empleadosTipoPeon.Add(peon);
-                    }
-
-                }
-                return empleadosTipoPeon;
-        }
-        public List<Tarea> ListadoTareasPeones()
-        {
-
-            List<Tarea> listadoTareas = new List<Tarea>();
+            List<Peon> empleadosTipoPeon = new List<Peon>();
             foreach (Empleado empleado in _empleados)
             {
                 if (empleado is Peon)
                 {
-                    listadoTareas = listadoTareas.ObtenerTareas();
+                    Peon peon = (Peon)empleado; //hago el casteo a peon
+                    empleadosTipoPeon.Add(peon);
                 }
+
+            }
+            return empleadosTipoPeon;
+        }
+        public List<Tarea> ListadoTareasPeones()
+        {
+            List<Tarea> Tarea = new List<Tarea>();
+            List<Tarea> listadoTareas = new List<Tarea>();
+            List<Peon> empleadosPeon = EmpleadosPeones();
+
+            foreach (Peon peon in empleadosPeon)
+            {
+                if (peon != null)
+                {
+                    Tarea = peon.ObtenerTareasCompletadas();
+                    foreach (Tarea tarea in Tarea)
+                    {
+                        listadoTareas.Add(tarea);
+                    }
+                }
+
 
             }
 
@@ -318,6 +319,6 @@ namespace LogicaNegocio
         }
     }
 
- 
+
 }
 

@@ -5,17 +5,40 @@
 
 <h1>TareasCompletadas</h1>
 
-@if(ViewBag.Tareas!=null && ViewBag.Tareas.Count>0){
-    <table>
+@if (ViewBag.Tareas != null && ViewBag.Tareas.Count > 0)
+{
+    <table border="1">
         <thead>
-        <th>Tareas</th>
+        <th>Id</th>
+        <th>Descripcion</th>
+        <th>Fecha inicio</th>
+        <th>Fecha cierre</th>
+        <th>Estado</th>
+        <th>Comentario</th>
         </thead>
         <tbody>
-            @foreach (Peon peon in ViewBag.Tareas )
+            @foreach (Tarea tarea in ViewBag.Tareas)
             {
-            <td>@peon.ObtenerTareasCompletadas()</td>
+                <tr>
+                    <td>@tarea.Id</td>
+                
+                    <td>@tarea.Descripcion</td>
+                
+                    <td>@tarea.FechaInicio</td>
+                
+                    <td>@tarea.FechaCierre</td>
+                    <td> @tarea.TareaCompletada</td>
+              
+                    <td>@tarea.Comentario</td>
+
+                </tr>
             }
 
-    </tbody>
+        </tbody>
     </table>
+}
+else
+{
+    <span>No hay tareas sin completar</span>
+}
 }

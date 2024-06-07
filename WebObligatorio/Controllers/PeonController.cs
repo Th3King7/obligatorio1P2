@@ -13,8 +13,7 @@ namespace WebObligatorio.Controllers
             return View();
         }
         public IActionResult TareasCompletadas() {
-            List<Peon> peones = miSistema.EmpleadosPeones();
-            ViewBag.Tareas = peones;
+            ViewBag.Tareas = miSistema.ListadoTareasPeones();
             return View();
         }
     }
