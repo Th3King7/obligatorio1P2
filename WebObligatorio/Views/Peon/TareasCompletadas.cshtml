@@ -5,16 +5,15 @@
 
 <h1>TareasCompletadas</h1>
 
-@if(ViewBag.Empleados!=null && ViewBag.Empleados.Count>0){
+@if(ViewBag.Tareas!=null && ViewBag.Tareas.Count>0){
     <table>
         <thead>
         <th>Tareas</th>
         </thead>
         <tbody>
-            @foreach (Tarea tarea in ViewBag.Empleados.ObtenerTareasCompletadas())
+            @foreach (Peon peon in ViewBag.Tareas )
             {
-            <td>@tarea.Descripcion</td>
-
+            <td>@peon.ObtenerTareasCompletadas()</td>
             }
 
     </tbody>

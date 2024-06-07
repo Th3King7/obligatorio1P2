@@ -301,6 +301,21 @@ namespace LogicaNegocio
                 }
                 return empleadosTipoPeon;
         }
+        public List<Tarea> ListadoTareasPeones()
+        {
+
+            List<Tarea> listadoTareas = new List<Tarea>();
+            foreach (Empleado empleado in _empleados)
+            {
+                if (empleado is Peon)
+                {
+                    listadoTareas = listadoTareas.ObtenerTareas();
+                }
+
+            }
+
+            return listadoTareas;
+        }
     }
 
  

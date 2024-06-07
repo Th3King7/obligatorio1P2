@@ -73,6 +73,19 @@ namespace LogicaNegocio
             }
             return tareasCompletadas;
         }
-       
+        public List<Tarea> ObtenerTareas()
+        {
+            List<Tarea> tareas = new List<Tarea>();
+            foreach (Tarea tarea in _tareas)
+            {
+                string estado = tarea.ObtenerEstadoDeTarea();
+                if (estado != null && estado == "No completada")
+                {
+                    tareas.Add(tarea);
+                }
+            }
+            return tareas;
+        }
+
     }
 }
