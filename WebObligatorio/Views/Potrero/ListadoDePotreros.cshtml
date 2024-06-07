@@ -1,0 +1,35 @@
+﻿@using LogicaNegocio;
+
+@{
+    ViewData["Title"] = "ListadoDePotreros";
+}
+
+<h1>ListadoDePotreros</h1>
+
+@if (ViewBag.Potreros != null && ViewBag.Potreros.Count > 0)
+{
+    <table border="1">
+        <thead>
+        <th>Id</th>
+        <th>Descripcion</th>
+        <th>Cantidad de animales</th>
+        <th>Precio venta</th>
+        </thead>
+        <tbody>
+            @foreach (Potrero potrero in ViewBag.Potreros)
+            {
+                <tr>
+                    <td>@potrero.Id</td>
+                    <td>@potrero.Descripcion</td>
+                    <td>@potrero.Animales.Count</td>
+                    
+                </tr>
+            }
+
+        </tbody>
+    </table>
+}
+else
+{
+    <span>No hay tareas sin completar</span>
+}

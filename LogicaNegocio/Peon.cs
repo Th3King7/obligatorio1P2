@@ -66,14 +66,20 @@ namespace LogicaNegocio
             foreach (Tarea tarea in _tareas)
             {
                 bool tareaCompleta = tarea.TareaCompletada;
-                if (!tareaCompleta ) 
+                if (!tareaCompleta) 
                 {
                     tareasCompletadas.Add(tarea);
                 }
             }
             return tareasCompletadas;
         }
-       
+
+        public List<Tarea> TareasOrdenadasPorFechaPactada()
+        {
+            _tareas.Sort();
+            return _tareas;
+        }
+
 
     }
 }

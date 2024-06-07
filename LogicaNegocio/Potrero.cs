@@ -21,9 +21,21 @@ namespace LogicaNegocio
         public decimal Hectareas {
             get { return _hectareas; }
             }
-        public decimal CapacidadMaxima
+        public int CapacidadMaxima
         {
             get { return _capacidadMaxima; }
+        }
+        public int Id
+        {
+            get { return _id; }
+        }
+        public string Descripcion
+        {
+            get { return _descripcion;}
+        }
+        public List<Ganado> Animales
+        {
+            get { return _animales; }
         }
 
         //validamos que al atributo _descripcion su longitud de caracteres no sea menor a 0 
@@ -69,6 +81,16 @@ namespace LogicaNegocio
         public override string ToString()
         {
             return $"ID: {_id}, Descripcion: {_descripcion}, Hectareas: {_hectareas}, Capacidad Maxima: {_capacidadMaxima}";
+        }
+
+        public int CompareTo(Potrero? other)
+        {
+            int comparacion = _capacidadMaxima.CompareTo(other._capacidadMaxima);
+            if (comparacion == 0)
+            {
+                comparacion = _animales.Count.CompareTo(other._animales.Count) -1;
+            }
+            return comparacion;
         }
     }
 }

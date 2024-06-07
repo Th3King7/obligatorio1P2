@@ -1,7 +1,7 @@
 ﻿using LogicaNegocio.Interfaces;
 namespace LogicaNegocio
 {
-    public class Tarea : IValidable
+    public class Tarea : IValidable, IComparable<Tarea>
     {
         private int _id;
         private static int s_ultid = 1;
@@ -75,6 +75,10 @@ namespace LogicaNegocio
 
         }
 
-       
+        public int CompareTo(Tarea? other)
+        {
+            return _fechaCierre.CompareTo(other._fechaCierre);    
+        }
+
     }
 }

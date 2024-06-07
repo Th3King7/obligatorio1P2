@@ -312,11 +312,21 @@
                     }
                 }
 
-
             }
-
             return listadoTareas;
         }
+
+        
+        
+        
+        
+        
+        public List<Potrero> PotrerosOrdenados()
+        {
+            _potreros.Sort();
+            return _potreros;
+        }
+
     }
 
 
