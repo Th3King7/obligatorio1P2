@@ -24,6 +24,7 @@ namespace LogicaNegocio
             _residenteEstancia = recidenteEstancia;
             precargarTareas();
         }
+        
         //precargamos tareas
         private void precargarTareas()
         {
