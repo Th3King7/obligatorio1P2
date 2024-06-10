@@ -1,7 +1,30 @@
-﻿
+﻿@using LogicaNegocio;
 @{
     ViewData["Title"] = "RegistrarPeon";
 }
 
-<h1>RegistrarPeon</h1>
+<h1>Registrar Peon</h1>
 
+<form method="post">
+    <label>Email:</label>
+    <input type="text" name="Email" />
+    <br />
+    <label>Contraseña:</label>
+    <input type="password" name="Contraseña" />
+    <br />
+    <input type="submit" value="Iniciar" />
+    <br />
+    <label>Nombre</label>
+    <input type="text" name="Nombre" />
+    <br />
+    <label>Fecha de ingreso:</label>
+    <input type="datetime" name="FechaIngreso" />
+    <br />
+    <label>Reside en la estancia</label>
+   <select name="ResidenteEstancia">
+        <option value="si">Si</option>
+        <option value="no">No</option>
+   </select>
+    <br />
+  
+</form>

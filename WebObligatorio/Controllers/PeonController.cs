@@ -16,6 +16,8 @@ namespace WebObligatorio.Controllers
             ViewBag.Tareas = miSistema.ListadoTareasPeones();
             return View();
         }
+
+        [HttpPost]
         public IActionResult RegistrarPeon(Peon peon)
         {
 
