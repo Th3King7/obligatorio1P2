@@ -1,4 +1,6 @@
-﻿namespace LogicaNegocio
+﻿using System.ComponentModel.Design;
+
+namespace LogicaNegocio
 {
     public class Sistema
     {
@@ -315,12 +317,8 @@
             }
             return listadoTareas;
         }
-
-        
-        
-        
-        
-        
+                      
+     
         public List<Potrero> PotrerosOrdenados()
         {
             _potreros.Sort();
@@ -328,7 +326,6 @@
         }
 
     }
-
 
 }
 

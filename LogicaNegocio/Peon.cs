@@ -24,8 +24,13 @@ namespace LogicaNegocio
             _residenteEstancia = recidenteEstancia;
             precargarTareas();
         }
-       
-        
+
+        public Peon() : base("", "", "", DateTime.Now)
+        {
+            // Inicializa el peón con valores predeterminados si es necesario
+        }
+
+
         //precargamos tareas
         private void precargarTareas()
         {
