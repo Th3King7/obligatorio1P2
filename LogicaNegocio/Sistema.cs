@@ -344,10 +344,11 @@ namespace LogicaNegocio
         public Peon ObtenerPeon(string unEmail, string unPassword)
         {
             Peon usuarioPeon = new Peon();
-            foreach (Peon peon in _empleados)
+            foreach (Empleado empleado in _empleados)
             {
-                if (peon != null) {
-
+                if (empleado is Peon)
+                {
+                    Peon peon = (Peon)empleado;
                     if (peon.Email == unEmail && peon.Password == unPassword)
                     {
                         usuarioPeon = peon;
@@ -362,11 +363,11 @@ namespace LogicaNegocio
         public Capataz ObtenerCapataz(string unEmail, string unPassword)
         {
             Capataz usuarioCapataz = new Capataz ();
-            foreach (Capataz capataz in _empleados)
+            foreach (Empleado empleado in _empleados)
             {
-                if (capataz != null)
+                if (empleado is Capataz)
                 {
-
+                    Capataz capataz = (Capataz)empleado;
                     if (capataz.Email == unEmail && capataz.Password == unPassword)
                     {
                         usuarioCapataz = capataz;
@@ -376,6 +377,7 @@ namespace LogicaNegocio
             return usuarioCapataz;
 
         }
+
 
     }
 

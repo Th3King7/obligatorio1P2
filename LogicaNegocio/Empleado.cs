@@ -43,7 +43,8 @@ namespace LogicaNegocio
         //validamos que al atributo _fechaDeIngreso no sea posterior a la actual
 
       //public abstract Object ObtenerUsuario();
-
+        
+       
          
         public void ValidarDatos()
         {
