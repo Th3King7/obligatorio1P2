@@ -17,12 +17,13 @@ namespace WebObligatorio.Controllers
             return View();
         }
 
-        public IActionResult RegistroPeon()
+        public IActionResult RegistrarPeon()
         {
+
             return View();
         }
 
-        //[HttpPost]
+        [HttpPost]
         public IActionResult RegistrarPeon(Peon peon)
         {
             peon.ValidarDatos();
