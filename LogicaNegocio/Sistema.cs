@@ -293,10 +293,10 @@ namespace LogicaNegocio
                     Peon peon = (Peon)empleado; //hago el casteo a peon
                     empleadosTipoPeon.Add(peon);
                 }
-
             }
             return empleadosTipoPeon;
         }
+
         public List<Tarea> ListadoTareasPeones()
         {
             List<Tarea> Tarea = new List<Tarea>();
@@ -317,14 +317,38 @@ namespace LogicaNegocio
             }
             return listadoTareas;
         }
-                      
-     
+        
+
         public List<Potrero> PotrerosOrdenados()
         {
             _potreros.Sort();
             return _potreros;
         }
 
+        /*public Medico BuscarMedico(int idMedico)
+        {
+            Medico medicoBuscado = null;
+            int i = 0;
+            while (i < _medicos.Count && medicoBuscado == null)
+            {
+                if (_medicos[i].Id == idMedico)
+                {
+                    medicoBuscado = _medicos[i];
+                }
+                i++;
+            }
+            return medicoBuscado;
+        }*/
+
+        public object ObtenerUsuario(string mail, string password)
+        {
+            foreach (Empleado empleado in _empleados)            
+            { 
+            
+            
+            }
+        }
+        
     }
 
 }

@@ -18,8 +18,9 @@ namespace WebObligatorio.Controllers
             // Aquí debes validar las credenciales
             // Por ejemplo, podrías buscar el peón en tu sistema con el email proporcionado
             // Si el peón existe y la contraseña coincide, puedes autenticar al usuario y redirigirlo
-            Peon peon = _miSistema.ObtenerPeonPorEmail(email);
-            if (peon != null && peon.Password == password)
+            Empleado empleado = miSistema.ObtenerUsuario(email, password);
+            
+            if (empleado != null && empleado.Password == password && )
             {
                 // Autenticar al usuario (podrías usar ASP.NET Core Identity o implementar tu propio sistema)
                 // Aquí redirigir al usuario a la página correspondiente a su rol
