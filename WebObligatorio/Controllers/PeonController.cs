@@ -17,18 +17,25 @@ namespace WebObligatorio.Controllers
             return View();
         }
 
-        //[HttpPost]
-        public IActionResult RegistrarPeon(Peon peon)
-        {
-
-            peon.ValidarDatos();
-            miSistema.AltaPeon(peon);
-            return View();
-        }
-
         public IActionResult RegistroPeon()
         {
             return View();
+        }
+
+        //[HttpPost]
+        public IActionResult RegistrarPeon(Peon peon)
+        {
+            peon.ValidarDatos();
+            try
+            {
+                miSistema.AltaPeon(peon);
+                return RedirectToAction("Index", "IniciarSesion");
+            }
+            catch (Exception ex)
+            {
+                ViewBag.ErrorMessage = $"Error al registrar peón: {ex.Message}";
+                return View(peon);
+            }
         }
     }
 }
