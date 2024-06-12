@@ -87,7 +87,15 @@ namespace LogicaNegocio
             return _tareas;
         }
 
-    
+        public override bool ObtenerUsuario(string unEmail, string unPassword)
+        {
+            bool peonEncontrado = false;
+         if (  unEmail== Email&& unPassword == Password)
+            {
+                peonEncontrado = true;
+            }
+            return peonEncontrado;
+        }
 
     }
 }

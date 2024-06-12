@@ -1,6 +1,4 @@
-﻿using System.ComponentModel.Design;
-
-namespace LogicaNegocio
+﻿namespace LogicaNegocio
 {
     public class Sistema
     {
@@ -317,7 +315,7 @@ namespace LogicaNegocio
             }
             return listadoTareas;
         }
-        
+
 
         public List<Potrero> PotrerosOrdenados()
         {
@@ -359,10 +357,10 @@ namespace LogicaNegocio
             return usuarioPeon;
 
         }
-        
+
         public Capataz ObtenerCapataz(string unEmail, string unPassword)
         {
-            Capataz usuarioCapataz = new Capataz ();
+            Capataz usuarioCapataz = new Capataz();
             foreach (Empleado empleado in _empleados)
             {
                 if (empleado is Capataz)
@@ -378,8 +376,38 @@ namespace LogicaNegocio
 
         }
 
+        public object IniciarSesion(string email, string contra)
+        {
+            object usuario = new object();
+            foreach (Empleado empleado in _empleados)
+
+                if (empleado is Peon)
+                {
+                    Peon peon = (Peon)empleado;
+
+                    if (peon.ObtenerUsuario(email, contra)== true)
+                    {
+                        usuario = peon;
+                    }
+
+                }
+                else if (empleado is Capataz)
+                {
+                    Capataz capataz = (Capataz)empleado;
+
+                    if (capataz.ObtenerUsuario(email, contra) == true)
+                    {
+                        usuario = capataz;
+                    }
+
+                }
+            return usuario;
+
+        }
 
     }
 
 }
+
+
 

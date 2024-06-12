@@ -2,14 +2,15 @@
 
 namespace LogicaNegocio
 {
-    public abstract class Empleado :IEquatable<Empleado>,IValidable
+    public abstract class Empleado : IEquatable<Empleado>, IValidable
     {
         private string _email;
         private string _password;
         private string _nombre;
         private DateTime _fechaDeIngreso;
         //creamos las propiedades de _email y _password
-        public string  Email {
+        public string Email
+        {
             get { return _email; }
         }
         public string Password
@@ -42,10 +43,11 @@ namespace LogicaNegocio
         //validamos que al atributo _nombre su longitud de caracteres no sea menor a 0 
         //validamos que al atributo _fechaDeIngreso no sea posterior a la actual
 
-      //public abstract Object ObtenerUsuario();
-        
-       
-         
+        public abstract bool ObtenerUsuario(string unEmail,string unPassword);
+
+      
+
+
         public void ValidarDatos()
         {
             if (_email.Length < 0)

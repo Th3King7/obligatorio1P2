@@ -1,9 +1,4 @@
 ﻿using LogicaNegocio.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace LogicaNegocio
 {
@@ -26,13 +21,23 @@ namespace LogicaNegocio
         public void ValidarDatos()
         {
             base.ValidarDatos();
-                if (_peonesACargo < 0) {
+            if (_peonesACargo < 0)
+            {
 
-                    throw new Exception("No puede no tener peones a cargo");
- 
-                }            
+                throw new Exception("No puede no tener peones a cargo");
+
+            }
 
         }
+        public override bool ObtenerUsuario(string unEmail, string unPassword)
+        {
+            bool capatazEncontrado = false;
+            if (unEmail == Email && unPassword == Password)
+            {
+                capatazEncontrado = true;
+            }
+            return capatazEncontrado;
+        }
     }
-    
+
 }

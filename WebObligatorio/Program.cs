@@ -24,7 +24,7 @@ namespace WebObligatorio
 
             app.MapControllerRoute(
                 name: "default",
-                pattern: "{controller=IniciarSesion}/{action=Index}/{id?}");
+                pattern: "{controller=IniciarSesion}/{action=IniciarSesion}/{id?}");
 
             app.Run();
         }

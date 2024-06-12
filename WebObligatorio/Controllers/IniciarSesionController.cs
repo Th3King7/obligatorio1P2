@@ -7,7 +7,7 @@ namespace WebObligatorio.Controllers
     public class IniciarSesionController : Controller
     {
         private Sistema miSistema = Sistema.Instancia;
-        public IActionResult Index()
+        public IActionResult IniciarSesion()
         {
             return View();
         }
@@ -20,20 +20,19 @@ namespace WebObligatorio.Controllers
             // Por ejemplo, podrías buscar el peón en tu sistema con el email proporcionado
             // Si el peón existe y la contraseña coincide, puedes autenticar al usuario y redirigirlo
             //Empleado empleado = miSistema.ObtenerUsuario(email, password);
-            Peon peon = miSistema.ObtenerPeon(email, password);
-            Capataz capataz = miSistema.ObtenerCapataz(email, password);
+         object usuario = miSistema.IniciarSesion(email, password);
 
-            if (peon != null && peon.Password == password && peon.Email == email)
+        if (usuario is Peon)
             {
                 // Autenticar al usuario (podrías usar ASP.NET Core Identity o implementar tu propio sistema)
                 // Aquí redirigir al usuario a la página correspondiente a su rol
                 //return RedirectToAction("Index", "Home");
-                ViewBag.ErrorMessage = "es peon";
+                return RedirectToAction("IniciarSesion", "ListarPeon");
             }
-            else if (capataz != null && capataz.Password == password && capataz.Email == email)
+            else if (usuario is Capataz) 
             {
                 //return RedirectToAction("Index", "Home");
-                ViewBag.ErrorMessage = "es capataz";
+                return RedirectToAction("Peon", "RegistrarPeon");
             }
             else 
             {
