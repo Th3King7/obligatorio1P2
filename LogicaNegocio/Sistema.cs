@@ -340,15 +340,43 @@ namespace LogicaNegocio
             return medicoBuscado;
         }*/
 
-        public object ObtenerUsuario(string mail, string password)
+
+        public Peon ObtenerPeon(string unEmail, string unPassword)
         {
-            foreach (Empleado empleado in _empleados)            
-            { 
-            
-            
+            Peon usuarioPeon = new Peon();
+            foreach (Peon peon in _empleados)
+            {
+                if (peon != null) {
+
+                    if (peon.Email == unEmail && peon.Password == unPassword)
+                    {
+                        usuarioPeon = peon;
+                        break;
+                    }
+                }
             }
+            return usuarioPeon;
+
         }
         
+        public Capataz ObtenerCapataz(string unEmail, string unPassword)
+        {
+            Capataz usuarioCapataz = new Capataz ();
+            foreach (Capataz capataz in _empleados)
+            {
+                if (capataz != null)
+                {
+
+                    if (capataz.Email == unEmail && capataz.Password == unPassword)
+                    {
+                        usuarioCapataz = capataz;
+                    }
+                }
+            }
+            return usuarioCapataz;
+
+        }
+
     }
 
 }

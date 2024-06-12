@@ -18,6 +18,10 @@ namespace LogicaNegocio
             _peonesACargo = cantPeonesCargo;
 
         }
+        public Capataz() : base("", "", "", DateTime.Now)
+        {
+            // Inicializa el peón con valores predeterminados si es necesario
+        }
         //validamos que al atributo _peonesACargo no sea menor a 0 
         public void ValidarDatos()
         {

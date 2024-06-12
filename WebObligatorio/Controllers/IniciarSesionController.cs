@@ -3,10 +3,10 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace WebObligatorio.Controllers
 {
-    private Sistema miSistema = Sistema.Instancia;
 
     public class IniciarSesionController : Controller
     {
+        private Sistema miSistema = Sistema.Instancia;
         public IActionResult Index()
         {
             return View();
@@ -15,6 +15,7 @@ namespace WebObligatorio.Controllers
         [HttpPost]
         public IActionResult IniciarSesion(string email, string password)
         {
+
             // Aquí debes validar las credenciales
             // Por ejemplo, podrías buscar el peón en tu sistema con el email proporcionado
             // Si el peón existe y la contraseña coincide, puedes autenticar al usuario y redirigirlo

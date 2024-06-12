@@ -1,5 +1,4 @@
 ﻿using LogicaNegocio.Interfaces;
-using System.ComponentModel.DataAnnotations;
 
 namespace LogicaNegocio
 {
@@ -43,6 +42,9 @@ namespace LogicaNegocio
         //validamos que al atributo _nombre su longitud de caracteres no sea menor a 0 
         //validamos que al atributo _fechaDeIngreso no sea posterior a la actual
 
+      //public abstract Object ObtenerUsuario();
+
+         
         public void ValidarDatos()
         {
             if (_email.Length < 0)
