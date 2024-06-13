@@ -6,6 +6,7 @@
 <h1>Lista Peones</h1>
 
 @if(ViewBag.Empleados!=null && ViewBag.Empleados.Count>0){
+    <a href="~/CerrarSecion/Logout">Cerrar sesión</a>
     <table>
         <thead>
             <th>Email</th>
@@ -25,8 +26,7 @@
                     
                 </tr>
             }
-
-        </tbody>
-
+            
+        </tbody> 
     </table>
 }

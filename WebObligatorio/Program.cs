@@ -9,6 +9,15 @@ namespace WebObligatorio
             // Add services to the container.
             builder.Services.AddControllersWithViews();
 
+            // Agregar servicios de sesión
+            builder.Services.AddDistributedMemoryCache();
+            builder.Services.AddSession(options =>
+            {
+                //options.IdleTimeout = TimeSpan.FromMinutes(30); // Configurar el tiempo de expiración de la sesión
+                options.Cookie.HttpOnly = true;
+                options.Cookie.IsEssential = true;
+            });
+
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
@@ -22,9 +31,16 @@ namespace WebObligatorio
 
             app.UseAuthorization();
 
+            app.UseSession(); // Habilito el uso de sesiones
+
             app.MapControllerRoute(
                 name: "default",
                 pattern: "{controller=IniciarSesion}/{action=IniciarSesion}/{id?}");
+
+            app.MapControllerRoute(
+                name: "logout",
+                pattern: "Logout/Logout",
+                defaults: new { controller = "Logout", action = "Logout" });
 
             app.Run();
         }
