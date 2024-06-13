@@ -12,18 +12,24 @@ namespace LogicaNegocio
         public string Email
         {
             get { return _email; }
+            set { _email = value; }
         }
         public string Password
         {
             get { return _password; }
+            set { _password = value; }
+
         }
         public string Nombre
         {
             get { return _nombre; }
+            set { _nombre = value; }
+
         }
         public DateTime FechaDeIngreso
         {
             get { return _fechaDeIngreso; }
+            set { _fechaDeIngreso =value ; }
         }
         //creamos el metodo constructor
         public Empleado(string email, string password, string nombre, DateTime fechaDeIngreso)
@@ -33,6 +39,7 @@ namespace LogicaNegocio
             _nombre = nombre;
             _fechaDeIngreso = fechaDeIngreso;
         }
+
         //validamos que el email del objeto recibido no sea igual al _email
         public bool Equals(Empleado? other)
         {
@@ -45,12 +52,9 @@ namespace LogicaNegocio
 
         public abstract bool ObtenerUsuario(string unEmail,string unPassword);
 
-      
-
-
         public void ValidarDatos()
         {
-            if (_email.Length < 0)
+            if (_email.Length < 8)
             {
                 throw new Exception("El correo debe ser un correo valido");
             }

@@ -26,17 +26,29 @@ namespace WebObligatorio.Controllers
         [HttpPost]
         public IActionResult RegistrarPeon(Peon peon)
         {
-            peon.ValidarDatos();
             try
             {
-                miSistema.AltaPeon(peon);
-                return RedirectToAction("Index", "IniciarSesion");
+                if (peon != null)
+                {
+                    peon.ValidarDatos();
+                    miSistema.AltaPeon(peon);
+                    TempData["Mensaje"] = "Alta peon exitosa";
+                    return RedirectToAction("IniciarSesion","IniciarSesion");
+                }
+                else
+                {
+                    ViewBag.Mensaje = "Peon invalido";
+                }
+
             }
             catch (Exception ex)
             {
-                ViewBag.ErrorMessage = $"Error al registrar peón: {ex.Message}";
-                return View(peon);
+                ViewBag.Mensaje = ex.Message;
+
             }
+            ViewBag.Mensaje = "Peon con datos nulos";
+            return View();
         }
     }
-}
+ }
+

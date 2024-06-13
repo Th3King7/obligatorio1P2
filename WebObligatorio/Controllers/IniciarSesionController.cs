@@ -26,13 +26,13 @@ namespace WebObligatorio.Controllers
             {
                 // Autenticar al usuario (podrías usar ASP.NET Core Identity o implementar tu propio sistema)
                 // Aquí redirigir al usuario a la página correspondiente a su rol
-                //return RedirectToAction("Index", "Home");
-                return RedirectToAction("IniciarSesion", "ListarPeon");
+               
+                return RedirectToAction("ListarPeon", "Peon");
             }
             else if (usuario is Capataz) 
             {
                 //return RedirectToAction("Index", "Home");
-                return RedirectToAction("Peon", "RegistrarPeon");
+                return RedirectToAction("RegistrarPeon", "Peon");
             }
             else 
             {

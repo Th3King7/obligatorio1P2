@@ -25,11 +25,11 @@ namespace LogicaNegocio
             precargarTareas();
         }
 
-        public Peon() : base("", "", "", DateTime.Now)
+        public Peon()
+            : base("", "", "", DateTime.Now)
         {
-            // Inicializa el peón con valores predeterminados si es necesario
-        }
 
+        }
 
         //precargamos tareas
         private void precargarTareas()
@@ -90,7 +90,7 @@ namespace LogicaNegocio
         public override bool ObtenerUsuario(string unEmail, string unPassword)
         {
             bool peonEncontrado = false;
-         if (  unEmail== Email&& unPassword == Password)
+         if (  unEmail== Email && unPassword == Password)
             {
                 peonEncontrado = true;
             }
