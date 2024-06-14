@@ -8,6 +8,7 @@ namespace WebObligatorio
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
+            builder.Services.AddSession();
 
             // Agregar servicios de sesión
             builder.Services.AddDistributedMemoryCache();

@@ -7,7 +7,7 @@ namespace WebObligatorio.Controllers
     public class IniciarSesionController : Controller
     {
         private Sistema miSistema = Sistema.Instancia;
-        public IActionResult IniciarSesion()
+        public IActionResult Login()
         {
             return View();
         }
@@ -20,27 +20,37 @@ namespace WebObligatorio.Controllers
             // Por ejemplo, podrías buscar el peón en tu sistema con el email proporcionado
             // Si el peón existe y la contraseña coincide, puedes autenticar al usuario y redirigirlo
             //Empleado empleado = miSistema.ObtenerUsuario(email, password);
-         object usuario = miSistema.IniciarSesion(email, password);
 
-        if (usuario is Peon)
-            {
-                // Autenticar al usuario (podrías usar ASP.NET Core Identity o implementar tu propio sistema)
-                // Aquí redirigir al usuario a la página correspondiente a su rol
-               
-                return RedirectToAction("MenuPeon", "Peon");
 
-            }
-            else if (usuario is Capataz) 
+            if (!string.IsNullOrEmpty(email) && !string.IsNullOrEmpty(password))
             {
-                //return RedirectToAction("Index", "Home");
-                return RedirectToAction("MenuCapataz", "Capataz");
+                object usuario = miSistema.IniciarSesion(email, password);
+                if (usuario != null)
+                {
+                    if (usuario is Peon)
+                    {
+                        // Autenticar al usuario (podrías usar ASP.NET Core Identity o implementar tu propio sistema)
+                        // Aquí redirigir al usuario a la página correspondiente a su rol
+                        HttpContext.Session.SetString("rol", "Peon");
+
+                        return RedirectToAction("MenuPeon", "Peon");
+
+                    }
+                    else if (usuario is Capataz)
+                    {
+                        //return RedirectToAction("Index", "Home");
+                        HttpContext.Session.SetString("rol", "Capataz");
+
+                        return RedirectToAction("MenuCapataz", "Capataz");
+                    }
+                    else
+                    {
+                        // Si las credenciales son inválidas, mostrar un mensaje de error
+                        ViewBag.ErrorMessage = "Credenciales inválidas";
+                    }
+                }
             }
-            else 
-            {
-                // Si las credenciales son inválidas, mostrar un mensaje de error
-                ViewBag.ErrorMessage = "Credenciales inválidas";                
-            }
-            return View();
+            return View("Login");
         }
     }
 }
