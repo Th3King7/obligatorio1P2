@@ -7,9 +7,10 @@ namespace WebObligatorio.Controllers
     {
         private Sistema miSistema = Sistema.Instancia;
 
-        public IActionResult ListaPeones()
+       
+        public IActionResult MenuPeon()
         {
-            ViewBag.Empleados = miSistema.EmpleadosPeones();
+
             return View();
         }
         public IActionResult TareasCompletadas() {

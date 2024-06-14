@@ -5,13 +5,13 @@
 
 <h1>Lista Peones</h1>
 
-@if(ViewBag.Empleados!=null && ViewBag.Empleados.Count>0){
-    <a href="~/CerrarSecion/Logout">Cerrar sesión</a>
+@if (ViewBag.Empleados != null && ViewBag.Empleados.Count > 0)
+{
     <table>
         <thead>
-            <th>Email</th>
-            <th>Password</th>
-            <th>Nombre</th>
+        <th>Email</th>
+        <th>Password</th>
+        <th>Nombre</th>
         <th>Fecha de ingreso</th>
         <th>Tareas</th>
         </thead>
@@ -23,10 +23,14 @@
                     <td>@peon.Password</td>
                     <td>@peon.Nombre</td>
                     <td>@peon.FechaDeIngreso</td>
-                    
+                    <td><a href="~/Peon/TareasCompletadas">Tarea de @peon.Nombre</a></td>
+
                 </tr>
             }
-            
-        </tbody> 
+
+        </tbody>
     </table>
 }
+
+
+

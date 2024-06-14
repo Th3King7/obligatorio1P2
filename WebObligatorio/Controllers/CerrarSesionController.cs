@@ -2,7 +2,7 @@
 
 namespace WebObligatorio.Controllers
 {
-    public class CerrarSecionController : Controller
+    public class CerrarSesionController : Controller
     {
         /*/ Mostrar la vista de inicio de sesión
         public IActionResult IniciarSesion()
