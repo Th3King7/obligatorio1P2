@@ -17,6 +17,43 @@ namespace LogicaNegocio
         public string IdCaravana
         {
             get { return _idCaravana; }
+            set { _idCaravana = value; }
+        }
+        public string Sexo
+        {
+            get { return _sexo; }
+            set { _sexo = value; }
+
+        }
+        public string Raza
+        {
+            get { return _raza; }
+            set { _raza = value; }
+        }
+        public DateTime FechaNacimiento
+        {
+            get { return _fechaNacimiento; }
+            set { _fechaNacimiento = value; }
+        }
+        public decimal PrecioCompra
+        {
+            get { return _precioCompra; }
+            set { _precioCompra = value; }
+        }
+        public decimal CostoAlimentacion
+        {
+            get { return _costoAlimentacion; }
+            set { _costoAlimentacion = value; }
+        }
+        public decimal PesoActual
+        {
+            get { return _pesoActual; }
+            set { _pesoActual = value; }
+        }
+        public bool Hibrido
+        {
+            get { return _hibrido; }
+            set { _hibrido = value; }
         }
         //creamos el metodo constructor
         public Ganado(string idCaravana, string sexo, string raza, DateTime fechaNacimiento, decimal precioCompra, decimal costoAlimentacion, decimal pesoActual, bool hibrido)

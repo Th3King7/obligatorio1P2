@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace WebObligatorio.Controllers
 {
 
-    public class IniciarSesionController : Controller
+    public class UsuarioController : Controller
     {
         private Sistema miSistema = Sistema.Instancia;
         public IActionResult Login()
@@ -52,5 +52,13 @@ namespace WebObligatorio.Controllers
             }
             return View("Login");
         }
+        public IActionResult Logout()
+        {
+            HttpContext.Session.Clear();
+
+            // Redirigir a la página de inicio de sesión
+            return RedirectToAction("Login", "Usuario");
+        }
     }
 }
+

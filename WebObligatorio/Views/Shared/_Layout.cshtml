@@ -1,4 +1,4 @@
-﻿@using LogicaNegocio;
+﻿@using Microsoft.AspNetCore.Http;
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,31 +13,36 @@
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="IniciarSesion" asp-action="IniciarSesion">Inicio</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
+                @if (Context.Session.GetString("rol") == null)
+                {
+                    <a class="navbar-brand" asp-area="" asp-controller="Usuario" asp-action="Login">Inicio</a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                }
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
+                       
+    
                         @if (Context.Session.GetString("rol") != null && Context.Session.GetString("rol").Equals("Peon"))
                         {
                             <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="CerrarSesion" asp-action="Logout">Cerrar sesion </a>
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Usuario" asp-action="Logout">Cerrar sesion </a>
                             </li>
                         }
                         @if (Context.Session.GetString("rol") != null && Context.Session.GetString("rol").Equals("Capataz"))
                         {
                             <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="CerrarSesion" asp-action="Logout">Cerrar sesion </a>
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Capataz" asp-action="RegistrarBovino">Registrar bovino </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Usuario" asp-action="Logout">Cerrar sesion </a>
                             </li>
                         }
                     </ul>
                 </div>
-                }
-                
-                    
-                }
+              
             </div>
         </nav>
     </header>

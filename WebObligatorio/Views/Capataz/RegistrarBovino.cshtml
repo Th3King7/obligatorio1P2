@@ -1,0 +1,40 @@
+﻿
+@{
+    ViewData["Title"] = "RegistrarBovino";
+}
+
+<h1>Registrar Bovino</h1>
+
+<form method="post">
+    <label>Id de caravana:</label>
+    <input type="text" name="IdCaravana" />
+    <br />
+    <label>Sexo:</label>
+    <input type="text" name="Sexo" />
+    <br />
+    <label>Raza:</label>
+    <input type="text" name="Raza" />
+    <br />
+    <label>Fecha de nacimiento</label>
+    <input type="DateTime" name="FechaNacimiento" />
+    <br />
+    <label>Precio de compra:</label>
+    <input type="number" name="PrecioCompra" />
+    <br />
+    <label>Costo de alimentacion:</label>
+    <input type="number" name="CostoAlimentacion" />
+    <br /><label>Peso actual:</label>
+    <input type="number" name="PesoActual" />
+    <br />
+    <br /><label>Hibrido</label>
+    <input type="text" name="Hibrido" />
+    <br />
+    <br /><label>Tipo alimentacion:</label>
+    <input type="text" name="TipoAlimentacion" />
+    <br />
+   
+    <input type="submit" value="RegistrarBovino" />
+
+</form>
+@ViewBag.Mensaje
+

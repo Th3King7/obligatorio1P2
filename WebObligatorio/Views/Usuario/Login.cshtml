@@ -1,11 +1,12 @@
-﻿@using LogicaNegocio;
+﻿
+@using LogicaNegocio;
 @{
-    ViewData["Title"] = "IniciarSesion";
+    ViewData["Title"] = "Login";
 }
 
 <h1>IniciarSesion</h1>
 
-<form method="post" action="~/IniciarSesion/IniciarSesion">
+<form method="post" action="~/Usuario/IniciarSesion">
     <label>Email</label>
     <input type="text" name="Email" />
     <br />
@@ -16,3 +17,4 @@
     <br />
     <a href="~/Peon/RegistrarPeon">Registrarse</a>
 </form>
+

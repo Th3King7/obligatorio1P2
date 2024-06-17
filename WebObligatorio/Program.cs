@@ -36,7 +36,7 @@ namespace WebObligatorio
 
             app.MapControllerRoute(
                 name: "default",
-                pattern: "{controller=IniciarSesion}/{action=IniciarSesion}/{id?}");
+                pattern: "{controller=Usuario}/{action=Login}/{id?}");
 
             app.MapControllerRoute(
                 name: "logout",

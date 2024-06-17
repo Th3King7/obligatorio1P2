@@ -17,6 +17,9 @@ namespace LogicaNegocio
         {
             _tipoAlimentacion = tipoAlimentacion;
         }
+        public Bovino():
+base("", "", "", DateTime.Now,0,0,0,false)        {
+        }
         //validamos que al atributo _tipoAlimentacion sea Grano o Pasto
         public void ValidarDatos()
         {
