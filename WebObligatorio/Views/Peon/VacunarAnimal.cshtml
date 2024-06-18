@@ -1,0 +1,55 @@
+﻿@using LogicaNegocio;
+@{
+    ViewData["Title"] = "VacunarAnimal";
+}
+
+<h1>Vacunar Animal</h1>
+
+<form method="post">
+<h6>Seleccione animal:</h6>
+<br />
+    <label>Fecha de vacunacion:</label>
+    <input type="text" name="FechaDeVacunacion" />
+    <br />
+    <label>Fecha de vencimiento vacuna:</label>
+    <input type="text" name="FechaDeVencimiento" />
+    <br />
+@if (ViewBag.Animales != null && ViewBag.Animales.Count > 0)
+{
+    <select name="animal">
+        
+    @foreach (Ganado ganado in ViewBag.Animales)
+    {
+        if( ganado is Bovino)
+        {
+            <option value="@ganado.IdCaravana">@ganado.IdCaravana,@ganado.Raza,bovino</option>
+        }
+        else  if (ganado is Ovino)
+        {
+                <option value="@ganado.IdCaravana">@ganado.IdCaravana,@ganado.Raza,ovino</option>
+        }
+    }
+</select>
+}
+
+<br />
+
+<h6>Seleccione vacuna para dar al animal:</h6>
+
+@if (ViewBag.Vacunas != null && ViewBag.Vacunas.Count > 0)
+{
+    <select name="Vacuna">
+
+    @foreach (Vacuna vacuna in ViewBag.Vacunas)
+    {
+        <option value="@vacuna.Nombre">@vacuna.Nombre,@vacuna.Proteccion</option>
+    }
+</select>
+    
+}
+<br />
+
+   
+<input type="submit" value="VacunarAnimal" />
+
+</form>

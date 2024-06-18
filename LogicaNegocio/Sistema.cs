@@ -1,4 +1,6 @@
-﻿namespace LogicaNegocio
+﻿using System.Diagnostics.Contracts;
+
+namespace LogicaNegocio
 {
     public class Sistema
     {
@@ -32,6 +34,10 @@
         public List<Empleado> Empleados
         {
             get { return _empleados; }
+        }
+        public List<Vacuna> Vacunas
+        {
+            get { return _vacunas; }
         }
 
         private Sistema()
@@ -261,13 +267,33 @@
         }
         //agregamos los vacunaciones a los animales tipo Ganado 
 
-        public void AgregarVacunacionAnimal(Ganado nuevoAnimal, Vacunado vacunado)
+     public void AltaVacunacionAnimal(Ganado animal, Vacunado nuevaVacunacion)
+{
+    // Buscar el animal por su identificador
+    
+
+    if (animal != null)
+    {
+        // Verificar el tipo de animal y agregar la vacunación adecuada
+        if (animal is Bovino bovino)
         {
-            if (nuevoAnimal != null)
-            {
-                nuevoAnimal.AltaVacunado(vacunado);
-            }
+            bovino.AltaVacunado(nuevaVacunacion);
         }
+        else if (animal is Ovino ovino)
+        {
+            ovino.AltaVacunado(nuevaVacunacion);
+        }
+        else
+        {
+            throw new Exception("El animal no es de tipo Bovino ni de tipo Ovino");
+        }
+    }
+    else
+    {
+        throw new Exception("No se encontró ningún animal con el identificador especificado");
+    }
+}
+
 
         //modifica el precio de Lana
         public void EstablecerPrecioLanaOvinos(decimal precioLana)
@@ -339,6 +365,8 @@
         }*/
 
 
+
+
         public Peon ObtenerPeon(string unEmail, string unPassword)
         {
             Peon usuarioPeon = new Peon();
@@ -385,7 +413,7 @@
                 {
                     Peon peon = (Peon)empleado;
 
-                    if (peon.ObtenerUsuario(email, contra)== true)
+                    if (peon.ObtenerUsuario(email, contra) == true)
                     {
                         usuario = peon;
                     }
@@ -404,9 +432,40 @@
             return usuario;
         }
 
-       
-    }
 
+        public Ganado BuscarAnimal(string idAnimal)
+        {
+            foreach (Ganado animal in _animales)
+            {
+                if (animal is Bovino bovino && bovino.ObtenerAnimal(idAnimal))
+                {
+                    return bovino;
+                }
+                else if (animal is Ovino ovino && ovino.ObtenerAnimal(idAnimal))
+                {
+                    return ovino;
+                }
+            }
+            return null; // Si no se encuentra ningún animal con el idAnimal especificado
+        }
+
+        public Vacuna BuscarVacuna(string nombreVacuna)
+        {
+            Vacuna VacunaBuscada = null;
+            int i = 0;
+            while (i < _vacunas.Count && VacunaBuscada == null)
+            {
+                if (_vacunas[i].Nombre == nombreVacuna)
+                {
+                    VacunaBuscada = _vacunas[i];
+                }
+                i++;
+            }
+            return VacunaBuscada;
+
+        }
+
+    }
 }
 
 

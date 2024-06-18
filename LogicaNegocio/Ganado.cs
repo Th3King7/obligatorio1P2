@@ -184,6 +184,11 @@ namespace LogicaNegocio
             }
         }
 
+        public abstract bool ObtenerAnimal(string idCaravana);
+
+
+
+
         //modificamos el metodo ToString de Object para que muestre lo siguiente
         public override string ToString()
         {

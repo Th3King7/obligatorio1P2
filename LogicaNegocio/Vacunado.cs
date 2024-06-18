@@ -14,6 +14,25 @@ namespace LogicaNegocio
             _fechaDeVacunacion = fechaDeVacunacion;
             _fechaDeVencimiento = fechaDeVencimiento;
         }
+        public Vacunado()
+        {
+            
+        }
+        public Vacuna TipoVacuna
+        {
+            get { return _tipoVacuna; }
+            set { _tipoVacuna = value; }
+        }
+        public DateTime FechaDeVacunacion
+        {
+            get { return _fechaDeVacunacion; }
+            set { _fechaDeVacunacion = value; }
+        }
+        public DateTime FechaDeVencimiento
+        {
+            get { return _fechaDeVencimiento; }
+            set { _fechaDeVencimiento = value; }
+        }
         //validamos que al atributo _fechaDeVacunacion no sea posterior a la actual
         //validamos que al atributo _fechaDeVencimiento no sea inferior a _fechaDeVacunacion
         public void ValidarDatos()

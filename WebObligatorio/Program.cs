@@ -14,7 +14,7 @@ namespace WebObligatorio
             builder.Services.AddDistributedMemoryCache();
             builder.Services.AddSession(options =>
             {
-                //options.IdleTimeout = TimeSpan.FromMinutes(30); // Configurar el tiempo de expiración de la sesión
+                options.IdleTimeout = TimeSpan.FromMinutes(20); // Configurar el tiempo de expiración de la sesión
                 options.Cookie.HttpOnly = true;
                 options.Cookie.IsEssential = true;
             });

@@ -1,13 +1,8 @@
 ﻿using LogicaNegocio.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace LogicaNegocio
 {
-    public class Bovino:Ganado , IValidable
+    public class Bovino : Ganado, IValidable
     {
         private string _tipoAlimentacion;
         private static decimal s_precioKgBovino;
@@ -17,18 +12,33 @@ namespace LogicaNegocio
         {
             _tipoAlimentacion = tipoAlimentacion;
         }
-        public Bovino():
-base("", "", "", DateTime.Now,0,0,0,false)        {
+        public Bovino() :
+base("", "", "", DateTime.Now, 0, 0, 0, false)
+        {
         }
         //validamos que al atributo _tipoAlimentacion sea Grano o Pasto
         public void ValidarDatos()
         {
             base.ValidarDatos();
-            if(_tipoAlimentacion != "Granos" && _tipoAlimentacion != "Pasto")
+            if (_tipoAlimentacion != "Granos" && _tipoAlimentacion != "Pasto")
             {
                 throw new Exception("la alimentacion del bovino debe ser en Pasto o Granos ");
 
             }
         }
+        public override bool ObtenerAnimal(string idAnimal)
+        {
+            bool bovinoEnconrado = false;
+            if (idAnimal == IdCaravana)
+            {
+                bovinoEnconrado = true;
+            }
+            return bovinoEnconrado;
+        }
+
+        
+      
+
+
     }
 }

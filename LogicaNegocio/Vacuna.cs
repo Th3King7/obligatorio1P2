@@ -14,10 +14,18 @@ namespace LogicaNegocio
             _descripcion = descripcion;
             _proteccionDe = proteccionDe;
         }
+        public string Nombre
+        {
+            get { return _nombre; }
+        }
+        public string Proteccion
+        {
+            get { return _proteccionDe; }
+        }
         //validamos que al atributo _nombre su longitud de caracteres no sea menor a 3 
         //validamos que al atributo _descripcion su longitud de caracteres no sea menor a 3
         //validamos que al atributo _proteccionDe su longitud de caracteres no sea menor a 3
-     
+
         public void ValidarDatos()
         {
             if(_nombre.Length < 3)
