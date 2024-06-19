@@ -110,6 +110,28 @@ namespace WebObligatorio.Controllers
             ViewBag.Empleados = miSistema.EmpleadosPeones();
             return View();
         }
+
+        public IActionResult AsignarTarea()
+        {
+            ViewBag.Peones = miSistema.EmpleadosPeones();
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult AsignarTarea(string emailPeon, string descripcion, DateTime fechaInicio, DateTime fechaCierre)
+        {
+            try
+            {
+                miSistema.AsignarTareaAPeon(emailPeon, new Tarea(descripcion, fechaInicio, fechaCierre, false,"..."));
+                ViewBag.Mensaje = "Tarea asignada correctamente";
+            }
+            catch (Exception ex)
+            {
+                ViewBag.Mensaje = ex.Message;
+            }
+            ViewBag.Peones = miSistema.EmpleadosPeones();
+            return View();
+        }
         public IActionResult ListadoDePotreros()
         {
             ViewBag.Potreros = miSistema.Potreros;

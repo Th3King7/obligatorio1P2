@@ -18,12 +18,19 @@ namespace WebObligatorio.Controllers
             return View();
         }
 
-        public IActionResult TareasCompletadas()
+        public IActionResult TareasIncompletas()
         {
-            ViewBag.Tareas = miSistema.ListadoTareasPeones();
+            string usuarioLogueado = HttpContext.Session.GetString("correo");
+            ViewBag.Tareas = miSistema.ListadoTareasIncompletasPeon(usuarioLogueado);
             return View();
         }
+        public IActionResult Tareas(string email)
+        {
 
+            ViewBag.Tareas = miSistema.ListadoTareasPeones(email);
+
+            return View();
+        }
         public IActionResult RegistrarPeon()
         {
 
@@ -108,7 +115,7 @@ namespace WebObligatorio.Controllers
 
             }
             ViewBag.Mensaje = "Peon con datos nulos";
-            return View();
+            return View("VacunarAnimal");
         }
 
     }

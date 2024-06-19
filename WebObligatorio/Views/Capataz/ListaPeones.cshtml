@@ -26,7 +26,7 @@
                     <td>@peon.FechaDeIngreso</td>
                     <td>@peon.ResideEstancia</td>
 
-                    <td><a href="~/Peon/TareasCompletadas">Tarea de @peon.Nombre</a></td>
+                    <td><a href="@Url.Action("Tareas", "Peon", new { email = peon.Email })">Tarea de @peon.Nombre</a></td>
 
                 </tr>
             }

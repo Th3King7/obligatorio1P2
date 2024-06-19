@@ -1,6 +1,4 @@
-﻿using System.Diagnostics.Contracts;
-
-namespace LogicaNegocio
+﻿namespace LogicaNegocio
 {
     public class Sistema
     {
@@ -265,32 +263,32 @@ namespace LogicaNegocio
         }
         //agregamos los vacunaciones a los animales tipo Ganado 
 
-     public void AltaVacunacionAnimal(Ganado animal, Vacunado nuevaVacunacion)
-{
-    // Buscar el animal por su identificador
-    
+        public void AltaVacunacionAnimal(Ganado animal, Vacunado nuevaVacunacion)
+        {
+            // Buscar el animal por su identificador
 
-    if (animal != null)
-    {
-        // Verificar el tipo de animal y agregar la vacunación adecuada
-        if (animal is Bovino bovino)
-        {
-            bovino.AltaVacunado(nuevaVacunacion);
+
+            if (animal != null)
+            {
+                // Verificar el tipo de animal y agregar la vacunación adecuada
+                if (animal is Bovino bovino)
+                {
+                    bovino.AltaVacunado(nuevaVacunacion);
+                }
+                else if (animal is Ovino ovino)
+                {
+                    ovino.AltaVacunado(nuevaVacunacion);
+                }
+                else
+                {
+                    throw new Exception("El animal no es de tipo Bovino ni de tipo Ovino");
+                }
+            }
+            else
+            {
+                throw new Exception("No se encontró ningún animal con el identificador especificado");
+            }
         }
-        else if (animal is Ovino ovino)
-        {
-            ovino.AltaVacunado(nuevaVacunacion);
-        }
-        else
-        {
-            throw new Exception("El animal no es de tipo Bovino ni de tipo Ovino");
-        }
-    }
-    else
-    {
-        throw new Exception("No se encontró ningún animal con el identificador especificado");
-    }
-}
 
 
         //modifica el precio de Lana
@@ -319,28 +317,20 @@ namespace LogicaNegocio
             return empleadosTipoPeon;
         }
 
-        public List<Tarea> ListadoTareasPeones()
+        public List<Tarea> ListadoTareasPeones(string email)
         {
-            List<Tarea> Tarea = new List<Tarea>();
-            List<Tarea> listadoTareas = new List<Tarea>();
-            List<Peon> empleadosPeon = EmpleadosPeones();
+            Peon usuarioSeleccioonado = ObtenerPeon(email);
 
-            foreach (Peon peon in empleadosPeon)
-            {
-                if (peon != null)
-                {
-                    Tarea = peon.ObtenerTareasCompletadas();
-                    foreach (Tarea tarea in Tarea)
-                    {
-                        listadoTareas.Add(tarea);
-                    }
-                }
-
-            }
-            return listadoTareas;
+            return usuarioSeleccioonado.ObtenerTareas();
         }
 
+        public List<Tarea> ListadoTareasIncompletasPeon(string emailPeon)
+        {
+            Peon usuarioLogueado = ObtenerPeon(emailPeon);
 
+            return usuarioLogueado.ObtenerTareasIncompletas();
+
+        }
         public List<Potrero> PotrerosOrdenados()
         {
             _potreros.Sort();
@@ -373,7 +363,7 @@ namespace LogicaNegocio
                 if (empleado is Peon)
                 {
                     Peon peon = (Peon)empleado;
-                    if (peon.Email == unEmail )
+                    if (peon.Email == unEmail)
                     {
                         usuarioPeon = peon;
                         break;
@@ -400,6 +390,18 @@ namespace LogicaNegocio
             }
             return usuarioCapataz;
 
+        }
+        public void AsignarTareaAPeon(string emailPeon, Tarea tarea)
+        {
+            Peon peon = ObtenerPeon(emailPeon);
+            if (peon != null)
+            {
+                peon.AltaTarea(tarea);
+            }
+            else
+            {
+                throw new Exception("Peón no encontrado.");
+            }
         }
 
         public object IniciarSesion(string email, string contra)

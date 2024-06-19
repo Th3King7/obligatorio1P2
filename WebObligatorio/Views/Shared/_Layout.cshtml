@@ -28,7 +28,7 @@
                         @if (Context.Session.GetString("rol") != null && Context.Session.GetString("rol").Equals("Peon"))
                         {
                             <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Peon" asp-action="TareasCompletadas">Tareas </a>
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Peon" asp-action="TareasIncompletas">Tareas </a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link text-dark" asp-area="" asp-controller="Peon" asp-action="VacunarAnimal">Vacunar animal </a>
@@ -51,6 +51,9 @@
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link text-dark" asp-area="" asp-controller="Capataz" asp-action="ListaPeones">Lista peones </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Capataz" asp-action="AsignarTarea">Asignar tarea a peones </a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link text-dark" asp-area="" asp-controller="Capataz" asp-action="ListadoDePotreros">Lista potreros </a>

@@ -1,0 +1,32 @@
+﻿@using LogicaNegocio;
+
+@{
+    ViewData["Title"] = "AsignarTarea";
+}
+
+
+<h1>Asignar Tarea</h1>
+
+<form method="post" action="/Capataz/AsignarTarea">
+
+    <label>Peón:</label>
+    <select name="emailPeon">
+        @foreach (Peon peon in ViewBag.Peones)
+        {
+            <option value="@peon.Email">@peon.Nombre</option>
+        }
+    </select>
+
+    <label>Descripción:</label>
+    <input type="text" name="Descripcion" required />
+
+    <label>Fecha de Inicio:</label>
+    <input type="date" name="FechaInicio" required />
+
+    <label>Fecha de Fin:</label>
+    <input type="date" name="FechaCierre" required />
+
+
+    <button type="submit" value="AsignarTarea">AsignarTarea</button>
+</form>
+<p>@ViewBag.Mensaje</p>
