@@ -161,8 +161,6 @@ namespace LogicaNegocio
 
         }
 
-
-
         public void AltaPeon(Peon nuevoPeon)
         {
             //Validar datos de el nuevo peon
@@ -464,6 +462,38 @@ namespace LogicaNegocio
             return VacunaBuscada;
 
         }
+        public Potrero BuscarPotrero(int idPotrero)
+        {
+            Potrero PotreroBuscado = null;
+            int i = 0;
+            while (i < _potreros.Count && PotreroBuscado == null)
+            {
+                if (_potreros[i].Id == idPotrero)
+                {
+                    PotreroBuscado = _potreros[i];
+                }
+                i++;
+            }
+            return PotreroBuscado;
+
+        }
+
+        public bool AnimalLibre(string idCaravana)
+        {
+            foreach (Potrero potrero in _potreros)
+            {
+                foreach (Ganado ganado in potrero.Animales)
+                {
+                    // Verificamos si el ganado es Bovino u Ovino y luego comparamos el IdCaravana
+                    if ((ganado is Bovino || ganado is Ovino) && ganado.IdCaravana == idCaravana)
+                    {
+                        return false; // El animal ya está en algún potrero
+                    }
+                }
+            }
+            return true; // El animal no está asignado a ningún potrero
+        }
+
 
     }
 }

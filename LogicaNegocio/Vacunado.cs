@@ -16,7 +16,7 @@ namespace LogicaNegocio
         }
         public Vacunado()
         {
-            
+
         }
         public Vacuna TipoVacuna
         {
@@ -39,12 +39,17 @@ namespace LogicaNegocio
         {
             if (_fechaDeVacunacion > DateTime.Now)
             {
-                throw new Exception("La fecha de vacunacion no puede ser mayor actual.");
+                throw new Exception("La fecha de vacunación no puede ser posterior a la fecha actual.");
             }
-            if (_fechaDeVencimiento < _fechaDeVacunacion)
+
+            // Calculamos la fecha de vencimiento esperada (1 año después de la vacunación)
+            DateTime fechaVencimientoEsperada = _fechaDeVacunacion.AddYears(1);
+
+            if (_fechaDeVencimiento < fechaVencimientoEsperada)
             {
-                throw new Exception("La fecha de vencimiento no puede ser menor a la de vacunacion.");
+                throw new Exception("La fecha de vencimiento no puede ser menor a 1 año después de la fecha de vacunación.");
             }
         }
+
     }
 }

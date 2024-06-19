@@ -66,17 +66,30 @@ namespace LogicaNegocio
             // Validar datos del ganado
             nuevoGanado.ValidarDatos();
 
-            // Verificar existencia
-            if (!_animales.Contains(nuevoGanado))
+            if (!Sistema.Instancia.AnimalLibre(nuevoGanado.IdCaravana))
             {
-                // Agregarlo a la lista 
-                _animales.Add(nuevoGanado);
+                throw new Exception("El animal no es libre ya está asignado a un potrero.");
+            }
+
+            // Verificar espacio en el potrero
+            if (_animales.Count < _capacidadMaxima)
+            {
+                if (!_animales.Contains(nuevoGanado))
+                {
+                    // Agregarlo a la lista 
+                    _animales.Add(nuevoGanado);
+                }
+                else
+                {
+                    throw new Exception("El ganado ya existe en el potrero.");
+                }
             }
             else
             {
-                throw new Exception("El ganado ya existe en el potrero.");
+                throw new Exception("No hay espacio suficiente en el potrero para más ganado.");
             }
         }
+
         //modificamos el metodo ToString de Object para que muestre lo siguiente
         public override string ToString()
         {

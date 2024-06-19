@@ -4,7 +4,7 @@
     ViewData["Title"] = "ListadoDePotreros";
 }
 
-<h1>ListadoDePotreros</h1>
+<h1>Listado De Potreros</h1>
 
 @if (ViewBag.Potreros != null && ViewBag.Potreros.Count > 0)
 {
@@ -22,7 +22,7 @@
                     <td>@potrero.Id</td>
                     <td>@potrero.Descripcion</td>
                     <td>@potrero.Animales.Count</td>
-                    
+
                 </tr>
             }
 
@@ -33,3 +33,5 @@ else
 {
     <span>No hay potreros</span>
 }
+
+

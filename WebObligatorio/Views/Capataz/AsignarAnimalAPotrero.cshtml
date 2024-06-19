@@ -1,0 +1,51 @@
+﻿@using LogicaNegocio;
+@{
+    ViewData["Title"] = "AsignarAnimalAPotrero";
+}
+
+<h1>AsignarAnimalAPotrero</h1>
+
+<h1> Asignar Animal A Potrero</h1>
+<form method="post" action="AsignarAnimalAPotrero">
+
+    <h6>Seleccione animal libre  para asignar al potrero:</h6>
+
+    @if (ViewBag.Animales != null && ViewBag.Animales.Count > 0)
+    {
+        <select name="idAnimal">
+
+            @foreach (Ganado ganado in ViewBag.Animales)
+            {
+                if (Sistema.Instancia.AnimalLibre(ganado.IdCaravana) == true)
+                {
+                    if (ganado is Bovino)
+                    {
+                        <option value="@ganado.IdCaravana">@ganado.IdCaravana,@ganado.Raza,bovino</option>
+                    }
+                    else if (ganado is Ovino)
+                    {
+                        <option value="@ganado.IdCaravana">@ganado.IdCaravana,@ganado.Raza,ovino</option>
+                    }
+                }
+            }
+        </select>
+    }
+
+    <h6>Seleccione potrero para asignar al animal:</h6>
+
+    @if (ViewBag.Potreros != null && ViewBag.Potreros.Count > 0)
+    {
+        <select name="idPotrero">
+
+            @foreach (Potrero potrero in ViewBag.Potreros)
+            {
+                <option value="@potrero.Id">Nombre:@potrero.Descripcion,Capacidad de potrero:@potrero.CapacidadMaxima</option>
+            }
+        </select>
+
+    }
+
+    <input type="submit" value="AsignarAnimalAPotrero" />
+
+</form>
+@ViewBag.Mensaje

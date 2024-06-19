@@ -14,13 +14,24 @@ namespace LogicaNegocio
             _descripcion = descripcion;
             _proteccionDe = proteccionDe;
         }
+        public Vacuna()
+        {
+            
+        }
         public string Nombre
         {
             get { return _nombre; }
+            set { _nombre = value; }
+        }
+         public string Descripcion
+        {
+            get { return _descripcion; }
+            set { _descripcion = value; }
         }
         public string Proteccion
         {
             get { return _proteccionDe; }
+            set { _proteccionDe = value; }
         }
         //validamos que al atributo _nombre su longitud de caracteres no sea menor a 3 
         //validamos que al atributo _descripcion su longitud de caracteres no sea menor a 3

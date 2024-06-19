@@ -1,7 +1,5 @@
 ﻿using LogicaNegocio;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.VisualStudio.Web.CodeGenerators.Mvc.Templates.BlazorIdentity.Pages.Manage;
 
 namespace WebObligatorio.Controllers
 {
@@ -13,9 +11,9 @@ namespace WebObligatorio.Controllers
 
         public IActionResult DatosPersonales()
         {
-            ViewBag.Empleados = miSistema.Empleados; 
+            ViewBag.Empleados = miSistema.Empleados;
             string usuarioLogueado = HttpContext.Session.GetString("correo");
-            ViewBag.Peon = miSistema.ObtenerPeon(usuarioLogueado); 
+            ViewBag.Peon = miSistema.ObtenerPeon(usuarioLogueado);
 
             return View();
         }
@@ -67,13 +65,14 @@ namespace WebObligatorio.Controllers
         }
         [HttpPost]
 
-        public IActionResult VacunarAnimal(DateTime fechaVacunacion, DateTime fechaVencimiento, string idAnimal, string nombreVacuna)
+        public IActionResult VacunarAnimal(DateTime fechaDeVacunacion, DateTime fechaDeVencimiento, string idAnimal, string nombreVacuna)
+
         {
 
             try
             {
 
-                if (fechaVacunacion != null && fechaVencimiento != null && idAnimal != null && nombreVacuna != null)
+                if (fechaDeVacunacion != null && fechaDeVencimiento != null && idAnimal != null && nombreVacuna != null)
                 {
                     Vacuna vacunaBuscada = miSistema.BuscarVacuna(nombreVacuna);
                     Ganado animalBuscado = miSistema.BuscarAnimal(idAnimal);
@@ -83,26 +82,24 @@ namespace WebObligatorio.Controllers
 
                         if (animalBuscado is Bovino bovino)
                         {
-                            miSistema.AltaVacunacionAnimal(bovino, new Vacunado(vacunaBuscada, fechaVacunacion, fechaVencimiento));
+                            miSistema.AltaVacunacionAnimal(bovino, new Vacunado(vacunaBuscada, fechaDeVacunacion, fechaDeVencimiento));
                             TempData["Mensaje"] = "Alta vacunacion bovino exitosa";
-                            return RedirectToAction("Peon", "VacunarAnimal");
                         }
                         else if (animalBuscado is Ovino ovino)
 
                         {
-                            miSistema.AltaVacunacionAnimal(ovino, new Vacunado(vacunaBuscada, fechaVacunacion, fechaVencimiento));
+                            miSistema.AltaVacunacionAnimal(ovino, new Vacunado(vacunaBuscada, fechaDeVacunacion, fechaDeVencimiento));
                             TempData["Mensaje"] = "Alta vacunacion ovino exitosa";
-                            return RedirectToAction("Peon", "VacunarAnimal");
 
                         }
                     }
-                else
+                    else
                     {
                         ViewBag.Mensaje = "Peon invalido";
                     }
 
                 }
-            
+
             }
 
             catch (Exception ex)
@@ -110,9 +107,9 @@ namespace WebObligatorio.Controllers
                 ViewBag.Mensaje = ex.Message;
 
             }
-    ViewBag.Mensaje = "Peon con datos nulos";
+            ViewBag.Mensaje = "Peon con datos nulos";
             return View();
-}
+        }
 
     }
 

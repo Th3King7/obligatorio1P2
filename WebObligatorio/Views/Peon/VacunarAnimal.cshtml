@@ -16,7 +16,7 @@
     <br />
 @if (ViewBag.Animales != null && ViewBag.Animales.Count > 0)
 {
-    <select name="animal">
+    <select name="idAnimal">
         
     @foreach (Ganado ganado in ViewBag.Animales)
     {
@@ -38,7 +38,7 @@
 
 @if (ViewBag.Vacunas != null && ViewBag.Vacunas.Count > 0)
 {
-    <select name="Vacuna">
+        <select name="nombreVacuna">
 
     @foreach (Vacuna vacuna in ViewBag.Vacunas)
     {
