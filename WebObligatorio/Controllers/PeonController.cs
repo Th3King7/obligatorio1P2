@@ -1,5 +1,7 @@
 ﻿using LogicaNegocio;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.VisualStudio.Web.CodeGenerators.Mvc.Templates.BlazorIdentity.Pages.Manage;
 
 namespace WebObligatorio.Controllers
 {
@@ -8,11 +10,16 @@ namespace WebObligatorio.Controllers
         private Sistema miSistema = Sistema.Instancia;
 
 
-        public IActionResult MenuPeon()
+
+        public IActionResult DatosPersonales()
         {
+            ViewBag.Empleados = miSistema.Empleados; 
+            string usuarioLogueado = HttpContext.Session.GetString("correo");
+            ViewBag.Peon = miSistema.ObtenerPeon(usuarioLogueado); 
 
             return View();
         }
+
         public IActionResult TareasCompletadas()
         {
             ViewBag.Tareas = miSistema.ListadoTareasPeones();
@@ -35,7 +42,7 @@ namespace WebObligatorio.Controllers
                     peon.ValidarDatos();
                     miSistema.AltaPeon(peon);
                     TempData["Mensaje"] = "Alta peon exitosa";
-                    return RedirectToAction("IniciarSesion", "IniciarSesion");
+                    return RedirectToAction("Login", "Usuario");
                 }
                 else
                 {

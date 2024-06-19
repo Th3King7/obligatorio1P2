@@ -24,6 +24,7 @@ namespace WebObligatorio.Controllers
 
             if (!string.IsNullOrEmpty(email) && !string.IsNullOrEmpty(password))
             {
+
                 object usuario = miSistema.IniciarSesion(email, password);
                 if (usuario != null)
                 {
@@ -32,8 +33,9 @@ namespace WebObligatorio.Controllers
                         // Autenticar al usuario (podrías usar ASP.NET Core Identity o implementar tu propio sistema)
                         // Aquí redirigir al usuario a la página correspondiente a su rol
                         HttpContext.Session.SetString("rol", "Peon");
+                        HttpContext.Session.SetString("correo", email);
 
-                        return RedirectToAction("MenuPeon", "Peon");
+                        return RedirectToAction("DatosPersonales", "Peon");
 
                     }
                     else if (usuario is Capataz)

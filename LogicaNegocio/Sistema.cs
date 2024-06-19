@@ -367,7 +367,7 @@ namespace LogicaNegocio
 
 
 
-        public Peon ObtenerPeon(string unEmail, string unPassword)
+        public Peon ObtenerPeon(string unEmail)
         {
             Peon usuarioPeon = new Peon();
             foreach (Empleado empleado in _empleados)
@@ -375,7 +375,7 @@ namespace LogicaNegocio
                 if (empleado is Peon)
                 {
                     Peon peon = (Peon)empleado;
-                    if (peon.Email == unEmail && peon.Password == unPassword)
+                    if (peon.Email == unEmail )
                     {
                         usuarioPeon = peon;
                         break;

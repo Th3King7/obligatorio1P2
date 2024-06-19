@@ -17,6 +17,10 @@ namespace LogicaNegocio
         {
             get { return _tareas; }
         }
+        public bool ResideEstancia
+        {
+            get { return _residenteEstancia; }
+        }
         //creamos el metodo constructor
         public   Peon(string email, string password, string nombre, DateTime fechaDeIngreso, bool recidenteEstancia)
             :base(email, password, nombre, fechaDeIngreso)

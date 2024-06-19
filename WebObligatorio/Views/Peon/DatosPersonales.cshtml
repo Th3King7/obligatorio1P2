@@ -1,0 +1,25 @@
+﻿@using LogicaNegocio;
+@{
+    ViewData["Title"] = "DatosPersonales";
+}
+
+<h1>Datos Personales</h1>
+
+@if (ViewBag.Peon != null)
+{
+
+    <p><b>Email:</b>@ViewBag.Peon.Email</p>
+    <p><b>Password:</b>@ViewBag.Peon.Password</p>
+    <p><b>Nombre:</b>@ViewBag.Peon.Nombre</p>
+    <p><b>Fecha de ingreso:</b>@ViewBag.Peon.FechaDeIngreso</p>
+    <p><b>Reside Estancia:</b>@ViewBag.Peon.ResideEstancia</p>
+    
+}
+else
+{
+    <p>No se encontraron datos del peón para el usuario logueado.</p>
+}
+
+
+
+
