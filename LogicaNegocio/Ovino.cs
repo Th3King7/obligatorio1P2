@@ -35,7 +35,7 @@ namespace LogicaNegocio
 
             }
         }
-
+        //Metodo modificado declarado en la clase padre .
         public override bool ObtenerAnimal(string idAnimal)
         {
             if (!string.IsNullOrEmpty(idAnimal))
@@ -54,6 +54,8 @@ namespace LogicaNegocio
 
           
         }
+        //Calculamos costo de crianza mediante el metodo modificado y declarado en la clase padre
+
         public override decimal CalcularCostoCrianza()
         {
             decimal costoTotal = this.PrecioCompra + this.CostoAlimentacion;
@@ -62,7 +64,7 @@ namespace LogicaNegocio
             return costoTotal;
         }
 
-        // Implementación del método para calcular el precio potencial de venta de un Ovino
+        //Calculamos precio de venta mediante el metodo modificado y declarado en la clase padre
         public override decimal CalcularPrecioVenta()
         {
             decimal precioVenta = (_pesoLana * s_precioLana) + (s_precioKgOvino * this.PesoActual);

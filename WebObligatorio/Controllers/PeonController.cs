@@ -6,22 +6,23 @@ namespace WebObligatorio.Controllers
     public class PeonController : Controller
     {
         private Sistema miSistema = Sistema.Instancia;
+      //Mostramos datos del usuario logueado
         public IActionResult DatosPersonales()
         {
-
             ViewBag.Empleados = miSistema.Empleados;
             string usuarioLogueado = HttpContext.Session.GetString("correo");
             ViewBag.Peon = miSistema.ObtenerPeon(usuarioLogueado);
 
             return View();
         }
-
+        //Lista de tareas incompletas
         public IActionResult TareasIncompletas()
         {
             string usuarioLogueado = HttpContext.Session.GetString("correo");
             ViewBag.Tareas = miSistema.ListadoTareasIncompletasPeon(usuarioLogueado);
             return View();
         }
+        //Tareas las cuales ve el usuario Capataz en la tabla de list de peones
         public IActionResult Tareas(string email)
         {
             try
@@ -45,7 +46,7 @@ namespace WebObligatorio.Controllers
 
             return View();
         }
-
+        //El peon completa una tarea agregando un comentario y seleccionando un checkbox
         public IActionResult CompletarTarea(int idTarea)
         {
             try
@@ -114,6 +115,7 @@ namespace WebObligatorio.Controllers
         }
 
         [HttpPost]
+        //Registro de un peon con sus respectivos datos para crear un nuevo Peon
         public IActionResult RegistrarPeon(Peon peon)
         {
             try
@@ -127,13 +129,13 @@ namespace WebObligatorio.Controllers
                 }
                 else
                 {
-                    ViewBag.Mensaje = "Peon invalido";
+                    TempData["Mensaje"] = "Peon invalido";
                 }
 
             }
             catch (Exception ex)
             {
-                ViewBag.Mensaje = ex.Message;
+                TempData["Mensaje"] = ex.Message;
 
             }
             return View();
@@ -147,11 +149,12 @@ namespace WebObligatorio.Controllers
         }
         [HttpPost]
 
+        //Vacuna a animal el cual no contenga ya la vacuna dada
         public IActionResult VacunarAnimal(DateTime fechaDeVacunacion, DateTime fechaDeVencimiento, string idAnimal, string nombreVacuna)
         {
             try
             {
-                if (fechaDeVacunacion != null && fechaDeVencimiento != null && !string.IsNullOrEmpty(idAnimal) && !string.IsNullOrEmpty(nombreVacuna))
+                if (fechaDeVacunacion != DateTime.MinValue  && fechaDeVencimiento != DateTime.MinValue != null && !string.IsNullOrEmpty(idAnimal) && !string.IsNullOrEmpty(nombreVacuna))
                 {
                     Vacuna vacunaBuscada = miSistema.BuscarVacuna(nombreVacuna);
                     Ganado animalBuscado = miSistema.BuscarAnimal(idAnimal);
@@ -189,7 +192,7 @@ namespace WebObligatorio.Controllers
 
             catch (Exception ex)
             {
-                ViewBag.Mensaje = ex.Message;
+                TempData["Mensaje"] = ex.Message;
 
             }
             ViewBag.Animales = miSistema.Animales;

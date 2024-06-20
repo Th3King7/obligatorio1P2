@@ -101,13 +101,7 @@ namespace LogicaNegocio
 
 
         }
-
-        //modificamos el metodo ToString de Object para que muestre lo siguiente
-        public override string ToString()
-        {
-            return $"ID: {_id}, Descripcion: {_descripcion}, Hectareas: {_hectareas}, Capacidad Maxima: {_capacidadMaxima}";
-        }
-
+        //ordenamos los potreros 
         public int CompareTo(Potrero? other)
         {
             int comparacion = _capacidadMaxima.CompareTo(other._capacidadMaxima);

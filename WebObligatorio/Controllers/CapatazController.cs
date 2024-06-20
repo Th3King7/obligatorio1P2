@@ -13,10 +13,12 @@ namespace WebObligatorio.Controllers
         }
 
         [HttpPost]
+        //Registramos un bovino en el sistema , recibe de la vista un Objeto bovino con sus respectivas instancias
         public IActionResult RegistrarBovino(Bovino bovino)
         {
             try
             {
+
                 if (bovino != null)
                 {
                     bovino.ValidarDatos();
@@ -33,8 +35,6 @@ namespace WebObligatorio.Controllers
             TempData["Mensaje"] = "bovino con datos nulos";
             return View();
         }
-
-
         public IActionResult AsignarAnimalAPotrero()
         {
 
@@ -44,6 +44,7 @@ namespace WebObligatorio.Controllers
         }
 
         [HttpPost]
+        //Asignamos un animal libre a un potrero
         public IActionResult AsignarAnimalAPotrero(string idAnimal, int idPotrero)
         {
             try
@@ -77,7 +78,7 @@ namespace WebObligatorio.Controllers
                     }
                     else
                     {
-                        ViewBag.Mensaje = "Potrero o animal invalido";
+                        TempData["Mensaje"] = "Potrero o animal invalido";
                     }
 
                 }
@@ -86,26 +87,19 @@ namespace WebObligatorio.Controllers
 
             catch (Exception ex)
             {
-                ViewBag.Mensaje = ex.Message;
+                TempData["Mensaje"] = ex.Message;
 
             }
-            ViewBag.Mensaje = "Potrero con datos nulos";
+            TempData["Mensaje"] = "Potrero con datos nulos";
             return View("AsignarAnimalAPotrero");
         }
-
-
-
-        public IActionResult MenuCapataz()
-        {
-            ViewBag.Empleados = miSistema.EmpleadosPeones();
-            return View();
-        }
+  //Creamos lista de peones para que la vea el capataz
         public IActionResult ListaPeones()
         {
             ViewBag.Empleados = miSistema.EmpleadosPeones();
             return View();
         }
-
+        //El usuario cpataz asigna una tarea a un peon
         public IActionResult AsignarTarea()
         {
             ViewBag.Peones = miSistema.EmpleadosPeones();
@@ -117,10 +111,10 @@ namespace WebObligatorio.Controllers
         {
             try
             {
-                if (!string.IsNullOrEmpty(emailPeon) && !string.IsNullOrEmpty(descripcion) && fechaInicio != DateTime.MinValue &&  fechaCierre != DateTime.MinValue)
+                if (!string.IsNullOrEmpty(emailPeon) && !string.IsNullOrEmpty(descripcion) && fechaInicio != DateTime.MinValue && fechaCierre != DateTime.MinValue)
                 {
                     miSistema.AsignarTareaAPeon(emailPeon, new Tarea(descripcion, fechaInicio, fechaCierre, false, "..."));
-                    TempData["Mensaje"] =  "Tarea asignada correctamente";
+                    TempData["Mensaje"] = "Tarea asignada correctamente";
                 }
                 else
                 {
@@ -135,6 +129,7 @@ namespace WebObligatorio.Controllers
             ViewBag.Peones = miSistema.EmpleadosPeones();
             return View();
         }
+        //Mostramos en listado de potreros con su potencial ganancia
         public IActionResult ListadoDePotreros()
         {
             ViewBag.Potreros = miSistema.Potreros;
@@ -160,6 +155,7 @@ namespace WebObligatorio.Controllers
             }
             return View();
         }
+       // Mostramos los animales que cumplan con los requisitos de tipo y del peso indicado por el capataz
         public IActionResult BuscarAnimalPorTipoYPeso()
         {
             return View();
@@ -168,6 +164,7 @@ namespace WebObligatorio.Controllers
         public IActionResult BuscarAnimalPorTipoYPeso(string tipoAnimal, decimal pesoMinimo)
         {
             {
+
                 List<Ganado> animalesFiltrados = new List<Ganado>();
 
                 if (!string.IsNullOrEmpty(tipoAnimal) && pesoMinimo > 0)

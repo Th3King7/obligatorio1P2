@@ -293,26 +293,7 @@
             }
         }
 
-
-        //modifica el precio de Lana
-        public void EstablecerPrecioLanaOvinos(decimal precioLana)
-        {
-            if (precioLana > 0 && precioLana != null)
-            {
-                foreach (Ganado animal in Animales)
-                {
-                    if (animal is Ovino ovino)
-                    {
-                        ovino.PrecioLana = precioLana;
-                    }
-                }
-            }
-            else
-            {
-                throw new Exception("Precio de lana nulo");
-            }
-        }
-
+        //obtenemos los Empleados de tipo peon en una lista
         public List<Peon> EmpleadosPeones()
         {
             List<Peon> empleadosTipoPeon = new List<Peon>();
@@ -326,6 +307,7 @@
             }
             return empleadosTipoPeon;
         }
+        //obtenemos los Ganados de tipo bovino en una lista
         public List<Bovino> ObtenerBovinos()
         {
             List<Bovino> bovinosObtener = new List<Bovino>();
@@ -339,6 +321,7 @@
             }
             return bovinosObtener;
         }
+        //obtenemos los Ganados de tipo ovino en una lista
         public List<Ovino> ObtenerOvinos()
         {
             List<Ovino> ovinosObtener = new List<Ovino>();
@@ -352,42 +335,32 @@
             }
             return ovinosObtener;
         }
-
+        //obtenemos la lista de tareas del peon logueado en la web
 
         public List<Tarea> ListadoTareasPeones(string email)
         {
-            if (!string.IsNullOrEmpty(email))
-            {
-                Peon usuarioSeleccioonado = ObtenerPeon(email);
 
-                return usuarioSeleccioonado.ObtenerTareas();
-            }
-            else
-            {
-                throw new Exception("Email  no encontrado ");
+            Peon usuarioSeleccioonado = ObtenerPeon(email);
 
-            }
+            return usuarioSeleccioonado.ObtenerTareas();
         }
+        //obtenemos la lista de tareas incompletas del peon logueado en la web
 
         public List<Tarea> ListadoTareasIncompletasPeon(string emailPeon)
         {
-            if (!string.IsNullOrEmpty(emailPeon))
-            {
-                Peon usuarioLogueado = ObtenerPeon(emailPeon);
 
-                return usuarioLogueado.ObtenerTareasIncompletas();
-            }
-            else
-            {
-                throw new Exception("Email no encontrado ");
+            Peon usuarioLogueado = ObtenerPeon(emailPeon);
 
-            }
+            return usuarioLogueado.ObtenerTareasIncompletas();
+
         }
+        //Obtenemos la lista de potreros de forma ordenada
         public List<Potrero> PotrerosOrdenados()
         {
             _potreros.Sort();
             return _potreros;
         }
+        //Obtenemos un objeto de tipo Peon
         public Peon ObtenerPeon(string unEmail)
         {
             if (!string.IsNullOrEmpty(unEmail))
@@ -412,6 +385,7 @@
                 throw new Exception("Email no encontrado");
             }
         }
+        //Asignamos una tarea a un capataz
         public void AsignarTareaAPeon(string emailPeon, Tarea tarea)
         {
             if (!string.IsNullOrEmpty(emailPeon))
@@ -433,29 +407,24 @@
 
         }
 
+        //buscamos y obtenemos una Tarea
         public Tarea BuscarTarea(string emailPeon, int id)
         {
-            if (!string.IsNullOrEmpty(emailPeon) && id > 0 && id != null)
-            {
-                Tarea tareaBuscada = null;
-                Peon peon = ObtenerPeon(emailPeon);
-                List<Tarea> tareasPeon = peon.ObtenerTareas();
 
-                foreach (Tarea tarea in tareasPeon)
+            Tarea tareaBuscada = null;
+            Peon peon = ObtenerPeon(emailPeon);
+            List<Tarea> tareasPeon = peon.ObtenerTareas();
+
+            foreach (Tarea tarea in tareasPeon)
+            {
+                if (id == tarea.Id)
                 {
-                    if (id == tarea.Id)
-                    {
-                        tareaBuscada = tarea;
-                    }
+                    tareaBuscada = tarea;
                 }
-                return tareaBuscada;
             }
-            else
-            {
-                throw new Exception("Email y id no encontrado.");
-            }
-
+            return tareaBuscada;
         }
+//modificamos la tarea para que pase de ser una tarea incompleta a una tarea completa , el peon agrega un comentario a la tarea enmandada ppr el Capataz
         public void ModificarTarea(string emailPeon, Tarea tareaRecibida, bool tareaCompletada, string comentario)
         {
             if (!string.IsNullOrEmpty(emailPeon) && tareaRecibida != null && tareaCompletada != false && !string.IsNullOrEmpty(comentario))
@@ -564,26 +533,17 @@
         }
         public Potrero BuscarPotrero(int idPotrero)
         {
-            if (idPotrero != null && idPotrero > 0)
+            Potrero PotreroBuscado = null;
+            int i = 0;
+            while (i < _potreros.Count && PotreroBuscado == null)
             {
-
-
-                Potrero PotreroBuscado = null;
-                int i = 0;
-                while (i < _potreros.Count && PotreroBuscado == null)
+                if (_potreros[i].Id == idPotrero)
                 {
-                    if (_potreros[i].Id == idPotrero)
-                    {
-                        PotreroBuscado = _potreros[i];
-                    }
-                    i++;
+                    PotreroBuscado = _potreros[i];
                 }
-                return PotreroBuscado;
+                i++;
             }
-            else
-            {
-                throw new Exception("Potrero no encontrado");
-            }
+            return PotreroBuscado;
         }
 
 

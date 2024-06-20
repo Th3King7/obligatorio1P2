@@ -50,6 +50,7 @@ namespace LogicaNegocio
         //validamos que al atributo _nombre su longitud de caracteres no sea menor a 0 
         //validamos que al atributo _fechaDeIngreso no sea posterior a la actual
 
+        //Declaramos metodo abstracto
         public abstract bool ObtenerUsuario(string unEmail,string unPassword);
 
         public void ValidarDatos()

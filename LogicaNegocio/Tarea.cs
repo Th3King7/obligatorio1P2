@@ -84,6 +84,7 @@ namespace LogicaNegocio
 
             }
         }
+        //ordenamos las tareas
         public int CompareTo(Tarea? other)
         {
             return _fechaCierre.CompareTo(other._fechaCierre);    

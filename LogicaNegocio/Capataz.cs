@@ -13,9 +13,10 @@ namespace LogicaNegocio
             _peonesACargo = cantPeonesCargo;
 
         }
+        //creamos el metodo constructor vacio
+
         public Capataz() : base("", "", "", DateTime.Now)
         {
-            // Inicializa el peón con valores predeterminados si es necesario
         }
         //validamos que al atributo _peonesACargo no sea menor a 0 
         public void ValidarDatos()
@@ -29,6 +30,7 @@ namespace LogicaNegocio
             }
 
         }
+        //comparamos si coinciden email y contraseña mediante el metodo modificado y declarado en la clase padre
         public override bool ObtenerUsuario(string unEmail, string unPassword)
         {
             if(!string.IsNullOrEmpty(unEmail) &&!string.IsNullOrEmpty(unPassword)) { 

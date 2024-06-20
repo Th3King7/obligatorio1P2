@@ -13,28 +13,28 @@ namespace WebObligatorio.Controllers
         }
 
         [HttpPost]
+        //el usuario web inicia sesion en la pagina
         public IActionResult IniciarSesion(string email, string password)
         {
             try
             {
-                if (!string.IsNullOrEmpty(email) && !string.IsNullOrEmpty(password))
+                if (!string.IsNullOrEmpty(email) && !string.IsNullOrEmpty(password) && email.Length !=0 && password.Length != 0)
                 {
                     object usuario = miSistema.IniciarSesion(email, password);
                     if (usuario != null)
                     {
                         if (usuario is Peon)
                         {
-                            // Autenticar al usuario (podrías usar ASP.NET Core Identity o implementar tu propio sistema)
-                            // Aquí redirigir al usuario a la página correspondiente a su rol
+                            // Aquí redirige al usuario a la página correspondiente a su rol
                             HttpContext.Session.SetString("rol", "Peon");
                             HttpContext.Session.SetString("correo", email);
                             TempData["Mensaje"] = "Inicio de sesion correctamente";
-                            return RedirectToAction("DatosPersonales", "Peon");
+                            return RedirectToAction("VacunarAnimal", "Peon");
 
                         }
                         else if (usuario is Capataz)
                         {
-                            //return RedirectToAction("Index", "Home");
+                            // Aquí redirige al usuario a la página correspondiente a su rol
                             HttpContext.Session.SetString("rol", "Capataz");
                             TempData["Mensaje"] = "Inicio de sesion correctamente";
                             return RedirectToAction("RegistrarBovino", "Capataz");
@@ -42,9 +42,14 @@ namespace WebObligatorio.Controllers
                         }
                         else
                         {
-                            TempData["Mensaje"] = "Credenciales inválidas";
+                            TempData["Mensaje"] = "usuario inválidas";
                         }
                     }
+                }
+                else
+                {
+                    TempData["Mensaje"] = "El email y la contraseña no pueden estar vacios";
+
                 }
             }
             catch (Exception ex)
@@ -52,8 +57,10 @@ namespace WebObligatorio.Controllers
                 TempData["Mensaje"] = ex.Message;
 
             }
+
             return View("Login");
         }
+        //Cerramos la sesion y limpiamos la variable de sesion
         public IActionResult Logout()
         {
             HttpContext.Session.Clear();

@@ -12,8 +12,10 @@ namespace LogicaNegocio
         {
             _tipoAlimentacion = tipoAlimentacion;
         }
+        //creamos el metodo constructor vacio
+
         public Bovino() :
-base("", "", "", DateTime.Now, 0, 0, 0, false)
+            base("", "", "", DateTime.Now, 0, 0, 0, false)
         {
         }
         //validamos que al atributo _tipoAlimentacion sea Grano o Pasto
@@ -26,6 +28,7 @@ base("", "", "", DateTime.Now, 0, 0, 0, false)
 
             }
         }
+        //Metodo modificado declarado en la clase padre .
         public override bool ObtenerAnimal(string idAnimal)
         {
             if (!string.IsNullOrEmpty(idAnimal))
@@ -44,7 +47,7 @@ base("", "", "", DateTime.Now, 0, 0, 0, false)
             }
 
         }
-
+        //Calculamos costo de crianza mediante el metodo modificado y declarado en la clase padre
         public override decimal CalcularCostoCrianza()
         {
             decimal costoTotal = this.PrecioCompra + this.CostoAlimentacion;
@@ -53,7 +56,7 @@ base("", "", "", DateTime.Now, 0, 0, 0, false)
             return costoTotal;
         }
 
-        // Implementación del método para calcular el precio potencial de venta de un Bovino
+        //Calculamos precio de venta mediante el metodo modificado y declarado en la clase padre
         public override decimal CalcularPrecioVenta()
         {
             decimal precioVenta = s_precioKgBovino * this.PesoActual;

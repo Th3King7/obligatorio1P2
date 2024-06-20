@@ -1,14 +1,8 @@
 ﻿using LogicaNegocio.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace LogicaNegocio
 {
-    public class Peon:Empleado,IValidable
+    public class Peon : Empleado, IValidable
     {
         private bool _residenteEstancia;
         private List<Tarea> _tareas = new List<Tarea>();
@@ -22,13 +16,13 @@ namespace LogicaNegocio
             get { return _residenteEstancia; }
         }
         //creamos el metodo constructor
-        public   Peon(string email, string password, string nombre, DateTime fechaDeIngreso, bool recidenteEstancia)
-            :base(email, password, nombre, fechaDeIngreso)
-        { 
+        public Peon(string email, string password, string nombre, DateTime fechaDeIngreso, bool recidenteEstancia)
+            : base(email, password, nombre, fechaDeIngreso)
+        {
             _residenteEstancia = recidenteEstancia;
             precargarTareas();
         }
-
+        //creamos el metodo constructor vacio
         public Peon()
             : base("", "", "", DateTime.Now)
         {
@@ -59,18 +53,18 @@ namespace LogicaNegocio
         {
             if (nuevaTarea != null)
             {
-  //Validar datos de la tarea 
-            nuevaTarea.ValidarDatos();
-            //Verificar si no existe en mi lista de tareas una tarea con la mismo valor en su atributo identificatorio
-            if (!_tareas.Contains(nuevaTarea))
-            {
-                //Si no existe una tarea con el mismo valor en su atributo identificatorio, agrego la tarea a la lista
-                _tareas.Add(nuevaTarea);
-            }
-            else
-            {
-                throw new Exception("Ya existe un peon con el mismo identificador");
-            }
+                //Validar datos de la tarea 
+                nuevaTarea.ValidarDatos();
+                //Verificar si no existe en mi lista de tareas una tarea con la mismo valor en su atributo identificatorio
+                if (!_tareas.Contains(nuevaTarea))
+                {
+                    //Si no existe una tarea con el mismo valor en su atributo identificatorio, agrego la tarea a la lista
+                    _tareas.Add(nuevaTarea);
+                }
+                else
+                {
+                    throw new Exception("Ya existe un peon con el mismo identificador");
+                }
             }
             else
             {
@@ -80,18 +74,22 @@ namespace LogicaNegocio
 
         }
 
+        //Declaramos metodo que retorna la lista de tareas del peon
+        
         public List<Tarea> ObtenerTareas()
         {
             return _tareas;
-            
+
         }
-        public List<Tarea> ObtenerTareasIncompletas() 
-        { 
+        //Declaramos metodo que retorna la lista de tareas incompletas del peon
+
+        public List<Tarea> ObtenerTareasIncompletas()
+        {
             List<Tarea> tareasIncompletas = new List<Tarea>();
             foreach (Tarea tarea in _tareas)
             {
                 bool tareaIncompleta = tarea.TareaCompletada;
-                if (tareaIncompleta == false) 
+                if (tareaIncompleta == false)
                 {
                     tareasIncompletas.Add(tarea);
                 }
@@ -99,22 +97,24 @@ namespace LogicaNegocio
             return tareasIncompletas;
         }
 
+        //Declaramos metodo que retorna la lista de tareas ordenadas del peon
+
         public List<Tarea> TareasOrdenadasPorFechaPactada()
         {
             _tareas.Sort();
             return _tareas;
         }
-
+        //comparamos si coinciden email y contraseña mediante el metodo modificado y declarado en la clase padre
         public override bool ObtenerUsuario(string unEmail, string unPassword)
         {
-            if(!string.IsNullOrEmpty(unEmail) && !string.IsNullOrEmpty(unPassword))
+            if (!string.IsNullOrEmpty(unEmail) && !string.IsNullOrEmpty(unPassword))
             {
-  bool peonEncontrado = false;
-         if (  unEmail== Email && unPassword == Password)
-            {
-                peonEncontrado = true;
-            }
-            return peonEncontrado;
+                bool peonEncontrado = false;
+                if (unEmail == Email && unPassword == Password)
+                {
+                    peonEncontrado = true;
+                }
+                return peonEncontrado;
             }
             else
             {
@@ -123,9 +123,9 @@ namespace LogicaNegocio
             }
 
         }
-       
 
-    
+
+
 
     }
 }

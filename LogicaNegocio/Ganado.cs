@@ -2,7 +2,7 @@
 
 namespace LogicaNegocio
 {
-    public abstract class Ganado :IEquatable<Ganado>, IValidable
+    public abstract class Ganado : IEquatable<Ganado>, IValidable
     {
         private string _idCaravana;
         private string _sexo;
@@ -133,11 +133,11 @@ namespace LogicaNegocio
 
         public void ValidarDatos()
         {
-            if(_idCaravana.Length < 8)
+            if (_idCaravana.Length < 8)
             {
                 throw new Exception("el id debe ser en formato alfanumerico de 8 digitos");
             }
-            if( _sexo != "Macho" && _sexo != "Hembra")
+            if (_sexo != "Macho" && _sexo != "Hembra")
             {
                 throw new Exception("el sexo debe ser en Macho o Hembra ");
 
@@ -151,7 +151,7 @@ namespace LogicaNegocio
             {
                 throw new Exception("La fecha es incorrecta");
             }
-            if(_precioCompra < 0)
+            if (_precioCompra < 0)
             {
                 throw new Exception("El precio de compra del animal tiene que ser mayor a 0");
 
@@ -166,24 +166,24 @@ namespace LogicaNegocio
                 throw new Exception("El peso actual del animal tiene que ser mayor a 0");
 
             }
-          
+
         }
 
         public void AltaVacunado(Vacunado nuevoAnimalVacunado)
         {
-            if(nuevoAnimalVacunado!= null)
+            if (nuevoAnimalVacunado != null)
             {
-  nuevoAnimalVacunado.ValidarDatos();
-            //Verificar si no existe en mi lista de vacunado la vacuna ya dada  con el mismo valor en su atributo identificatorio
-            if (!_vacunasDadas.Contains(nuevoAnimalVacunado))
-            {
-                //Si no existe una vacuna dada con el mismo valor en su atributo identificatorio, agrego el bovino a la lista
-                _vacunasDadas.Add(nuevoAnimalVacunado);
-            }
-            else
-            {
-                throw new Exception("Ya se le dio la vacuna al animal");
-            }
+                nuevoAnimalVacunado.ValidarDatos();
+                //Verificar si no existe en mi lista de vacunado la vacuna ya dada  con el mismo valor en su atributo identificatorio
+                if (!_vacunasDadas.Contains(nuevoAnimalVacunado))
+                {
+                    //Si no existe una vacuna dada con el mismo valor en su atributo identificatorio, agrego el bovino a la lista
+                    _vacunasDadas.Add(nuevoAnimalVacunado);
+                }
+                else
+                {
+                    throw new Exception("Ya se le dio la vacuna al animal");
+                }
             }
             else
             {
@@ -194,24 +194,21 @@ namespace LogicaNegocio
 
         }
 
+        //Declaramos metodo abstracto
+
         public abstract bool ObtenerAnimal(string idCaravana);
-
+        //Declaramos metodo abstracto
         public abstract decimal CalcularCostoCrianza();
-
+        //Declaramos metodo abstracto
+        public abstract decimal CalcularPrecioVenta();
+        //Declaramos metodo que retorna la cantidad de vacunas dadas al animal
         public int CantidadDeVacunas()
         {
             return _vacunasDadas.Count;
         }
-        public abstract decimal CalcularPrecioVenta();
 
 
-        //modificamos el metodo ToString de Object para que muestre lo siguiente
-        public override string ToString()
-        {
-            return $"ID: {_idCaravana}, Raza: {_raza}, Peso: {_pesoActual}, Sexo: {_sexo}";
-        }
     }
 
-        
 
 }
