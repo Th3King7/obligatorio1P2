@@ -166,6 +166,7 @@ namespace LogicaNegocio
                 throw new Exception("El peso actual del animal tiene que ser mayor a 0");
 
             }
+          
         }
 
         public void AltaVacunado(Vacunado nuevoAnimalVacunado)
@@ -186,7 +187,13 @@ namespace LogicaNegocio
 
         public abstract bool ObtenerAnimal(string idCaravana);
 
+        public abstract decimal CalcularCostoCrianza();
 
+        public int CantidadDeVacunas()
+        {
+            return _vacunasDadas.Count;
+        }
+        public abstract decimal CalcularPrecioVenta();
 
 
         //modificamos el metodo ToString de Object para que muestre lo siguiente

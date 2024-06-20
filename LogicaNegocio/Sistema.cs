@@ -316,6 +316,33 @@
             }
             return empleadosTipoPeon;
         }
+        public List<Bovino> ObtenerBovinos()
+        {
+            List<Bovino> bovinosObtener = new List<Bovino>();
+            foreach (Ganado animal in _animales)
+            {
+                if (animal is Bovino)
+                {
+                    Bovino bovino = (Bovino)animal; //hago el casteo a peon
+                    bovinosObtener.Add(bovino);
+                }
+            }
+            return bovinosObtener;
+        }
+        public List<Ovino> ObtenerOvinos()
+        {
+            List<Ovino> ovinosObtener = new List<Ovino>();
+            foreach (Ganado animal in _animales)
+            {
+                if (animal is Ovino)
+                {
+                    Ovino ovino = (Ovino)animal; //hago el casteo a peon
+                    ovinosObtener.Add(ovino);
+                }
+            }
+            return ovinosObtener;
+        }
+
 
         public List<Tarea> ListadoTareasPeones(string email)
         {
@@ -337,20 +364,7 @@
             return _potreros;
         }
 
-        /*public Medico BuscarMedico(int idMedico)
-        {
-            Medico medicoBuscado = null;
-            int i = 0;
-            while (i < _medicos.Count && medicoBuscado == null)
-            {
-                if (_medicos[i].Id == idMedico)
-                {
-                    medicoBuscado = _medicos[i];
-                }
-                i++;
-            }
-            return medicoBuscado;
-        }*/
+
 
 
 
@@ -404,22 +418,22 @@
             }
         }
 
-        public Tarea BuscarTarea(string emailPeon ,int id)
+        public Tarea BuscarTarea(string emailPeon, int id)
         {
             Tarea tareaBuscada = null;
             Peon peon = ObtenerPeon(emailPeon);
-            List<Tarea> tareasPeon= peon.ObtenerTareas();
+            List<Tarea> tareasPeon = peon.ObtenerTareas();
 
             foreach (Tarea tarea in tareasPeon)
             {
-                if(id == tarea.Id)
+                if (id == tarea.Id)
                 {
                     tareaBuscada = tarea;
                 }
             }
             return tareaBuscada;
         }
-        public void ModificarTarea(string emailPeon, Tarea tareaRecibida,bool tareaCompletada,string comentario)
+        public void ModificarTarea(string emailPeon, Tarea tareaRecibida, bool tareaCompletada, string comentario)
         {
 
             Peon peon = ObtenerPeon(emailPeon);
@@ -429,14 +443,14 @@
             {
                 if (tareaRecibida.Id == tarea.Id)
                 {
-                   
+
                     tarea.TareaCompletada = tareaCompletada;
                     tarea.Comentario = comentario;
                 }
             }
-        } 
-        
-        
+        }
+
+
         public object IniciarSesion(string email, string contra)
         {
             object usuario = new object();

@@ -1,0 +1,52 @@
+﻿@using LogicaNegocio;
+@{
+    ViewData["Title"] = "BuscarAnimalPorTipoYPeso";
+}
+
+<h1>Buscar Animal Por Tipo Y Peso</h1>
+
+<form method="post" asp-action="BuscarAnimalPorTipoYPeso">
+
+    <h6>Elegir tipo de animal</h6>
+        <select  name="tipoAnimal">
+            <option value="Bovino">Bovino</option>
+            <option value="Ovino">Ovino</option>
+        </select>
+        <label for="pesoMinimo">Peso Mínimo (kg):</label>
+        <input type="number"  id="pesoMinimo" name="pesoMinimo" required />
+
+    <button type="submit" value="BuscarAnimalPorTipoYPeso">Buscar</button>
+</form>
+
+@if (ViewBag.AnimalesFiltrados != null && ViewBag.AnimalesFiltrados.Count > 0)
+{
+    <h2>Animales encontrados:</h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id Caravana</th>
+                <th>Tipo</th>
+                <th>Peso</th>
+                <th>Sexo</th>
+                <th>Potencial Ganancia de Venta</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (Ganado animal in ViewBag.AnimalesFiltrados)
+            {
+                <tr>
+                    <td>@animal.IdCaravana</td>
+                    <td>@animal.GetType().Name</td>
+                    <td>@animal.PesoActual</td>
+                    <td>@(animal.Sexo)</td>
+                    <td>@(animal.CalcularPrecioVenta() - animal.CalcularCostoCrianza())</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>No se encontraron animales que coincidan con los criterios de búsqueda.</p>
+}
+

@@ -9,6 +9,7 @@ namespace LogicaNegocio
         private decimal _hectareas;
         private int _capacidadMaxima;
         private List<Ganado> _animales = new List<Ganado>();
+        private decimal _gananciaEstimada;
         //creamos el metodo constructor
         public Potrero(string descripcion, decimal hectareas, int capacidadMaxima)
         {
@@ -18,9 +19,10 @@ namespace LogicaNegocio
             _id = s_ultid++;
         }
         //creamos las propiedades de _hectareas y _capacidadMaxima
-        public decimal Hectareas {
+        public decimal Hectareas
+        {
             get { return _hectareas; }
-            }
+        }
         public int CapacidadMaxima
         {
             get { return _capacidadMaxima; }
@@ -31,7 +33,12 @@ namespace LogicaNegocio
         }
         public string Descripcion
         {
-            get { return _descripcion;}
+            get { return _descripcion; }
+        }
+        public decimal GananciaEstimada
+        {
+            get { return _gananciaEstimada; }
+            set { _gananciaEstimada = value; }
         }
         public List<Ganado> Animales
         {
@@ -101,7 +108,7 @@ namespace LogicaNegocio
             int comparacion = _capacidadMaxima.CompareTo(other._capacidadMaxima);
             if (comparacion == 0)
             {
-                comparacion = _animales.Count.CompareTo(other._animales.Count) -1;
+                comparacion = _animales.Count.CompareTo(other._animales.Count) - 1;
             }
             return comparacion;
         }

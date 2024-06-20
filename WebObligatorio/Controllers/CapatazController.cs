@@ -122,7 +122,7 @@ namespace WebObligatorio.Controllers
         {
             try
             {
-                miSistema.AsignarTareaAPeon(emailPeon, new Tarea(descripcion, fechaInicio, fechaCierre, false,"..."));
+                miSistema.AsignarTareaAPeon(emailPeon, new Tarea(descripcion, fechaInicio, fechaCierre, false, "..."));
                 ViewBag.Mensaje = "Tarea asignada correctamente";
             }
             catch (Exception ex)
@@ -135,7 +135,71 @@ namespace WebObligatorio.Controllers
         public IActionResult ListadoDePotreros()
         {
             ViewBag.Potreros = miSistema.Potreros;
+            foreach (Potrero potrero in ViewBag.Potreros)
+            {
+                decimal gananciaEstimada = 0;
+
+                // Calcular ganancia estimada para todos los animales en el potrero
+                foreach (Ganado animal in potrero.Animales)
+                {
+                    if (animal is Ovino ovino)
+                    {
+                        gananciaEstimada += ovino.CalcularPrecioVenta() - ovino.CalcularCostoCrianza();
+                    }
+                    else if (animal is Bovino bovino)
+                    {
+                        gananciaEstimada += bovino.CalcularPrecioVenta() - bovino.CalcularCostoCrianza();
+                    }
+
+
+                }
+                potrero.GananciaEstimada = gananciaEstimada;
+            }
             return View();
         }
+        public IActionResult BuscarAnimalPorTipoYPeso()
+        {
+            return View();
+        }
+        [HttpPost]
+        public IActionResult BuscarAnimalPorTipoYPeso(string tipoAnimal , decimal pesoMinimo)
+        {
+            {
+                List<Ganado> animalesFiltrados = new List<Ganado>();
+
+                if (!string.IsNullOrEmpty(tipoAnimal) && pesoMinimo > 0)
+                {
+                    if (tipoAnimal == "Ovino")
+                    {
+                        foreach (Ovino ovino in miSistema.ObtenerOvinos())
+                        {
+                            if (ovino.PesoActual > pesoMinimo)
+                            {
+                                animalesFiltrados.Add(ovino);
+                            }
+                        }
+                    }
+                    else if (tipoAnimal == "Bovino")
+                    {
+                        foreach (Bovino bovino in miSistema.ObtenerBovinos())
+                        {
+                            if (bovino.PesoActual > pesoMinimo)
+                            {
+                                animalesFiltrados.Add(bovino);
+                            }
+                        }
+                    }
+                }
+
+                ViewBag.AnimalesFiltrados = animalesFiltrados;
+                ViewBag.TipoAnimal = tipoAnimal;
+                ViewBag.PesoMinimo = pesoMinimo;
+
+                return View();
+            }
+
+        }
+
     }
 }
+

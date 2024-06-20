@@ -10,8 +10,8 @@ namespace LogicaNegocio
     public class Ovino:Ganado, IValidable
     {
         private decimal _pesoLana;
-        private static decimal s_precioLana;
-        private static decimal s_precioKgOvino;
+        private static decimal s_precioLana =50;
+        private static decimal s_precioKgOvino = 100;
         //creamos el metodo constructor
         public Ovino(string idCaravana, string sexo, string raza, DateTime fechaNacimiento, decimal precioCompra, decimal costoAlimentacion, decimal pesoActual, bool hibrido, decimal pesoLana)
             :base(idCaravana, sexo, raza, fechaNacimiento, precioCompra, costoAlimentacion, pesoActual, hibrido)
@@ -45,6 +45,26 @@ namespace LogicaNegocio
             }
             return ovinoEnconrado;
         }
-       
+        public override decimal CalcularCostoCrianza()
+        {
+            decimal costoTotal = this.PrecioCompra + this.CostoAlimentacion;
+            costoTotal += 200 * CantidadDeVacunas(); // Sumar costo de vacunas
+
+            return costoTotal;
+        }
+
+        // Implementación del método para calcular el precio potencial de venta de un Ovino
+        public override decimal CalcularPrecioVenta()
+        {
+            decimal precioVenta = (_pesoLana * s_precioLana) + (s_precioKgOvino * this.PesoActual);
+
+            if (this.Hibrido)
+            {
+                precioVenta *= 0.95m; // Aplicar descuento del 5% si es híbrido
+                                      // m es un tipo de dato numérico que se utiliza para representar números de punto flotante con mayor precisión y rango que float o double.
+            }
+
+            return precioVenta;
+        }
     }
 }
