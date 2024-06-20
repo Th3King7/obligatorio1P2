@@ -18,6 +18,12 @@ namespace LogicaNegocio
             base("", "", "", DateTime.Now, 0, 0, 0, false)
         {
         }
+
+        public string TipoAlimentacion
+        {
+            get { return _tipoAlimentacion; }
+            set { _tipoAlimentacion = value; }
+        }
         //validamos que al atributo _tipoAlimentacion sea Grano o Pasto
         public void ValidarDatos()
         {

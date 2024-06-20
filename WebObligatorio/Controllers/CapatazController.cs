@@ -25,6 +25,11 @@ namespace WebObligatorio.Controllers
                     miSistema.AltaBovino(bovino);
                     TempData["Mensaje"] = "Alta bovino exitosa";
                 }
+                else
+                {
+                    TempData["Mensaje"] = "bovino con datos nulos";
+
+                }
 
             }
             catch (Exception ex)
@@ -32,7 +37,6 @@ namespace WebObligatorio.Controllers
                 TempData["Mensaje"] = ex.Message;
 
             }
-            TempData["Mensaje"] = "bovino con datos nulos";
             return View();
         }
         public IActionResult AsignarAnimalAPotrero()
