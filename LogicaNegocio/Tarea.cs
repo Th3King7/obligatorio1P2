@@ -14,26 +14,37 @@ namespace LogicaNegocio
         public int Id
         {
             get { return _id; }
+            set {  _id = value; }
         }
         public string Descripcion
         {
             get { return _descripcion; }
+            set { _descripcion = value; }
+
         }
         public DateTime FechaInicio
         {
             get { return _fechaInicio; }
+            set { _fechaInicio = value; }
+
         }
         public DateTime FechaCierre
         {
             get { return _fechaCierre; }
+            set { _fechaCierre = value; }
+
         }
         public bool TareaCompletada
         {
             get { return _tareaCompletada; }
+            set { _tareaCompletada = value; }
+
         }
         public string Comentario
         {
             get { return _comentario; }
+            set { _comentario = value; }
+
         }
 
         //creamos el metodo constructor

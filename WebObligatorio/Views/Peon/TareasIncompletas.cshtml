@@ -26,11 +26,9 @@
                     <td>@tarea.FechaInicio</td>
                     <td>@tarea.FechaCierre</td>
                     <td>@tarea.TareaCompletada</td>
-                    <td>@tarea.Comentario</td>
-
+                    <td><a href="@Url.Action("CompletarTarea", "Peon", new { idTarea = tarea.Id })">Completar Tarea</a></td>
                 </tr>
             }
-
         </tbody>
     </table>
 }

@@ -31,6 +31,39 @@ namespace WebObligatorio.Controllers
 
             return View();
         }
+
+        public IActionResult CompletarTarea(int idTarea)
+        {
+            if (idTarea != null)
+            {
+                string usuarioLogueado = HttpContext.Session.GetString("correo");
+                ViewBag.TareaBuscada = miSistema.BuscarTarea(usuarioLogueado, idTarea);
+            }
+            return View();
+        }
+        [HttpPost]
+        public IActionResult CompletarTarea(int idTarea, string TareaCompletada, string Comentario)
+        {
+
+            string usuarioLogueado = HttpContext.Session.GetString("correo");
+            Tarea tareaBuscada = miSistema.BuscarTarea(usuarioLogueado, idTarea);
+            bool verdadero = false;
+
+            if (usuarioLogueado != null && tareaBuscada != null && TareaCompletada != null && Comentario != null)
+            {
+                if (TareaCompletada == "true")
+                {
+                    verdadero = true;
+                    miSistema.ModificarTarea(usuarioLogueado, tareaBuscada, verdadero, Comentario);
+                    TempData["Mensaje"] = "El medico se modifico correctamente";
+                    return RedirectToAction("TareasIncompletas", "Peon");
+                }
+
+
+            }
+
+            return View();
+        }
         public IActionResult RegistrarPeon()
         {
 

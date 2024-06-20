@@ -404,6 +404,39 @@
             }
         }
 
+        public Tarea BuscarTarea(string emailPeon ,int id)
+        {
+            Tarea tareaBuscada = null;
+            Peon peon = ObtenerPeon(emailPeon);
+            List<Tarea> tareasPeon= peon.ObtenerTareas();
+
+            foreach (Tarea tarea in tareasPeon)
+            {
+                if(id == tarea.Id)
+                {
+                    tareaBuscada = tarea;
+                }
+            }
+            return tareaBuscada;
+        }
+        public void ModificarTarea(string emailPeon, Tarea tareaRecibida,bool tareaCompletada,string comentario)
+        {
+
+            Peon peon = ObtenerPeon(emailPeon);
+            List<Tarea> tareasPeon = peon.ObtenerTareas();
+
+            foreach (Tarea tarea in tareasPeon)
+            {
+                if (tareaRecibida.Id == tarea.Id)
+                {
+                   
+                    tarea.TareaCompletada = tareaCompletada;
+                    tarea.Comentario = comentario;
+                }
+            }
+        } 
+        
+        
         public object IniciarSesion(string email, string contra)
         {
             object usuario = new object();

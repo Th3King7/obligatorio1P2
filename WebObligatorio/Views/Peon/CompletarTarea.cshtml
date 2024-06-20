@@ -1,0 +1,27 @@
+﻿@using LogicaNegocio;
+
+@{
+    ViewData["Title"] = "CompletarTarea";
+}
+
+
+<h1>Completar Tarea</h1>
+<form  method="post">
+    @if (ViewBag.TareaBuscada != null)
+    {
+        <p value="Id">@ViewBag.TareaBuscada.Id</p>
+        <p value="Descripcion">@ViewBag.TareaBuscada.Descripcion</p>
+        <p value="FechaInicio">@ViewBag.TareaBuscada.FechaInicio</p>
+        <p value="FechaCierre">@ViewBag.TareaBuscada.FechaCierre</p>
+
+        <label>Tarea Completada:</label>
+        <input type="checkbox" name="TareaCompletada" value="true" required />
+
+        <label>Comentario:</label>
+        <input type="text" name="Comentario" required />
+
+        <button type="submit" value="CompletarTarea">finalizar tarea</button>
+
+    }
+</form>
+
