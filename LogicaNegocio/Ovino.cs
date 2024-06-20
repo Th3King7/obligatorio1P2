@@ -38,12 +38,21 @@ namespace LogicaNegocio
 
         public override bool ObtenerAnimal(string idAnimal)
         {
-            bool ovinoEnconrado = false;
+            if (!string.IsNullOrEmpty(idAnimal))
+            {
+      bool ovinoEnconrado = false;
             if (idAnimal == IdCaravana)
             {
                 ovinoEnconrado = true;
             }
             return ovinoEnconrado;
+            }else
+            {
+                throw new Exception("No se encontro animal");
+                ;
+            }
+
+          
         }
         public override decimal CalcularCostoCrianza()
         {

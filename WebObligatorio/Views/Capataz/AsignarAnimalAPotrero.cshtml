@@ -31,7 +31,7 @@
             }
         </select>
     }
-
+    <br />
     <h6>Seleccione potrero para asignar al animal:</h6>
 
     @if (ViewBag.Potreros != null && ViewBag.Potreros.Count > 0)
@@ -45,8 +45,9 @@
         </select>
 
     }
+    <br />
 
     <input type="submit" value="AsignarAnimalAPotrero" />
 
 </form>
-@ViewBag.Mensaje
+@TempData["Mensaje"]

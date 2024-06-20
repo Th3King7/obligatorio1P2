@@ -12,9 +12,10 @@
             <option value="Bovino">Bovino</option>
             <option value="Ovino">Ovino</option>
         </select>
+        <br />
         <label for="pesoMinimo">Peso Mínimo (kg):</label>
         <input type="number"  id="pesoMinimo" name="pesoMinimo" required />
-
+        <br />
     <button type="submit" value="BuscarAnimalPorTipoYPeso">Buscar</button>
 </form>
 
@@ -49,4 +50,4 @@ else
 {
     <p>No se encontraron animales que coincidan con los criterios de búsqueda.</p>
 }
-
+@TempData["Mensaje"]

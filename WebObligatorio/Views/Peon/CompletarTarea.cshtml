@@ -9,19 +9,23 @@
 <form  method="post">
     @if (ViewBag.TareaBuscada != null)
     {
-        <p value="Id">@ViewBag.TareaBuscada.Id</p>
-        <p value="Descripcion">@ViewBag.TareaBuscada.Descripcion</p>
-        <p value="FechaInicio">@ViewBag.TareaBuscada.FechaInicio</p>
-        <p value="FechaCierre">@ViewBag.TareaBuscada.FechaCierre</p>
+        <p value="Id"> <b>Id:</b>@ViewBag.TareaBuscada.Id</p>
+        <p value="Descripcion"><b>Descripcion</b>@ViewBag.TareaBuscada.Descripcion</p>
+        <p value="FechaInicio"><b>Fecha de inicio:</b>@ViewBag.TareaBuscada.FechaInicio</p>
+        <p value="FechaCierre"><b>Fecha de cierre:</b>@ViewBag.TareaBuscada.FechaCierre</p>
 
         <label>Tarea Completada:</label>
         <input type="checkbox" name="TareaCompletada" value="true" required />
-
+        <br />
         <label>Comentario:</label>
         <input type="text" name="Comentario" required />
+        <br />
 
         <button type="submit" value="CompletarTarea">finalizar tarea</button>
-
+    }
+    else
+    {
+        <span>No se encontro tarea </span>
     }
 </form>
-
+@TempData["Mensaje"]

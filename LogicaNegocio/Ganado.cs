@@ -147,7 +147,7 @@ namespace LogicaNegocio
                 throw new Exception("la raza debe ser: Merino, Angus , Hereford ");
 
             }
-            if (_fechaNacimiento > DateTime.Now)
+            if (_fechaNacimiento > DateTime.Now && _fechaNacimiento == DateTime.MinValue)
             {
                 throw new Exception("La fecha es incorrecta");
             }
@@ -171,8 +171,9 @@ namespace LogicaNegocio
 
         public void AltaVacunado(Vacunado nuevoAnimalVacunado)
         {
-            //Validar datos de la nueva vacunacion
-            nuevoAnimalVacunado.ValidarDatos();
+            if(nuevoAnimalVacunado!= null)
+            {
+  nuevoAnimalVacunado.ValidarDatos();
             //Verificar si no existe en mi lista de vacunado la vacuna ya dada  con el mismo valor en su atributo identificatorio
             if (!_vacunasDadas.Contains(nuevoAnimalVacunado))
             {
@@ -183,6 +184,14 @@ namespace LogicaNegocio
             {
                 throw new Exception("Ya se le dio la vacuna al animal");
             }
+            }
+            else
+            {
+                throw new Exception("Datos nulos");
+
+            }
+            //Validar datos de la nueva vacunacion
+
         }
 
         public abstract bool ObtenerAnimal(string idCaravana);

@@ -256,9 +256,14 @@
         //agregamos los ganados a los potreros 
         public void AgregarGanadoAPotrero(Potrero potrero, Ganado nuevoGanado)
         {
-            if (potrero != null)
+            if (potrero != null && nuevoGanado != null)
             {
                 potrero.AgregarGanado(nuevoGanado);
+            }
+            else
+            {
+                throw new Exception("Potrero y ganado nulos");
+
             }
         }
         //agregamos los vacunaciones a los animales tipo Ganado 
@@ -266,9 +271,7 @@
         public void AltaVacunacionAnimal(Ganado animal, Vacunado nuevaVacunacion)
         {
             // Buscar el animal por su identificador
-
-
-            if (animal != null)
+            if (animal != null && nuevaVacunacion != null)
             {
                 // Verificar el tipo de animal y agregar la vacunación adecuada
                 if (animal is Bovino bovino)
@@ -294,12 +297,19 @@
         //modifica el precio de Lana
         public void EstablecerPrecioLanaOvinos(decimal precioLana)
         {
-            foreach (Ganado animal in Animales)
+            if (precioLana > 0 && precioLana != null)
             {
-                if (animal is Ovino ovino)
+                foreach (Ganado animal in Animales)
                 {
-                    ovino.PrecioLana = precioLana;
+                    if (animal is Ovino ovino)
+                    {
+                        ovino.PrecioLana = precioLana;
+                    }
                 }
+            }
+            else
+            {
+                throw new Exception("Precio de lana nulo");
             }
         }
 
@@ -323,7 +333,7 @@
             {
                 if (animal is Bovino)
                 {
-                    Bovino bovino = (Bovino)animal; //hago el casteo a peon
+                    Bovino bovino = (Bovino)animal; //hago el casteo a bovino
                     bovinosObtener.Add(bovino);
                 }
             }
@@ -336,7 +346,7 @@
             {
                 if (animal is Ovino)
                 {
-                    Ovino ovino = (Ovino)animal; //hago el casteo a peon
+                    Ovino ovino = (Ovino)animal; //hago el casteo a ovino
                     ovinosObtener.Add(ovino);
                 }
             }
@@ -346,201 +356,259 @@
 
         public List<Tarea> ListadoTareasPeones(string email)
         {
-            Peon usuarioSeleccioonado = ObtenerPeon(email);
+            if (!string.IsNullOrEmpty(email))
+            {
+                Peon usuarioSeleccioonado = ObtenerPeon(email);
 
-            return usuarioSeleccioonado.ObtenerTareas();
+                return usuarioSeleccioonado.ObtenerTareas();
+            }
+            else
+            {
+                throw new Exception("Email  no encontrado ");
+
+            }
         }
 
         public List<Tarea> ListadoTareasIncompletasPeon(string emailPeon)
         {
-            Peon usuarioLogueado = ObtenerPeon(emailPeon);
+            if (!string.IsNullOrEmpty(emailPeon))
+            {
+                Peon usuarioLogueado = ObtenerPeon(emailPeon);
 
-            return usuarioLogueado.ObtenerTareasIncompletas();
+                return usuarioLogueado.ObtenerTareasIncompletas();
+            }
+            else
+            {
+                throw new Exception("Email no encontrado ");
 
+            }
         }
         public List<Potrero> PotrerosOrdenados()
         {
             _potreros.Sort();
             return _potreros;
         }
-
-
-
-
-
-
         public Peon ObtenerPeon(string unEmail)
         {
-            Peon usuarioPeon = new Peon();
-            foreach (Empleado empleado in _empleados)
+            if (!string.IsNullOrEmpty(unEmail))
             {
-                if (empleado is Peon)
+                Peon usuarioPeon = new Peon();
+                foreach (Empleado empleado in _empleados)
                 {
-                    Peon peon = (Peon)empleado;
-                    if (peon.Email == unEmail)
+                    if (empleado is Peon)
                     {
-                        usuarioPeon = peon;
-                        break;
+                        Peon peon = (Peon)empleado;
+                        if (peon.Email == unEmail)
+                        {
+                            usuarioPeon = peon;
+                            break;
+                        }
                     }
                 }
-            }
-            return usuarioPeon;
-
-        }
-
-        public Capataz ObtenerCapataz(string unEmail, string unPassword)
-        {
-            Capataz usuarioCapataz = new Capataz();
-            foreach (Empleado empleado in _empleados)
-            {
-                if (empleado is Capataz)
-                {
-                    Capataz capataz = (Capataz)empleado;
-                    if (capataz.Email == unEmail && capataz.Password == unPassword)
-                    {
-                        usuarioCapataz = capataz;
-                    }
-                }
-            }
-            return usuarioCapataz;
-
-        }
-        public void AsignarTareaAPeon(string emailPeon, Tarea tarea)
-        {
-            Peon peon = ObtenerPeon(emailPeon);
-            if (peon != null)
-            {
-                peon.AltaTarea(tarea);
+                return usuarioPeon;
             }
             else
             {
-                throw new Exception("Peón no encontrado.");
+                throw new Exception("Email no encontrado");
             }
+        }
+        public void AsignarTareaAPeon(string emailPeon, Tarea tarea)
+        {
+            if (!string.IsNullOrEmpty(emailPeon))
+            {
+                Peon peon = ObtenerPeon(emailPeon);
+                if (peon != null)
+                {
+                    peon.AltaTarea(tarea);
+                }
+                else
+                {
+                    throw new Exception("Peón no encontrado.");
+                }
+            }
+            else
+            {
+                throw new Exception("Email no encontrado.");
+            }
+
         }
 
         public Tarea BuscarTarea(string emailPeon, int id)
         {
-            Tarea tareaBuscada = null;
-            Peon peon = ObtenerPeon(emailPeon);
-            List<Tarea> tareasPeon = peon.ObtenerTareas();
-
-            foreach (Tarea tarea in tareasPeon)
+            if (!string.IsNullOrEmpty(emailPeon) && id > 0 && id != null)
             {
-                if (id == tarea.Id)
+                Tarea tareaBuscada = null;
+                Peon peon = ObtenerPeon(emailPeon);
+                List<Tarea> tareasPeon = peon.ObtenerTareas();
+
+                foreach (Tarea tarea in tareasPeon)
                 {
-                    tareaBuscada = tarea;
+                    if (id == tarea.Id)
+                    {
+                        tareaBuscada = tarea;
+                    }
                 }
+                return tareaBuscada;
             }
-            return tareaBuscada;
+            else
+            {
+                throw new Exception("Email y id no encontrado.");
+            }
+
         }
         public void ModificarTarea(string emailPeon, Tarea tareaRecibida, bool tareaCompletada, string comentario)
         {
-
-            Peon peon = ObtenerPeon(emailPeon);
-            List<Tarea> tareasPeon = peon.ObtenerTareas();
-
-            foreach (Tarea tarea in tareasPeon)
+            if (!string.IsNullOrEmpty(emailPeon) && tareaRecibida != null && tareaCompletada != false && !string.IsNullOrEmpty(comentario))
             {
-                if (tareaRecibida.Id == tarea.Id)
-                {
+                Peon peon = ObtenerPeon(emailPeon);
+                List<Tarea> tareasPeon = peon.ObtenerTareas();
 
-                    tarea.TareaCompletada = tareaCompletada;
-                    tarea.Comentario = comentario;
+                foreach (Tarea tarea in tareasPeon)
+                {
+                    if (tareaRecibida.Id == tarea.Id)
+                    {
+
+                        tarea.TareaCompletada = tareaCompletada;
+                        tarea.Comentario = comentario;
+                    }
                 }
+            }
+            else
+            {
+                throw new Exception("Datos erroneos para terminar una tarea tiene que seleccion el Completar tarea");
             }
         }
 
 
         public object IniciarSesion(string email, string contra)
         {
-            object usuario = new object();
-            foreach (Empleado empleado in _empleados)
+            if (!string.IsNullOrEmpty(email) && !string.IsNullOrEmpty(contra))
+            {
+                object usuario = new object();
+                foreach (Empleado empleado in _empleados)
 
-                if (empleado is Peon)
-                {
-                    Peon peon = (Peon)empleado;
-
-                    if (peon.ObtenerUsuario(email, contra) == true)
+                    if (empleado is Peon)
                     {
-                        usuario = peon;
+                        Peon peon = (Peon)empleado;
+
+                        if (peon.ObtenerUsuario(email, contra) == true)
+                        {
+                            usuario = peon;
+                        }
+
                     }
-
-                }
-                else if (empleado is Capataz)
-                {
-                    Capataz capataz = (Capataz)empleado;
-
-                    if (capataz.ObtenerUsuario(email, contra) == true)
+                    else if (empleado is Capataz)
                     {
-                        usuario = capataz;
-                    }
+                        Capataz capataz = (Capataz)empleado;
 
-                }
-            return usuario;
+                        if (capataz.ObtenerUsuario(email, contra) == true)
+                        {
+                            usuario = capataz;
+                        }
+
+                    }
+                return usuario;
+            }
+            else
+            {
+                throw new Exception("Usuario inexistente");
+            }
+
         }
 
 
         public Ganado BuscarAnimal(string idAnimal)
         {
-            foreach (Ganado animal in _animales)
+            if (!string.IsNullOrEmpty(idAnimal))
             {
-                if (animal is Bovino bovino && bovino.ObtenerAnimal(idAnimal))
+                foreach (Ganado animal in _animales)
                 {
-                    return bovino;
+                    if (animal is Bovino bovino && bovino.ObtenerAnimal(idAnimal))
+                    {
+                        return bovino;
+                    }
+                    else if (animal is Ovino ovino && ovino.ObtenerAnimal(idAnimal))
+                    {
+                        return ovino;
+                    }
                 }
-                else if (animal is Ovino ovino && ovino.ObtenerAnimal(idAnimal))
-                {
-                    return ovino;
-                }
+                return null; // Si no se encuentra ningún animal con el idAnimal especificado
             }
-            return null; // Si no se encuentra ningún animal con el idAnimal especificado
+            else
+            {
+                throw new Exception("Ganado inexistente");
+            }
         }
-
         public Vacuna BuscarVacuna(string nombreVacuna)
         {
-            Vacuna VacunaBuscada = null;
-            int i = 0;
-            while (i < _vacunas.Count && VacunaBuscada == null)
+            if (!string.IsNullOrEmpty(nombreVacuna))
             {
-                if (_vacunas[i].Nombre == nombreVacuna)
+                Vacuna VacunaBuscada = null;
+                int i = 0;
+                while (i < _vacunas.Count && VacunaBuscada == null)
                 {
-                    VacunaBuscada = _vacunas[i];
+                    if (_vacunas[i].Nombre == nombreVacuna)
+                    {
+                        VacunaBuscada = _vacunas[i];
+                    }
+                    i++;
                 }
-                i++;
+                return VacunaBuscada;
             }
-            return VacunaBuscada;
+            else
+            {
+                throw new Exception("Vacuna no encontrada");
+            }
+
 
         }
         public Potrero BuscarPotrero(int idPotrero)
         {
-            Potrero PotreroBuscado = null;
-            int i = 0;
-            while (i < _potreros.Count && PotreroBuscado == null)
+            if (idPotrero != null && idPotrero > 0)
             {
-                if (_potreros[i].Id == idPotrero)
-                {
-                    PotreroBuscado = _potreros[i];
-                }
-                i++;
-            }
-            return PotreroBuscado;
 
+
+                Potrero PotreroBuscado = null;
+                int i = 0;
+                while (i < _potreros.Count && PotreroBuscado == null)
+                {
+                    if (_potreros[i].Id == idPotrero)
+                    {
+                        PotreroBuscado = _potreros[i];
+                    }
+                    i++;
+                }
+                return PotreroBuscado;
+            }
+            else
+            {
+                throw new Exception("Potrero no encontrado");
+            }
         }
+
 
         public bool AnimalLibre(string idCaravana)
         {
-            foreach (Potrero potrero in _potreros)
+            if (!string.IsNullOrEmpty(idCaravana))
             {
-                foreach (Ganado ganado in potrero.Animales)
+                foreach (Potrero potrero in _potreros)
                 {
-                    // Verificamos si el ganado es Bovino u Ovino y luego comparamos el IdCaravana
-                    if ((ganado is Bovino || ganado is Ovino) && ganado.IdCaravana == idCaravana)
+                    foreach (Ganado ganado in potrero.Animales)
                     {
-                        return false; // El animal ya está en algún potrero
+                        // Verificamos si el ganado es Bovino u Ovino y luego comparamos el IdCaravana
+                        if ((ganado is Bovino || ganado is Ovino) && ganado.IdCaravana == idCaravana)
+                        {
+                            return false; // El animal ya está en algún potrero
+                        }
                     }
                 }
+                return true; // El animal no está asignado a ningún potrero
             }
-            return true; // El animal no está asignado a ningún potrero
+            else
+            {
+                throw new Exception("No se encontro animal");
+            }
+
         }
 
 

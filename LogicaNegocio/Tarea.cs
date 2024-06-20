@@ -68,7 +68,7 @@ namespace LogicaNegocio
                 throw new Exception("la descripcion debe ser mayor que 3 caracteres ");
 
             }
-            if (_fechaInicio > DateTime.Now)
+            if (_fechaInicio > DateTime.Now && _fechaInicio == DateTime.MinValue)
             {
                 throw new Exception("la fecha de inicio debe menor a la de la actualidad");
 
@@ -83,9 +83,7 @@ namespace LogicaNegocio
                 throw new Exception("el comentario debe ser mayor que 3 caracteres ");
 
             }
-
         }
-
         public int CompareTo(Tarea? other)
         {
             return _fechaCierre.CompareTo(other._fechaCierre);    

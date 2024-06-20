@@ -5,7 +5,7 @@ namespace LogicaNegocio
     public class Bovino : Ganado, IValidable
     {
         private string _tipoAlimentacion;
-        private static decimal s_precioKgBovino =100;
+        private static decimal s_precioKgBovino = 100;
         //creamos el metodo constructor
         public Bovino(string idCaravana, string sexo, string raza, DateTime fechaNacimiento, decimal precioCompra, decimal costoAlimentacion, decimal pesoActual, bool hibrido, string tipoAlimentacion)
             : base(idCaravana, sexo, raza, fechaNacimiento, precioCompra, costoAlimentacion, pesoActual, hibrido)
@@ -28,12 +28,21 @@ base("", "", "", DateTime.Now, 0, 0, 0, false)
         }
         public override bool ObtenerAnimal(string idAnimal)
         {
-            bool bovinoEnconrado = false;
-            if (idAnimal == IdCaravana)
+            if (!string.IsNullOrEmpty(idAnimal))
             {
-                bovinoEnconrado = true;
+                bool bovinoEnconrado = false;
+                if (idAnimal == IdCaravana)
+                {
+                    bovinoEnconrado = true;
+                }
+                return bovinoEnconrado;
             }
-            return bovinoEnconrado;
+            else
+            {
+                throw new Exception("Id animal nulo ");
+
+            }
+
         }
 
         public override decimal CalcularCostoCrianza()

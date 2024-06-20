@@ -9,7 +9,6 @@ namespace WebObligatorio.Controllers
 
         public IActionResult RegistrarBovino()
         {
-
             return View();
         }
 
@@ -24,18 +23,14 @@ namespace WebObligatorio.Controllers
                     miSistema.AltaBovino(bovino);
                     TempData["Mensaje"] = "Alta bovino exitosa";
                 }
-                else
-                {
-                    ViewBag.Mensaje = "bovino invalido";
-                }
 
             }
             catch (Exception ex)
             {
-                ViewBag.Mensaje = ex.Message;
+                TempData["Mensaje"] = ex.Message;
 
             }
-            ViewBag.Mensaje = "bovino con datos nulos";
+            TempData["Mensaje"] = "bovino con datos nulos";
             return View();
         }
 
@@ -122,12 +117,20 @@ namespace WebObligatorio.Controllers
         {
             try
             {
-                miSistema.AsignarTareaAPeon(emailPeon, new Tarea(descripcion, fechaInicio, fechaCierre, false, "..."));
-                ViewBag.Mensaje = "Tarea asignada correctamente";
+                if (!string.IsNullOrEmpty(emailPeon) && !string.IsNullOrEmpty(descripcion) && fechaInicio != DateTime.MinValue &&  fechaCierre != DateTime.MinValue)
+                {
+                    miSistema.AsignarTareaAPeon(emailPeon, new Tarea(descripcion, fechaInicio, fechaCierre, false, "..."));
+                    TempData["Mensaje"] =  "Tarea asignada correctamente";
+                }
+                else
+                {
+                    TempData["Mensaje"] = "Datos nulos";
+                }
+
             }
             catch (Exception ex)
             {
-                ViewBag.Mensaje = ex.Message;
+                TempData["Mensaje"] = ex.Message;
             }
             ViewBag.Peones = miSistema.EmpleadosPeones();
             return View();
@@ -162,7 +165,7 @@ namespace WebObligatorio.Controllers
             return View();
         }
         [HttpPost]
-        public IActionResult BuscarAnimalPorTipoYPeso(string tipoAnimal , decimal pesoMinimo)
+        public IActionResult BuscarAnimalPorTipoYPeso(string tipoAnimal, decimal pesoMinimo)
         {
             {
                 List<Ganado> animalesFiltrados = new List<Ganado>();

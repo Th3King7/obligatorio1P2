@@ -15,42 +15,42 @@ namespace WebObligatorio.Controllers
         [HttpPost]
         public IActionResult IniciarSesion(string email, string password)
         {
-
-            // Aquí debes validar las credenciales
-            // Por ejemplo, podrías buscar el peón en tu sistema con el email proporcionado
-            // Si el peón existe y la contraseña coincide, puedes autenticar al usuario y redirigirlo
-            //Empleado empleado = miSistema.ObtenerUsuario(email, password);
-
-
-            if (!string.IsNullOrEmpty(email) && !string.IsNullOrEmpty(password))
+            try
             {
-
-                object usuario = miSistema.IniciarSesion(email, password);
-                if (usuario != null)
+                if (!string.IsNullOrEmpty(email) && !string.IsNullOrEmpty(password))
                 {
-                    if (usuario is Peon)
+                    object usuario = miSistema.IniciarSesion(email, password);
+                    if (usuario != null)
                     {
-                        // Autenticar al usuario (podrías usar ASP.NET Core Identity o implementar tu propio sistema)
-                        // Aquí redirigir al usuario a la página correspondiente a su rol
-                        HttpContext.Session.SetString("rol", "Peon");
-                        HttpContext.Session.SetString("correo", email);
+                        if (usuario is Peon)
+                        {
+                            // Autenticar al usuario (podrías usar ASP.NET Core Identity o implementar tu propio sistema)
+                            // Aquí redirigir al usuario a la página correspondiente a su rol
+                            HttpContext.Session.SetString("rol", "Peon");
+                            HttpContext.Session.SetString("correo", email);
+                            TempData["Mensaje"] = "Inicio de sesion correctamente";
+                            return RedirectToAction("DatosPersonales", "Peon");
 
-                        return RedirectToAction("DatosPersonales", "Peon");
+                        }
+                        else if (usuario is Capataz)
+                        {
+                            //return RedirectToAction("Index", "Home");
+                            HttpContext.Session.SetString("rol", "Capataz");
+                            TempData["Mensaje"] = "Inicio de sesion correctamente";
+                            return RedirectToAction("RegistrarBovino", "Capataz");
 
-                    }
-                    else if (usuario is Capataz)
-                    {
-                        //return RedirectToAction("Index", "Home");
-                        HttpContext.Session.SetString("rol", "Capataz");
-
-                        return RedirectToAction("MenuCapataz", "Capataz");
-                    }
-                    else
-                    {
-                        // Si las credenciales son inválidas, mostrar un mensaje de error
-                        ViewBag.ErrorMessage = "Credenciales inválidas";
+                        }
+                        else
+                        {
+                            TempData["Mensaje"] = "Credenciales inválidas";
+                        }
                     }
                 }
+            }
+            catch (Exception ex)
+            {
+                TempData["Mensaje"] = ex.Message;
+
             }
             return View("Login");
         }
@@ -58,6 +58,7 @@ namespace WebObligatorio.Controllers
         {
             HttpContext.Session.Clear();
 
+            TempData["Mensaje"] = "Cierre de  sesion correctamente";
             // Redirigir a la página de inicio de sesión
             return RedirectToAction("Login", "Usuario");
         }

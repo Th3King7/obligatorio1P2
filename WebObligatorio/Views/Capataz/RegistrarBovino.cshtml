@@ -16,7 +16,7 @@
     <input type="text" name="Raza" />
     <br />
     <label>Fecha de nacimiento</label>
-    <input type="DateTime" name="FechaNacimiento" />
+    <input type="date" name="FechaNacimiento" />
     <br />
     <label>Precio de compra:</label>
     <input type="number" name="PrecioCompra" />
@@ -36,5 +36,4 @@
     <input type="submit" value="RegistrarBovino" />
 
 </form>
-@ViewBag.Mensaje
-
+@TempData["Mensaje"]

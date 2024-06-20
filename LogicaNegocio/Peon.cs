@@ -57,7 +57,9 @@ namespace LogicaNegocio
 
         public void AltaTarea(Tarea nuevaTarea)
         {
-            //Validar datos de la tarea 
+            if (nuevaTarea != null)
+            {
+  //Validar datos de la tarea 
             nuevaTarea.ValidarDatos();
             //Verificar si no existe en mi lista de tareas una tarea con la mismo valor en su atributo identificatorio
             if (!_tareas.Contains(nuevaTarea))
@@ -69,6 +71,13 @@ namespace LogicaNegocio
             {
                 throw new Exception("Ya existe un peon con el mismo identificador");
             }
+            }
+            else
+            {
+                throw new Exception("Tarea nula");
+
+            }
+
         }
 
         public List<Tarea> ObtenerTareas()
@@ -98,12 +107,21 @@ namespace LogicaNegocio
 
         public override bool ObtenerUsuario(string unEmail, string unPassword)
         {
-            bool peonEncontrado = false;
+            if(!string.IsNullOrEmpty(unEmail) && !string.IsNullOrEmpty(unPassword))
+            {
+  bool peonEncontrado = false;
          if (  unEmail== Email && unPassword == Password)
             {
                 peonEncontrado = true;
             }
             return peonEncontrado;
+            }
+            else
+            {
+                throw new Exception("Usurio no encontrado");
+
+            }
+
         }
        
 

@@ -31,12 +31,19 @@ namespace LogicaNegocio
         }
         public override bool ObtenerUsuario(string unEmail, string unPassword)
         {
-            bool capatazEncontrado = false;
+            if(!string.IsNullOrEmpty(unEmail) &&!string.IsNullOrEmpty(unPassword)) { 
+  bool capatazEncontrado = false;
             if (unEmail == Email && unPassword == Password)
             {
                 capatazEncontrado = true;
             }
             return capatazEncontrado;
+            }
+            else
+            {
+                throw new Exception("Usuario inexistente");
+            }
+          
         }
     }
 

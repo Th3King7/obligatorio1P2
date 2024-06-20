@@ -37,7 +37,7 @@ namespace LogicaNegocio
         //validamos que al atributo _fechaDeVencimiento no sea inferior a _fechaDeVacunacion
         public void ValidarDatos()
         {
-            if (_fechaDeVacunacion > DateTime.Now)
+            if (_fechaDeVacunacion > DateTime.Now && _fechaDeVacunacion!= DateTime.MinValue)
             {
                 throw new Exception("La fecha de vacunación no puede ser posterior a la fecha actual.");
             }

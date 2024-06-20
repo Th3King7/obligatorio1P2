@@ -68,7 +68,7 @@ namespace LogicaNegocio
                 throw new Exception("El nombre debe  ser  valido");
 
             }
-            if (_fechaDeIngreso > DateTime.Now)
+            if (_fechaDeIngreso > DateTime.Now && _fechaDeIngreso == DateTime.MinValue)
             {
                 throw new Exception("La fecha es incorrecta");
             }
